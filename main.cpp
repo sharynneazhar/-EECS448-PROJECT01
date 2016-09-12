@@ -1,5 +1,5 @@
 /**
-* @author Andrew Thomas, Katie Hronchir, Mac Crider, Yehan Li
+* @author Andrew Thomas, Katie Hrenchir, Mac Crider, Yehan Li
 * @file main.cpp
 * @since 10 September 2016
 * @brief Main runtime of the Calendar project.
