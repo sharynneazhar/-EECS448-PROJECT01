@@ -8,6 +8,7 @@
 #include "Day.h"
 
 #include <iostream>
+using namespace std;
 #include <string>
 #include <fstream>
 

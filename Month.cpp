@@ -1,10 +1,13 @@
-Month:: Month(const string MonthName, int NumDays, int StartDay)
+#include "Month.h"
+
+Month:: Month(const std::string MonthName, int NumDays, int StartDay)
 {
     monthName = MonthName;
     numDays = NumDays;
     startDay = StartDay;
     
 }
+
 
 Month:: Month()
 {
@@ -14,7 +17,7 @@ Month:: Month()
 }
 
 
-void Month:: setMonthName(const string MonthName)
+void Month:: setMonthName(const std::string MonthName)
 {
     monthName = MonthName;
 }
@@ -30,7 +33,7 @@ void Month:: setStartDay(const int StartDay)
 }
 
 
-string Month:: getMonthName()
+std::string Month:: getMonthName()
 {
     return(monthName);
 }

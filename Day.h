@@ -1,5 +1,6 @@
 #ifndef DAY_H
 #define DAY_H
+
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -14,12 +15,15 @@ class Day
     
     public:
     Day();
-    Day(const int Date, char Week, bool note);
+    Day(const int Date, const int Year, char Week, bool note);
     void setDate(const int Date);
     void setWeek(const char Week);
+    void setYear(const int Year);
     void setNote(bool note);
     int getDate();
     char getWeek();
+    int getYear();
+
     bool getNote();
     //set and get functions
     
