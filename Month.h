@@ -10,7 +10,7 @@
 class Month
 {
     private:
-      string monthName;//name of the month
+      std::string monthName;//name of the month
       int startDay;//the day of the week in which the month begins
                    //int 0 thru 6
                    // e.g., 0 = Sunday, 1 = Monday, etc.
@@ -18,11 +18,11 @@ class Month
 
     public:
       Month();
-      Month(const string MonthName, int NumDays, int StartDay);
-      void setMonthName(const string MonthName);
+      Month(std::string MonthName, int NumDays, int StartDay);
+      void setMonthName(std::string MonthName);
       void setNumDays(const int NumDays);
       void setStartDay(const int StartDay);
-      string getMonthName();
+      std::string getMonthName();
       int getNumDays();
       int getStartDay();
 

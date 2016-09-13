@@ -1,3 +1,5 @@
+#include "Day.h"
+
 Day:: Day(const int Date, int Year, char Week, bool Note)
 {
     date=Date;
@@ -53,5 +55,3 @@ bool Day:: getNote()
 {
     return(note);
 }
-
-
