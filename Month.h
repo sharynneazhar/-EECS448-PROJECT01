@@ -18,8 +18,8 @@ class Month
 
     public:
       Month();
-      Month(std::string MonthName, int NumDays, int StartDay);
-      void setMonthName(std::string MonthName);
+      Month(const std::string MonthName, int NumDays, int StartDay);
+      void setMonthName(const std::string MonthName);
       void setNumDays(const int NumDays);
       void setStartDay(const int StartDay);
       std::string getMonthName();

@@ -9,6 +9,7 @@
 #include "Month.h"
 
 #include <iostream>
+using namespace std;
 #include <string>
 #include <fstream>
 

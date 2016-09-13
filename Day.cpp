@@ -36,17 +36,17 @@ void Day:: setYear(int Year)
     year=Year;
 }
 
-int Day:: GetYear()
+int Day:: getYear()
 {
     return(year);
 }
 
-int Day:: getDate() const
+int Day:: getDate() 
 {
     return(date);
 }
 
-char Day:: getWeek() const
+char Day:: getWeek() 
 {
     return(week);
 }
