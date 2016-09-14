@@ -1,3 +1,10 @@
+/**
+* @author Katie Hrenchir, Mac Crider, Yehan Li
+* @file Day.cpp
+* @since 10 September 2016
+* @brief Functionality of the Day class. Used as a node for the Month class.
+*/
+
 #include "Day.h"
 
 Day:: Day(const int Date, int Year, char Week, bool Note)
@@ -11,7 +18,7 @@ Day:: Day(const int Date, int Year, char Week, bool Note)
 Day:: Day()
 {
     date=0;
-    week=' ';
+    week=0;
     note=false;
     year=0;
 }
@@ -46,12 +53,16 @@ int Day:: getYear()
     return(year);
 }
 
+<<<<<<< HEAD
 int Day:: getDate() 
+=======
+int Day:: getDay()
+>>>>>>> 60203141af6ef3ec1bb22d8b436341a2c49fdf3d
 {
     return(date);
 }
 
-char Day:: getWeek() 
+char Day:: getWeek()
 {
     return(week);
 }
@@ -76,7 +87,7 @@ bool Day:: DateTest(std::string month, int day, int year)
     }
     else if(month=="Sep")
     {
-        return true; 
+        return true;
     }
     else if(month=="Oct")
     {
@@ -84,7 +95,7 @@ bool Day:: DateTest(std::string month, int day, int year)
     }
     else if(month=="Nov")
     {
-        return true; 
+        return true;
     }
      else if(month=="Dec")
     {
@@ -92,7 +103,7 @@ bool Day:: DateTest(std::string month, int day, int year)
     }
     else if(month=="Jan")
     {
-        return true; 
+        return true;
     }
      else if(month=="Feb")
     {
@@ -100,7 +111,7 @@ bool Day:: DateTest(std::string month, int day, int year)
     }
     else if(month=="Mar")
     {
-        return true; 
+        return true;
     }
      else if(month=="Apr")
     {
@@ -108,7 +119,7 @@ bool Day:: DateTest(std::string month, int day, int year)
     }
     else if(month=="May")
     {
-        return true; 
+        return true;
     }
     else
     {
