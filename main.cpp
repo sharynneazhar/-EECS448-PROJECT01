@@ -211,5 +211,4 @@ void PrintCalendar (int menuType, int monthNumber)
 
   }
 
-
 }
