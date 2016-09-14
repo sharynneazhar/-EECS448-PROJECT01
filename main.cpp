@@ -13,8 +13,6 @@ using namespace std;
 #include <string>
 #include <fstream>
 
-
-
 //-----------------------------------------------------------------------------
 void initMonths() //intitalizes month object array
 {
@@ -61,14 +59,70 @@ void initMonths() //intitalizes month object array
   months[9].setStartDay(1);
 }
 
+//----------------------------------------------------------------------------------------
+void PrintYear ()
+{
+  for(int i=0; i<=9; i++)
+  {
+      int firstDay = months[i].getStartDay();
+      int totalDays = months[i].getNumDays();
+      std::cout << " Sun  Mon  Tue  Wed  Thu  Fri Sat  " << std::endl;
+      for(int i=0 ; i<7 ; i++){
+      //print first line of calendar
+        if(i<firstDay){
+          //5 spaces total: 3 for the day width, and 1 on either end
+          std::cout << "     ";
+          //           " Sun ";
+          //           "  4  ";
+        }
+        else{
+          std::cout << "  " << i-firstDay+1 << "  " << std::endl;
+        }
+      }
+
+      int tempDay = 0;
+      for(int i=(7-firstDay+1) ; i<=totalDays ; i++)
+      {
+        if(i<10){//spacing for single digit numbers:
+          std::cout << "  " << i << "  ";
+        }
+        else{ //spacing for double digit numbers:
+          std::cout << " "  << i << "  ";
+        }
+        tempDay++;
+        if(tempDay>=7){
+          std::cout << "\n";
+          tempDay=0;
+        }
+      }
+      std::cout << "\n";
+   }
+}
+
 //-----------------------------------------------------------------------------
 int main (int argc, char** argv)
 {
   bool repeat = true;
   std::cout << "Welcome to KAMYcal" << std::endl;
   int menuSelect = 0;
+  //Variables blow are used for setting a current day
+  int CurrentDay=0;
+  int CurrentYear=0;
+  string date="";
+  string CurrentMonth="";
+  //Variables above are used for setting a current day
   initMonths(); //initialize months
-
+  Day CurrentDate;  // create a day object. It's used for setting a current day.
+  
+  
+  cout<<"Please enter a current date(e.g., Aug/01/2016): "<<endl;
+  cin>>date;
+  CurrentMonth= (char)date.at(0)+(char)date.at(1)+(char)date.at(2);//char addition.
+  CurrentDay= 10*date.at(4)+date.at(5);
+  CurrentYear= 1000*date.at(7)+100*date.at(8)+10*date.at(9)+date.at(10);
+  CurrentDate.DateTest(CurrentMonth, CurrentDay, CurrentYear);// check if the user's input is correct.
+  
+  
   while (repeat)
   {
     std::string monthUserInput;
@@ -96,6 +150,7 @@ int main (int argc, char** argv)
 }
 
 //-----------------------------------------------------------------------------
+
 void PrintCalendar (int menuType, int monthNumber)
 {
   /*
@@ -108,7 +163,7 @@ void PrintCalendar (int menuType, int monthNumber)
   {
       int firstDay = months[monthNumber].getStartDay();
       int totalDays = months[monthNumber].getNumDays();
-      std::cout << " Sun  Mon  Tue  Wed  Thu  Fri " << std::endl;
+      std::cout << " Sun  Mon  Tue  Wed  Thu  Fri Sat  " << std::endl;
 
 
       for(int i=0 ; i<7 ; i++){
@@ -144,7 +199,10 @@ void PrintCalendar (int menuType, int monthNumber)
 
   else if(menuType==2)    //Week view calendar
   {
-
+    int firstDay = months[monthNumber].getStartDay();
+    int totalDays = months[monthNumber].getNumDays();
+    std::cout << " Sun  Mon  Tue  Wed  Thu  Fri Sat  " << std::endl;
+    
   }
 
 
