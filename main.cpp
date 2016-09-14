@@ -13,10 +13,13 @@ using namespace std;
 #include <string>
 #include <fstream>
 
+
+  Month months[10]; //create array of length 10 (Aug thru May for academic year)
+
 //-----------------------------------------------------------------------------
 void initMonths() //intitalizes month object array
 {
-  Month months[10]; //create array of length 10 (Aug thru May for academic year)
+
 
   months[0].setMonthName("Aug"); //August, 31 days long, starts on Monday
   months[0].setNumDays(31);
@@ -100,56 +103,6 @@ void PrintYear ()
 }
 
 //-----------------------------------------------------------------------------
-int main (int argc, char** argv)
-{
-  bool repeat = true;
-  std::cout << "Welcome to KAMYcal" << std::endl;
-  int menuSelect = 0;
-  //Variables blow are used for setting a current day
-  int CurrentDay=0;
-  int CurrentYear=0;
-  string date="";
-  string CurrentMonth="";
-  //Variables above are used for setting a current day
-  initMonths(); //initialize months
-  Day CurrentDate;  // create a day object. It's used for setting a current day.
-  
-  
-  cout<<"Please enter a current date(e.g., Aug/01/2016): "<<endl;
-  cin>>date;
-  CurrentMonth= (char)date.at(0)+(char)date.at(1)+(char)date.at(2);//char addition.
-  CurrentDay= 10*date.at(4)+date.at(5);
-  CurrentYear= 1000*date.at(7)+100*date.at(8)+10*date.at(9)+date.at(10);
-  CurrentDate.DateTest(CurrentMonth, CurrentDay, CurrentYear);// check if the user's input is correct.
-  
-  
-  while (repeat)
-  {
-    std::string monthUserInput;
-    std::cout << "Please enter the name of the month (e.g., Aug): " << std::endl;
-    std::cin >> monthUserInput;
-
-    std::string temp;
-    for (int i=0 ; i<10 ; i++)
-    {
-      temp = months[i].getMonthName();
-      if(temp==monthUserInput){
-        PrintCalendar(1, i);
-        break;
-      }
-
-      if(i==9){
-        std::cout << "\nMonth name is invalid." << std::endl;
-      }
-
-    }
-
-    //switch based off of first character of string to set month
-  }
-
-}
-
-//-----------------------------------------------------------------------------
 
 void PrintCalendar (int menuType, int monthNumber)
 {
@@ -212,3 +165,55 @@ void PrintCalendar (int menuType, int monthNumber)
   }
 
 }
+
+//-----------------------------------------------------------------------------
+int main (int argc, char** argv)
+{
+  bool repeat = true;
+  std::cout << "Welcome to KAMYcal" << std::endl;
+  int menuSelect = 0;
+  //Variables blow are used for setting a current day
+  int CurrentDay=0;
+  int CurrentYear=0;
+  string date="";
+  string CurrentMonth="";
+  //Variables above are used for setting a current day
+  initMonths(); //initialize months
+  Day CurrentDate;  // create a day object. It's used for setting a current day.
+  
+  
+  cout<<"Please enter a current date(e.g., Aug/01/2016): "<<endl;
+  cin>>date;
+  CurrentMonth= (char)date.at(0)+(char)date.at(1)+(char)date.at(2);//char addition.
+  CurrentDay= 10*date.at(4)+date.at(5);
+  CurrentYear= 1000*date.at(7)+100*date.at(8)+10*date.at(9)+date.at(10);
+  CurrentDate.DateTest(CurrentMonth, CurrentDay, CurrentYear);// check if the user's input is correct.
+  
+  
+  while (repeat)
+  {
+    std::string monthUserInput;
+    std::cout << "Please enter the name of the month (e.g., Aug): " << std::endl;
+    std::cin >> monthUserInput;
+
+    std::string temp;
+    for (int i=0 ; i<10 ; i++)
+    {
+      temp = months[i].getMonthName();
+      if(temp==monthUserInput){
+        PrintCalendar(1, i);
+        break;
+      }
+
+      if(i==9){
+        std::cout << "\nMonth name is invalid." << std::endl;
+      }
+
+    }
+
+    //switch based off of first character of string to set month
+  }
+
+}
+
+

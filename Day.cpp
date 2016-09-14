@@ -1,6 +1,6 @@
 #include "Day.h"
 
-Day:: Day(const int Date, int Year, int Week, bool Note)
+Day:: Day(const int Date, int Year, char Week, bool Note)
 {
     date=Date;
     week=week;
@@ -36,7 +36,7 @@ void Day:: setYear(int Year)
     year=Year;
 }
 
-void Day:: setMonth(string Month)
+void Day:: setMonth(std::string Month)
 {
     month=Month;
 }
@@ -46,7 +46,7 @@ int Day:: getYear()
     return(year);
 }
 
-int Day:: getDay() 
+int Day:: getDate() 
 {
     return(date);
 }
@@ -56,7 +56,7 @@ char Day:: getWeek()
     return(week);
 }
 
-string Day:: getMonth()
+std::string Day:: getMonth()
 {
     return month;
 }
@@ -66,7 +66,7 @@ bool Day:: getNote()
     return(note);
 }
 
-bool Day:: DateTest(string month, int day, int year)
+bool Day:: DateTest(std::string month, int day, int year)
 {
    if(day>0 && day<32 && year>2015 && year<2018)
   {
@@ -113,13 +113,13 @@ bool Day:: DateTest(string month, int day, int year)
     else
     {
         return false;
-        cout<<"Please input the month as what is demonstrated in the examples."<<endl;
+        std::cout<<"Please input the month as what is demonstrated in the examples."<<std::endl;
     }
     //check the format of user's input of Current date.
   }
   else
   {
-      cout<<"Please input valid day and year."<<endl;
+      std::cout<<"Please input valid day and year."<<std::endl;
       return false;
   }
 }
