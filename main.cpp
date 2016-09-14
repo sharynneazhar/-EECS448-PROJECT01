@@ -113,16 +113,16 @@ int main (int argc, char** argv)
   //Variables above are used for setting a current day
   initMonths(); //initialize months
   Day CurrentDate;  // create a day object. It's used for setting a current day.
-  
-  
+
+
   cout<<"Please enter a current date(e.g., Aug/01/2016): "<<endl;
   cin>>date;
   CurrentMonth= (char)date.at(0)+(char)date.at(1)+(char)date.at(2);//char addition.
   CurrentDay= 10*date.at(4)+date.at(5);
   CurrentYear= 1000*date.at(7)+100*date.at(8)+10*date.at(9)+date.at(10);
   CurrentDate.DateTest(CurrentMonth, CurrentDay, CurrentYear);// check if the user's input is correct.
-  
-  
+
+
   while (repeat)
   {
     std::string monthUserInput;
@@ -202,7 +202,7 @@ void PrintCalendar (int menuType, int monthNumber)
     int firstDay = months[monthNumber].getStartDay();
     int totalDays = months[monthNumber].getNumDays();
     std::cout << " Sun  Mon  Tue  Wed  Thu  Fri Sat  " << std::endl;
-    
+
   }
 
 

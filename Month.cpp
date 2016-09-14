@@ -1,3 +1,10 @@
+/**
+* @author Katie Hrenchir, Mac Crider, Yehan Li
+* @file Month.cpp
+* @since 10 September 2016
+* @brief Functionality of the Month class. A container for Day nodes, varies in size, name, and starting day of the week
+*/
+
 #include "Month.h"
 
 Month:: Month(const std::string MonthName, int NumDays, int StartDay)
