@@ -196,9 +196,11 @@ int main (int argc, char** argv)
   
   cout<<"Please enter a current date(e.g., Aug/01/2016): "<<endl;
   cin>>date;
-  CurrentMonth= (char)date.at(0)+(char)date.at(1)+(char)date.at(2);//char addition.
-  CurrentDay= 10*date.at(4)+date.at(5);
-  CurrentYear= 1000*date.at(7)+100*date.at(8)+10*date.at(9)+date.at(10);
+
+  CurrentMonth= date.substr(0,3);
+  CurrentDay=std::stoi(date.substr(5,6));
+  CurrentYear=std::stoi(date.substr(8,11)) + 2000;
+
   CurrentDate.DateTest(CurrentMonth, CurrentDay, CurrentYear);// check if the user's input is correct.
   
   
