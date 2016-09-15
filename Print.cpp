@@ -27,6 +27,12 @@ void Print:: printMonth()
 
 
 }
+
+void Print:: printWeek()
+{
+
+}
+
 void Print:: printDay()
 {
 

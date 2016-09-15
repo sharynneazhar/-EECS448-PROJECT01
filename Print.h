@@ -17,6 +17,7 @@ class Print
 	Print(); //will take in multi dimensional array of months/days?
 	void printYear();
 	void printMonth();
+	void printWeek();
 	void printDay();
 
 };

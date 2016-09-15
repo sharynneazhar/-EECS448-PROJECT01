@@ -253,7 +253,7 @@ void WeekDisplay(int D, int M)
 
 void PrintWeek (int CDay, string CMonth, int CYear)
 { 
-  cout<<"Current Year: "<< CYear <<"Current Month: "<< CMonth <<endl;
+  cout<<"Current Year: "<< CYear <<"     Current Month: "<< CMonth <<endl;
   if(CMonth=="Aug")
     {
         WeekDisplay(CDay,0);
@@ -323,6 +323,8 @@ int main (int argc, char** argv)
 
  if(CurrentDate.DateTest(CurrentMonth, CurrentDay, CurrentYear))
   {
+	PrintCalendar(1,4);
+
    PrintWeek(CurrentDay, CurrentMonth, CurrentYear);
   }// check if the user's input is correct and print week calendar
   
