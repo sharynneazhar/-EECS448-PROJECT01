@@ -188,11 +188,11 @@ void PrintCalendar (int menuType, int monthNumber)
 
 
 //-----------------------------------------------------------------------------
-void WeekDisplay(int D, int M)
+void WeekDisplay(int D, int M) //it works!!!!!!OMG!I cannot believe the complexity of this function!!!!
     {
       int count=months[M].getStartDay();
       for(int i=1; i<=months[M].getNumDays(); i++)
-        {
+        { 
           if(D==i)
           {
             i=100;
@@ -208,62 +208,53 @@ void WeekDisplay(int D, int M)
               count=0;
             }
           }
-        }
+          
+        } 
       if(D+(7-count)>months[M].getNumDays())
       {
         int Num=0;
-        std::cout << " Sun  Mon  Tue  Wed  Thu  Fri Sat  " << std::endl;
+        std::cout << " Sun  Mon  Tue  Wed  Thu  Fri  Sat  " << std::endl;
         for(int i=0 ; i<7 ; i++)
       {
             //date of sunday in the week surrounding the current day.
         if(D-count+i<=months[M].getNumDays())
         {
-            std::cout << "  " << D-count+i;
+            std::cout << "  " << D-count+i<<" ";
             Num=Num+1;
         }
         else
         {
           for(int i=1; i<=(7-Num); i++)
           {
-            std::cout << "  " <<i;
+            std::cout << "  " <<i<<"  ";
           }
+          i=100;
         }
       }
     }
-  if(D+(7-count)>months[M].getNumDays())
-  {
-    int Num=0;
-    std::cout << " Sun  Mon  Tue  Wed  Thu  Fri Sat  " << std::endl;
-    for(int i=0 ; i<7 ; i++)
-  {
-        //date of sunday in the week surrounding the current day.
-    if(D-count+i<=months[M].getNumDays())
-    {
-        std::cout << "  " << D-count+i;
-
-        if(i==6){
-          std::cout<< "\n";
-        } else {
-          std::cout<< "  ";
     else if(D-count<0)
-    {   if(M=0)
+    {  
+      if((M==0&&D<2))
         {
           std::cout << "Part of this week is in July, display is out of range!!!" << std::endl;
         }
         else
         {
           int LastMonDay=months[M-1].getNumDays();
-          std::cout << " Sun  Mon  Tue  Wed  Thu  Fri Sat  " << std::endl;
+          std::cout << " Sun  Mon  Tue  Wed  Thu  Fri  Sat  " << std::endl;
           for(int i=0; i<=count-D; i++)
           {
-            cout<<"  "<<LastMonDay+(D-count)+i<<"";
+            cout<<"  "<<LastMonDay+(D-count)+i<<" ";
+          }
+          for(int i=1; i<=(7-count); i++)
+          {
+            cout<<"  "<<i<<" ";
           }
         }
-
     }
     else
       {
-        std::cout << " Sun  Mon  Tue  Wed  Thu  Fri Sat  " << std::endl;
+        std::cout << " Sun  Mon  Tue  Wed  Thu  Fri  Sat  " << std::endl;
         for(int i=0 ; i<7 ; i++){
             //date of sunday in the week surrounding the current day.
                 std::cout << "  " << D-count+i<<" ";
