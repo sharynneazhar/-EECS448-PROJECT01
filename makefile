@@ -14,5 +14,5 @@ Print.o : Print.h Print.cpp Day.h Month.h
 	g++ -g -Wall -c --std=c++11 Print.cpp
 
 
-clean : 
+clean :
 	rm *o calendar

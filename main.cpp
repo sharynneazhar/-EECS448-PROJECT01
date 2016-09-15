@@ -198,8 +198,8 @@ void WeekDisplay(int D, int M)
         {
           count=0;
         }
-      } 
-    } 
+      }
+    }
   if(D+(7-count)>months[M].getNumDays())
   {
     int Num=0;
@@ -242,14 +242,14 @@ void WeekDisplay(int D, int M)
           }
   }
 }
-//Two casese: 1,the current week is in one month 2, the current week is in two months. 
+//Two casese: 1,the current week is in one month 2, the current week is in two months.
 //D+ (7-count)>total mumber of days in that month-> display days included in the next month.
-     
-  
+
+
 //---------------------------------------------------------------------------------------
 
 void PrintWeek (int CDay, string CMonth, int CYear)
-{ 
+{
   cout<<"Current Year: "<< CYear <<"     Current Month: "<< CMonth <<endl;
   if(CMonth=="Aug")
     {
@@ -310,7 +310,7 @@ int main (int argc, char** argv)
   initMonths(); //initialize months
   Day CurrentDate;  // create a day object. It's used for setting a current day.
 
-  
+
   cout<<"Please enter a current date(e.g., Aug/01/2016): "<<endl;
   cin>>date;
 
@@ -324,8 +324,8 @@ int main (int argc, char** argv)
 
    PrintWeek(CurrentDay, CurrentMonth, CurrentYear);
   }// check if the user's input is correct and print week calendar
-  
-  
+
+
   while (repeat)
   {
     std::string monthUserInput;
@@ -351,5 +351,3 @@ int main (int argc, char** argv)
   }
 
 }
-
-

@@ -54,9 +54,9 @@ int Day:: getYear()
 }
 
 
-int Day:: getDate()	
+int Day:: getDate()
 
-//int Day:: getDay()we have a getDate function, how are these two different? 
+//int Day:: getDay()we have a getDate function, how are these two different?
 
 {
     return(date);

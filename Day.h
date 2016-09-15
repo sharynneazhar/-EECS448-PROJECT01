@@ -18,7 +18,7 @@ class Day
     int date; //date
     int year; //year
     char week;// day of the week
-	std::string month;
+    std::string month; //name of the month
     bool note;//Does it have a note/description?
 
     public:
@@ -58,8 +58,13 @@ class Day
     */
     void setWeek(const char Week);
 
-	void setMonth(std::string month);
-
+    /**
+    *  @pre None.
+    *  @post Sets the month variable.
+    *  @return None.
+    *
+    */
+    void setMonth(std::string month);
 
     /**
     *  @pre None.
@@ -67,7 +72,6 @@ class Day
     *  @return None.
     *
     */
-
     void setYear(const int Year);
 
     /**
@@ -78,15 +82,12 @@ class Day
     */
     void setNote(bool note);
 
-
-
     /**
     *  @pre None.
     *  @post None.
     *  @return Date value
     *
     */
-
     int getDate();
 
     /**
@@ -97,8 +98,13 @@ class Day
     */
     char getWeek();
 
-	std::string getMonth();
-
+    /**
+    *  @pre None.
+    *  @post None.
+    *  @return Returns the month variable (string).
+    *
+    */
+    std::string getMonth();
 
     /**
     *  @pre None.
@@ -106,7 +112,6 @@ class Day
     *  @return Year value
     *
     */
-
     int getYear();
 
     /**
@@ -119,10 +124,13 @@ class Day
 
     //set and get functions
 
+    /**
+    *  @pre None.
+    *  @post None.
+    *  @return Bool for if the input date is a valid calendar date
+    *
+    */
     bool DateTest(std::string month, int day, int year);
-    
-
-
 
 };
 
