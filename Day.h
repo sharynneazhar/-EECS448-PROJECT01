@@ -1,5 +1,5 @@
 /**
-* @author Katie Hrenchir, Mac Crider, Yehan Li
+* @author Andrew Thomas, Katie Hrenchir, Mac Crider, Yehan Li
 * @file Day.h
 * @since 10 September 2016
 * @brief Header of the Day class. Used as a node for the Month class.
@@ -37,9 +37,9 @@ class Day
     *
     */
     Day(const int Date, const int Year, char Week, bool note);
-<<<<<<< HEAD
+//<<<<<<< HEAD
 	void setDay(int Date);
-=======
+//=======
 
     /**
     *  @pre None.
@@ -47,7 +47,7 @@ class Day
     *  @return None.
     *
     */
->>>>>>> 60203141af6ef3ec1bb22d8b436341a2c49fdf3d
+//>>>>>>> 60203141af6ef3ec1bb22d8b436341a2c49fdf3d
     void setDate(const int Date);
 
     /**
@@ -57,9 +57,9 @@ class Day
     *
     */
     void setWeek(const char Week);
-<<<<<<< HEAD
+//<<<<<<< HEAD
 	void setMonth(std::string month);
-=======
+//=======
 
     /**
     *  @pre None.
@@ -67,7 +67,7 @@ class Day
     *  @return None.
     *
     */
->>>>>>> 60203141af6ef3ec1bb22d8b436341a2c49fdf3d
+//>>>>>>> 60203141af6ef3ec1bb22d8b436341a2c49fdf3d
     void setYear(const int Year);
 
     /**
@@ -78,15 +78,15 @@ class Day
     */
     void setNote(bool note);
 
-<<<<<<< HEAD
-=======
+//<<<<<<< HEAD
+//=======
     /**
     *  @pre None.
     *  @post None.
     *  @return Date value
     *
     */
->>>>>>> 60203141af6ef3ec1bb22d8b436341a2c49fdf3d
+//>>>>>>> 60203141af6ef3ec1bb22d8b436341a2c49fdf3d
     int getDate();
 
     /**
@@ -96,9 +96,9 @@ class Day
     *
     */
     char getWeek();
-<<<<<<< HEAD
+//<<<<<<< HEAD
 	std::string getMonth();
-=======
+//=======
 
     /**
     *  @pre None.
@@ -106,7 +106,7 @@ class Day
     *  @return Year value
     *
     */
->>>>>>> 60203141af6ef3ec1bb22d8b436341a2c49fdf3d
+//>>>>>>> 60203141af6ef3ec1bb22d8b436341a2c49fdf3d
     int getYear();
 
     /**
@@ -116,14 +116,14 @@ class Day
     *
     */
     bool getNote();
-<<<<<<< HEAD
+//<<<<<<< HEAD
     //set and get functions
 
     bool DateTest(std::string month, int day, int year);
     
-=======
+//=======
 
->>>>>>> 60203141af6ef3ec1bb22d8b436341a2c49fdf3d
+//>>>>>>> 60203141af6ef3ec1bb22d8b436341a2c49fdf3d
 };
 
 #endif

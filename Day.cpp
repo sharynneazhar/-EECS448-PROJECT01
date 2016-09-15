@@ -1,5 +1,5 @@
 /**
-* @author Katie Hrenchir, Mac Crider, Yehan Li
+* @author Andrew Thomas, Katie Hrenchir, Mac Crider, Yehan Li
 * @file Day.cpp
 * @since 10 September 2016
 * @brief Functionality of the Day class. Used as a node for the Month class.
@@ -53,11 +53,11 @@ int Day:: getYear()
     return(year);
 }
 
-<<<<<<< HEAD
-int Day:: getDate() 
-=======
-int Day:: getDay()
->>>>>>> 60203141af6ef3ec1bb22d8b436341a2c49fdf3d
+//<<<<<<< HEAD
+int Day:: getDate()	
+//=======
+//int Day:: getDay()we have a getDate function, how are these two different? 
+//>>>>>>> 60203141af6ef3ec1bb22d8b436341a2c49fdf3d
 {
     return(date);
 }
