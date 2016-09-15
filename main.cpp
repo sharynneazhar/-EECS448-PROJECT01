@@ -94,7 +94,7 @@ void PrintYear ()
           std::cout << " "  << i << "  ";
         }
         tempDay++;
-        if(tempDay>=7){
+        if(tempDay>=6){
           std::cout << "\n";
           tempDay=0;
         }
