@@ -180,67 +180,71 @@ void PrintCalendar (int menuType, int monthNumber)
 
 //-----------------------------------------------------------------------------
 void WeekDisplay(int D, int M)
-{
-  int count=months[M].getStartDay();
-  for(int i=1; i<=months[M].getNumDays(); i++)
     {
-      if(D==i)
-      {
-        i=100;
-      }
-      else
-      {
-        if(count<6)
+      int count=months[M].getStartDay();
+      for(int i=1; i<=months[M].getNumDays(); i++)
         {
-          count=count+1;
+          if(D==i)
+          {
+            i=100;
+          }
+          else
+          {
+            if(count<6)
+            {
+              count=count+1;
+            }
+            else
+            {
+              count=0;
+            }
+          } 
+        } 
+      if(D+(7-count)>months[M].getNumDays())
+      {
+        int Num=0;
+        std::cout << " Sun  Mon  Tue  Wed  Thu  Fri Sat  " << std::endl;
+        for(int i=0 ; i<7 ; i++)
+      {
+            //date of sunday in the week surrounding the current day.
+        if(D-count+i<=months[M].getNumDays())
+        {
+            std::cout << "  " << D-count+i;
+            Num=Num+1;
         }
         else
         {
-          count=0;
+          for(int i=1; i<=(7-Num); i++)
+          {
+            std::cout << "  " <<i;
+          }
         }
-      } 
-    } 
-  if(D+(7-count)>months[M].getNumDays())
-  {
-    int Num=0;
-    std::cout << " Sun  Mon  Tue  Wed  Thu  Fri Sat  " << std::endl;
-    for(int i=0 ; i<7 ; i++)
-  {
-        //date of sunday in the week surrounding the current day.
-    if(D-count+i<=months[M].getNumDays())
-    {
-        std::cout << "  " << D-count+i;
-
-        if(i==6){
-          std::cout<< "\n";
-        } else {
-          std::cout<< "  ";
-        }
-        Num=Num+1;
-    }
-    else
-    {
-      for(int i=1; i<=(7-Num); i++)
-      {
-         std::cout << "  " <<i;
       }
     }
-  }
-}
-  else
-  {
-    std::cout << " Sun  Mon  Tue  Wed  Thu  Fri Sat  " << std::endl;
-    for(int i=0 ; i<7 ; i++){
-        //date of sunday in the week surrounding the current day.
-            std::cout << "  " << D-count+i;
-
-        if(i==6){
-          std::cout<< "\n";
-        } else {
-          std::cout<< "  ";
+    else if(D-count<0)
+    {   if(M=0)
+        {
+          std::cout << "Part of this week is in July, display is out of range!!!" << std::endl;
         }
+        else
+        {
+          int LastMonDay=months[M-1].getNumDays();
+          std::cout << " Sun  Mon  Tue  Wed  Thu  Fri Sat  " << std::endl;
+          for(int i=0; i<=count-D; i++)
+          {
+            cout<<"  "<<LastMonDay+(D-count)+i<<"";
           }
-  }
+        }
+
+    }
+    else
+      {
+        std::cout << " Sun  Mon  Tue  Wed  Thu  Fri Sat  " << std::endl;
+        for(int i=0 ; i<7 ; i++){
+            //date of sunday in the week surrounding the current day.
+                std::cout << "  " << D-count+i<<" ";
+      }
+    }
 }
 //Two casese: 1,the current week is in one month 2, the current week is in two months. 
 //D+ (7-count)>total mumber of days in that month-> display days included in the next month.
