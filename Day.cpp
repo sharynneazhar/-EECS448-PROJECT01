@@ -53,11 +53,11 @@ int Day:: getYear()
     return(year);
 }
 
-//<<<<<<< HEAD
+
 int Day:: getDate()	
-//=======
+
 //int Day:: getDay()we have a getDate function, how are these two different? 
-//>>>>>>> 60203141af6ef3ec1bb22d8b436341a2c49fdf3d
+
 {
     return(date);
 }
