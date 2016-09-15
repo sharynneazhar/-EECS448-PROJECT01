@@ -57,7 +57,7 @@ void initMonths() //intitalizes month object array
 
   months[8].setMonthName("Apr"); //April, 30 days long, starts on Saturday
   months[8].setNumDays(30);
-  months[8].setStartDay(7);
+  months[8].setStartDay(6);
 
   months[9].setMonthName("May"); //May, 31 days long, starts on Monday
   months[9].setNumDays(31);
@@ -71,24 +71,33 @@ void PrintYear ()
   {
       int firstDay = months[i].getStartDay();
       int totalDays = months[i].getNumDays();
-      std::cout << " Sun  Mon  Tue  Wed  Thu  Fri Sat  " << std::endl;
+
+	  std::cout << "\n\n" << months[i].getMonthName() << std::endl;
+      std::cout << "\n Sun  Mon  Tue  Wed  Thu  Fri Sat  " << std::endl;
 
       for(int i=0 ; i<7 ; i++){
       //print first line of calendar
-        if(i<firstDay){
+        if(i>=firstDay){
+
+          std::cout << "  " << i-firstDay+1  ;
+
+			if(i==6){
+				std::cout<< "\n";
+			} else {
+				std::cout<< "  ";
+			}
+        }
+        else{
           //5 spaces total: 3 for the day width, and 1 on either end
           std::cout << "     ";
           //           " Sun ";
           //           "  4  ";
         }
-        else{
-          std::cout << "  " << i-firstDay+1 << "  " << std::endl;
-        }
       }
 
+		//prints the remaining lines of the calendar
       int tempDay = 0;
-      for(int i=(7-firstDay+1) ; i<=totalDays ; i++)
-      {
+      for(int i=(7-firstDay+1) ; i<=totalDays ; i++){
         if(i<10){//spacing for single digit numbers:
           std::cout << "  " << i << "  ";
         }
@@ -96,13 +105,13 @@ void PrintYear ()
           std::cout << " "  << i << "  ";
         }
         tempDay++;
-        if(tempDay>=6){
+        if(tempDay>6){
           std::cout << "\n";
           tempDay=0;
         }
       }
-      std::cout << "\n";
-   }
+
+  }
 }
 
 //-----------------------------------------------------------------------------
@@ -299,7 +308,7 @@ int main (int argc, char** argv)
 	//temp for testing purposes
 
 
-  std::cout << "Welcome to KAMYcal" << std::endl;
+  std::cout << "\nWelcome to KAMYcal" << std::endl;
   int menuSelect = 0;
   //Variables blow are used for setting a current day
   int CurrentDay=0;
@@ -310,8 +319,14 @@ int main (int argc, char** argv)
   initMonths(); //initialize months
   Day CurrentDate;  // create a day object. It's used for setting a current day.
 
+	PrintYear();
+	cout<< "\n\n";
+	PrintCalendar(1, 8);
+	cout<<"\n\n";
+	PrintCalendar(1,9);
+
   
-  cout<<"Please enter a current date(e.g., Aug/01/2016): "<<endl;
+  cout<<"\nPlease enter a current date(e.g., Aug/01/2016): "<<endl;
   cin>>date;
 
   CurrentMonth= date.substr(0,3);
@@ -320,7 +335,6 @@ int main (int argc, char** argv)
 
  if(CurrentDate.DateTest(CurrentMonth, CurrentDay, CurrentYear))
   {
-	PrintCalendar(1,4);
 
    PrintWeek(CurrentDay, CurrentMonth, CurrentYear);
   }// check if the user's input is correct and print week calendar
