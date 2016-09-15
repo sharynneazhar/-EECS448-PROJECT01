@@ -269,7 +269,8 @@ void WeekDisplay(int D, int M) //it works!!!!!!OMG!I cannot believe the complexi
 
 void PrintWeek (int CDay, string CMonth, int CYear)
 {
-  cout<<"Current Year: "<< CYear <<"     Current Month: "<< CMonth <<endl;
+  cout<<endl;
+  cout<<"Current Year: "<< CYear <<"Current Month: "<< CMonth <<endl;
   if(CMonth=="Aug")
     {
         WeekDisplay(CDay,0);
