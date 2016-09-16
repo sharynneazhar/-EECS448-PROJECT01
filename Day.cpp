@@ -72,9 +72,22 @@ std::string Day:: getMonth()
     return month;
 }
 
-bool Day:: getNote()
+bool Day:: notePresent()
 {
-    return(note);
+    return(true);
+}
+
+std::string Day:: getNote()
+{
+	if(!notePresent() ) {
+		std::cout<<"There's no note for today!";
+	} else {
+		NoteReader* noteReader;
+		return noteReader -> readNote();	
+
+	}
+
+
 }
 
 bool Day:: DateTest(std::string month, int day, int year)

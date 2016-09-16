@@ -12,6 +12,8 @@
 #include <iostream>
 #include <fstream>
 
+#include "NoteReader.h"
+
 class Day
 {
     private:
@@ -120,7 +122,9 @@ class Day
     *  @return Note value
     *
     */
-    bool getNote();
+    bool notePresent();
+
+	std::string getNote();
 
     //set and get functions
 

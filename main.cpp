@@ -8,6 +8,7 @@
 #include "Print.h"
 #include "Day.h"
 #include "Month.h"
+#include "NoteReader.h"
 
 
 #include <iostream>
@@ -25,10 +26,12 @@ void initMonths() //intitalizes month object array
   months[0].setMonthName("Aug"); //August, 31 days long, starts on Monday
   months[0].setNumDays(31);
   months[0].setStartDay(1);
+  months[0].initDays();
 
   months[1].setMonthName("Sep"); //September, 30 days long, starts on Thursday
   months[1].setNumDays(30);
   months[1].setStartDay(4);
+  months[1].initDays();
 
   months[2].setMonthName("Oct"); //October, 31 days long, starts on Saturday
   months[2].setNumDays(31);
@@ -78,6 +81,13 @@ int main (int argc, char** argv)
   //Variables above are used for setting a current day
   initMonths(); //initialize months
   Day CurrentDate;  // create a day object. It's used for setting a current day.
+
+
+
+
+	NoteReader* noteReader = new NoteReader("notes.txt");
+	CurrentDate.getNote();
+
 
   Print* printer = new Print(months);
 	

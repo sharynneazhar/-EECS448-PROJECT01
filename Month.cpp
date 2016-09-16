@@ -16,13 +16,13 @@ Month:: Month(const std::string MonthName, int NumDays, int StartDay)
 
 }
 
-
 Month:: Month()
 {
     monthName = "";
     startDay = 0;
     numDays = 0;
 }
+
 
 
 void Month:: setMonthName(const std::string MonthName)
@@ -40,6 +40,12 @@ void Month:: setStartDay(const int StartDay)
     startDay = StartDay;
 }
 
+void Month:: initDays()
+{
+
+	days = new Day[ getNumDays() ];
+
+}
 
 std::string Month:: getMonthName()
 {
