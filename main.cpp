@@ -16,12 +16,11 @@ using namespace std;
 #include <fstream>
 
 
-  Month months[10]; //create array of length 10 (Aug thru May for academic year)
+Month months[10]; //create array of length 10 (Aug thru May for academic year)
 
 //-----------------------------------------------------------------------------
 void initMonths() //intitalizes month object array
 {
-
 
   months[0].setMonthName("Aug"); //August, 31 days long, starts on Monday
   months[0].setNumDays(31);
@@ -65,137 +64,10 @@ void initMonths() //intitalizes month object array
 }
 
 //-----------------------------------------------------------------------------
-
-void WeekDisplay(int D, int M) //it works!!!!!!OMG!I cannot believe the complexity of this function!!!!
-    {
-      int count=months[M].getStartDay();
-      for(int i=1; i<=months[M].getNumDays(); i++)
-        { 
-          if(D==i)
-          {
-            i=100;
-          }
-          else
-          {
-            if(count<6)
-            {
-              count=count+1;
-            }
-            else
-            {
-              count=0;
-            }
-          }
-          
-        } 
-      if(D+(7-count)>months[M].getNumDays())
-      {
-        int Num=0;
-        std::cout << " Sun  Mon  Tue  Wed  Thu  Fri  Sat  " << std::endl;
-        for(int i=0 ; i<7 ; i++)
-      {
-            //date of sunday in the week surrounding the current day.
-        if(D-count+i<=months[M].getNumDays())
-        {
-            std::cout << "  " << D-count+i<<" ";
-            Num=Num+1;
-        }
-        else
-        {
-          for(int i=1; i<=(7-Num); i++)
-          {
-            std::cout << "  " <<i<<"  ";
-          }
-          i=100;
-        }
-      }
-    }
-    else if(D-count<0)
-    {  
-      if((M==0&&D<2))
-        {
-          std::cout << "Part of this week is in July, display is out of range!!!" << std::endl;
-        }
-        else
-        {
-          int LastMonDay=months[M-1].getNumDays();
-          std::cout << " Sun  Mon  Tue  Wed  Thu  Fri  Sat  " << std::endl;
-          for(int i=0; i<=count-D; i++)
-          {
-            cout<<"  "<<LastMonDay+(D-count)+i<<" ";
-          }
-          for(int i=1; i<=(7-count); i++)
-          {
-            cout<<"  "<<i<<" ";
-          }
-        }
-    }
-    else
-      {
-        std::cout << " Sun  Mon  Tue  Wed  Thu  Fri  Sat  " << std::endl;
-        for(int i=0 ; i<7 ; i++){
-            //date of sunday in the week surrounding the current day.
-                std::cout << "  " << D-count+i<<" ";
-      }
-    }
-}
-//Two casese: 1,the current week is in one month 2, the current week is in two months.
-//D+ (7-count)>total mumber of days in that month-> display days included in the next month.
-
-
-//---------------------------------------------------------------------------------------
-
-void PrintWeek (int CDay, string CMonth, int CYear)
-{
-  cout<<endl;
-  cout<<"Current Year: "<< CYear <<"Current Month: "<< CMonth <<endl;
-  if(CMonth=="Aug")
-    {
-        WeekDisplay(CDay,0);
-    }
-    else if(CMonth=="Sep")
-    {
-        WeekDisplay(CDay,1);
-    }
-    else if(CMonth=="Oct")
-    {
-        WeekDisplay(CDay,2);
-    }
-    else if(CMonth=="Nov")
-    {
-        WeekDisplay(CDay,3);
-    }
-     else if(CMonth=="Dec")
-    {
-        WeekDisplay(CDay,4);
-    }
-    else if(CMonth=="Jan")
-    {
-        WeekDisplay(CDay,5);
-    }
-     else if(CMonth=="Feb")
-    {
-        WeekDisplay(CDay,6);
-    }
-    else if(CMonth=="Mar")
-    {
-        WeekDisplay(CDay,7);
-    }
-     else if(CMonth=="Apr")
-    {
-        WeekDisplay(CDay,8);
-    }
-    else if(CMonth=="May")
-    {
-        WeekDisplay(CDay,9);
-    }
-}
-//-----------------------------------------------------------------------------
 int main (int argc, char** argv)
 {
   bool repeat = true;
 	//temp for testing purposes
-
 
   std::cout << "\nWelcome to KAMYcal" << std::endl;
   //Variables blow are used for setting a current day
@@ -207,15 +79,17 @@ int main (int argc, char** argv)
   initMonths(); //initialize months
   Day CurrentDate;  // create a day object. It's used for setting a current day.
 
-	Print* printer = new Print(months);
+  Print* printer = new Print(months);
 	
 	//printer -> printYear();
-	printer -> printMonth(4);
-
+	//printer -> printMonth(4);
+	//WeekDisplay(2, 3);
+	printer -> printWeek(10, "Sep", 2016);
 
   cout<<"\nPlease enter a current date(e.g., Aug/01/2016): "<<endl;
   cin>>date;
 
+  //discerns the date from the user's string
   CurrentMonth= date.substr(0,3);
   CurrentDay=std::stoi(date.substr(5,6));
   CurrentYear=std::stoi(date.substr(8,11)) + 2000;
@@ -223,7 +97,7 @@ int main (int argc, char** argv)
  if(CurrentDate.DateTest(CurrentMonth, CurrentDay, CurrentYear))
   {
 
-   PrintWeek(CurrentDay, CurrentMonth, CurrentYear);
+   //PrintWeek(CurrentDay, CurrentMonth, CurrentYear);
   }// check if the user's input is correct and print week calendar
 
 

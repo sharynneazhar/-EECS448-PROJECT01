@@ -14,7 +14,6 @@ Month:: Month(const std::string MonthName, int NumDays, int StartDay)
     numDays = NumDays;
     startDay = StartDay;
 
-
 }
 
 

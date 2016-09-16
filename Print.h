@@ -22,10 +22,13 @@ class Print
 	Print(Month monthsArr[]); //will take in multi dimensional array of months/days?
 	void printYear();
 	void printMonth(int monthNumber);
-	void printWeek();
+	void printWeek(int currentDay, std::string currentMonth, int currentYear);
+	void weekDisplay(int date, int month);
 	void printDay();
 
 	Month* months;
+
+	private:
 
 };
 
