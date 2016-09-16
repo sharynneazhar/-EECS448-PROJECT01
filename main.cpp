@@ -64,130 +64,8 @@ void initMonths() //intitalizes month object array
   months[9].setStartDay(1);
 }
 
-//----------------------------------------------------------------------------------------
-void PrintYear ()
-{
-  for(int i=0; i<=9; i++)
-  {
-      int firstDay = months[i].getStartDay();
-      int totalDays = months[i].getNumDays();
-
-	  std::cout << "\n\n" << months[i].getMonthName() << std::endl;
-      std::cout << "\n Sun  Mon  Tue  Wed  Thu  Fri Sat  " << std::endl;
-
-      for(int i=0 ; i<7 ; i++){
-      //print first line of calendar
-        if(i>=firstDay){
-
-          std::cout << "  " << i-firstDay+1  ;
-
-			if(i==6){
-				std::cout<< "\n";
-			} else {
-				std::cout<< "  ";
-			}
-        }
-        else{
-          //5 spaces total: 3 for the day width, and 1 on either end
-          std::cout << "     ";
-          //           " Sun ";
-          //           "  4  ";
-        }
-      }
-
-		//prints the remaining lines of the calendar
-      int tempDay = 0;
-      for(int i=(7-firstDay+1) ; i<=totalDays ; i++){
-        if(i<10){//spacing for single digit numbers:
-          std::cout << "  " << i << "  ";
-        }
-        else{ //spacing for double digit numbers:
-          std::cout << " "  << i << "  ";
-        }
-        tempDay++;
-        if(tempDay>6){
-          std::cout << "\n";
-          tempDay=0;
-        }
-      }
-
-  }
-}
-
 //-----------------------------------------------------------------------------
 
-
-void PrintCalendar (int menuType, int monthNumber)
-{
-  /*
-    menuType=1 => Month view calendar
-    menuType=2 => Week view calendar
-    menuType=3 => Single day calendar
-  */
-  std::cout << "\n\n";
-  if(menuType==1)   //Month view calendar
-  {
-      int firstDay = months[monthNumber].getStartDay();
-      int totalDays = months[monthNumber].getNumDays();
-      std::cout << " Sun  Mon  Tue  Wed  Thu  Fri Sat  " << std::endl;
-
-      for(int i=0 ; i<7 ; i++){
-      //print first line of calendar
-        if(i>=firstDay){
-
-          std::cout << "  " << i-firstDay+1  ;
-
-			if(i==6){
-				std::cout<< "\n";
-			} else {
-				std::cout<< "  ";
-			}
-        }
-        else{
-          //5 spaces total: 3 for the day width, and 1 on either end
-          std::cout << "     ";
-          //           " Sun ";
-          //           "  4  ";
-        }
-      }
-
-		//prints the remaining lines of the calendar
-      int tempDay = 0;
-      for(int i=(7-firstDay+1) ; i<=totalDays ; i++){
-        if(i<10){//spacing for single digit numbers:
-          std::cout << "  " << i << "  ";
-        }
-        else{ //spacing for double digit numbers:
-          std::cout << " "  << i << "  ";
-        }
-        tempDay++;
-        if(tempDay>6){
-          std::cout << "\n";
-          tempDay=0;
-        }
-      }
-
-  }
-
-
-  else if(menuType==2)    //Week view calendar
-  {
-    int firstDay = months[monthNumber].getStartDay();
-    int totalDays = months[monthNumber].getNumDays();
-    std::cout << " Sun  Mon  Tue  Wed  Thu  Fri Sat  " << std::endl;
-
-  }
-
-
-  else if(menuType==3)    //Single day calendar
-  {
-
-  }
-
-}
-
-
-//-----------------------------------------------------------------------------
 void WeekDisplay(int D, int M) //it works!!!!!!OMG!I cannot believe the complexity of this function!!!!
     {
       int count=months[M].getStartDay();
@@ -320,7 +198,6 @@ int main (int argc, char** argv)
 
 
   std::cout << "\nWelcome to KAMYcal" << std::endl;
-  int menuSelect = 0;
   //Variables blow are used for setting a current day
   int CurrentDay=0;
   int CurrentYear=0;
@@ -330,11 +207,10 @@ int main (int argc, char** argv)
   initMonths(); //initialize months
   Day CurrentDate;  // create a day object. It's used for setting a current day.
 
-	PrintYear();
-	cout<< "\n\n";
-	PrintCalendar(1, 8);
-	cout<<"\n\n";
-	PrintCalendar(1,9);
+	Print* printer = new Print(months);
+	
+	//printer -> printYear();
+	printer -> printMonth(4);
 
 
   cout<<"\nPlease enter a current date(e.g., Aug/01/2016): "<<endl;
@@ -362,7 +238,7 @@ int main (int argc, char** argv)
     {
       temp = months[i].getMonthName();
       if(temp==monthUserInput){
-        PrintCalendar(1, i);
+        printer -> printMonth(i);
         break;
       }
 

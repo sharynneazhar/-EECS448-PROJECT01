@@ -12,13 +12,20 @@
 #include <iostream>
 #include <fstream>
 
+#include "Month.h"
+#include "Day.h"
+
 class Print
 {
-	Print(); //will take in multi dimensional array of months/days?
+
+	public:
+	Print(Month monthsArr[]); //will take in multi dimensional array of months/days?
 	void printYear();
-	void printMonth();
+	void printMonth(int monthNumber);
 	void printWeek();
 	void printDay();
+
+	Month* months;
 
 };
 
