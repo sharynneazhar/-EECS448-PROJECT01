@@ -86,7 +86,7 @@ int main (int argc, char** argv)
 
 
 	NoteReader* noteReader = new NoteReader("notes.txt");
-	CurrentDate.getNote();
+	//CurrentDate.getNote();
 
 
   Print* printer = new Print(months);
