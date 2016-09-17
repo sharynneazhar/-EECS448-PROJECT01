@@ -12,13 +12,23 @@
 #include <iostream>
 #include <fstream>
 
+#include "Month.h"
+#include "Day.h"
+
 class Print
 {
-	Print(); //will take in multi dimensional array of months/days?
+
+	public:
+	Print(Month monthsArr[]); //will take in multi dimensional array of months/days?
 	void printYear();
-	void printMonth();
-	void printWeek();
+	void printMonth(int monthNumber);
+	void printWeek(int currentDay, std::string currentMonth, int currentYear);
+	void weekDisplay(int date, int month);
 	void printDay();
+
+	Month* months;
+
+	private:
 
 };
 
