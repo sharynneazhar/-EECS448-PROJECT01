@@ -7,9 +7,14 @@
 \item 
 \hyperlink{classDay_a4770dfd2d1166320d5c42a2d0a5f8129}{Day} (const int Date, const int Year, char Week, bool note)
 \item 
+void {\bfseries set\+Day} (int Date)\hypertarget{classDay_a0dcbab77f0504f01fdd9a8584b590121}{}\label{classDay_a0dcbab77f0504f01fdd9a8584b590121}
+
+\item 
 void \hyperlink{classDay_acb7725be13d29759b0f544e6780f78f8}{set\+Date} (const int Date)
 \item 
 void \hyperlink{classDay_a5500b4bf61375c465fb6160564bab4cc}{set\+Week} (const char Week)
+\item 
+void \hyperlink{classDay_aa6fc8b1b08074305e6b0dd3f4bc21151}{set\+Month} (std\+::string month)
 \item 
 void \hyperlink{classDay_a9fc013d905327fd70003970125247d91}{set\+Year} (const int Year)
 \item 
@@ -19,9 +24,13 @@ int \hyperlink{classDay_a6161ef9f7717d596af00031cc362fa04}{get\+Date} ()
 \item 
 char \hyperlink{classDay_ad8c4008d27634a6da47eee92cb4f610a}{get\+Week} ()
 \item 
+std\+::string \hyperlink{classDay_ae10fc576ccdf6d58ef42c8cd1b371401}{get\+Month} ()
+\item 
 int \hyperlink{classDay_acec9a2c25c4e19fa6f46cd2671dfa51d}{get\+Year} ()
 \item 
 bool \hyperlink{classDay_a568ddb3832feedf479c0b44cea4f978f}{get\+Note} ()
+\item 
+bool \hyperlink{classDay_afb77f4b9df921cfb4176ba6ef309b9b8}{Date\+Test} (std\+::string month, int day, int year)
 \end{DoxyCompactItemize}
 
 
@@ -64,6 +73,24 @@ Constructs a \hyperlink{classDay}{Day} class object with the given arguments for
 
 
 \subsection{Member Function Documentation}
+\index{Day@{Day}!Date\+Test@{Date\+Test}}
+\index{Date\+Test@{Date\+Test}!Day@{Day}}
+\subsubsection[{\texorpdfstring{Date\+Test(std\+::string month, int day, int year)}{DateTest(std::string month, int day, int year)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Day\+::\+Date\+Test (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{month, }
+\item[{int}]{day, }
+\item[{int}]{year}
+\end{DoxyParamCaption}
+)}\hypertarget{classDay_afb77f4b9df921cfb4176ba6ef309b9b8}{}\label{classDay_afb77f4b9df921cfb4176ba6ef309b9b8}
+\begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+None. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+Bool for if the input date is a valid calendar date 
+\end{DoxyReturn}
 \index{Day@{Day}!get\+Date@{get\+Date}}
 \index{get\+Date@{get\+Date}!Day@{Day}}
 \subsubsection[{\texorpdfstring{get\+Date()}{getDate()}}]{\setlength{\rightskip}{0pt plus 5cm}int Day\+::get\+Date (
@@ -79,6 +106,22 @@ None.
 \end{DoxyPostcond}
 \begin{DoxyReturn}{Returns}
 Date value 
+\end{DoxyReturn}
+\index{Day@{Day}!get\+Month@{get\+Month}}
+\index{get\+Month@{get\+Month}!Day@{Day}}
+\subsubsection[{\texorpdfstring{get\+Month()}{getMonth()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Day\+::get\+Month (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classDay_ae10fc576ccdf6d58ef42c8cd1b371401}{}\label{classDay_ae10fc576ccdf6d58ef42c8cd1b371401}
+\begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+None. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+Returns the month variable (string). 
 \end{DoxyReturn}
 \index{Day@{Day}!get\+Note@{get\+Note}}
 \index{get\+Note@{get\+Note}!Day@{Day}}
@@ -140,6 +183,22 @@ None.
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Sets the date variable. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\index{Day@{Day}!set\+Month@{set\+Month}}
+\index{set\+Month@{set\+Month}!Day@{Day}}
+\subsubsection[{\texorpdfstring{set\+Month(std\+::string month)}{setMonth(std::string month)}}]{\setlength{\rightskip}{0pt plus 5cm}void Day\+::set\+Month (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{month}
+\end{DoxyParamCaption}
+)}\hypertarget{classDay_aa6fc8b1b08074305e6b0dd3f4bc21151}{}\label{classDay_aa6fc8b1b08074305e6b0dd3f4bc21151}
+\begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Sets the month variable. 
 \end{DoxyPostcond}
 \begin{DoxyReturn}{Returns}
 None. 
