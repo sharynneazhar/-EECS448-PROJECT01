@@ -69,6 +69,61 @@ void initMonths() //intitalizes month object array
   months[9].setStartDay(1);
 }
 
+//----------------------------------------------------------------------------------------
+int DetailNum()//read through the file to check how many days have details. What should be the size of the day array.
+{
+  int num=0;
+  char check=' ';
+  ifstream inp;
+  inp.open("Detail.txt");
+  while(!inp.eof())
+  {
+    while(check!='\n'&& !inp.eof())
+    {
+      check=inp.get();
+    }
+    check=' ';
+    num=num+1;
+  }
+  inp.close();
+  return num-1;
+}
+
+//-----------------------------------------------------------------------------
+void readNote(Day *DayArr, int size) //this function has the ability to read through the txt file.
+//it created an Day object array and save those days, details. Now we have an array with all days and details in it.
+//we can use this to do single day display. eg. (After making sure which day to do single day display) cout<< DayArr[0].GetDetail();
+//you can use getMonth/date/year methods to check if the day you are going to display is an object in the object array!
+{
+  string Month="";
+  string Detail="";
+  int Day=0;
+  int Year=0;
+	ifstream inputFile;
+  inputFile.open("Detail.txt");
+	char x= ' ';
+  if(!inputFile.eof())
+  {
+    for(int i=0; i<size; i++)
+    {
+      if(x!='\n')//the order of reading files.
+      {
+        inputFile >> Month >> Day >>Year;
+        while( x != '\n' && !inputFile.eof())
+        {	x=inputFile.get();
+          Detail= Detail+ x;
+        }
+      }
+      DayArr[i].setDay(Day);
+      DayArr[i].setMonth(Month);
+      DayArr[i].setYear(Year);
+      DayArr[i].setDetail(Detail);
+    }
+  }
+
+	inputFile.close();
+}
+
 //-----------------------------------------------------------------------------
 /**
 * @pre None.
@@ -84,13 +139,20 @@ int main (int argc, char** argv)
   //Variables blow are used for setting a current day
   int CurrentDay=0;
   int CurrentYear=0;
+  int arrSize=0;
   string date="";
   string CurrentMonth="";
   //Variables above are used for setting a current day
   initMonths(); //initialize months
+
   Day CurrentDate;  // create a day object. It's used for setting a current day.
-
-
+ 
+  arrSize=DetailNum();
+  
+  Day *DayArr=new Day[arrSize]; // here is where I initialized the object array.
+  //however, I don't know what I should do if there are no notes in the txt file.
+  //just don't initialize this array?'
+  delete[] DayArr;
 
 
 	NoteReader* noteReader = new NoteReader("notes.txt");
