@@ -142,6 +142,7 @@ class Day
     *
     */
     bool DateTest(std::string month, int day, int year);
+    bool isEmpty();
 
 };
 
