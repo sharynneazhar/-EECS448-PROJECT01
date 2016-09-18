@@ -13,6 +13,7 @@
 #include <fstream>
 
 #include "NoteReader.h"
+ using namespace std;
 
 class Day
 {
@@ -21,6 +22,7 @@ class Day
     int year; //year
     int week;// day of the week
     std::string month; //name of the month
+    string detail;
     bool note;//Does it have a note/description?
 
     public:
@@ -40,6 +42,9 @@ class Day
     */
     Day(const int Date, const int Year, int Week, std::string month, bool note);
 
+    void setDetail(string De);
+    bool WriteDetail(Day *DayArr, int size);//write detals to a txt file;
+    string getDetail();//get the detail of a day.
     /**
     *  @pre None.
     *  @post Sets the date variable.
