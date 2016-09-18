@@ -19,13 +19,50 @@ class Print
 {
 
 	public:
-	Print(Month monthsArr[]); //will take in multi dimensional array of months/days?
+		/**
+		*	@pre An array of Month class objects is available.
+		*	@post Constructs a Print class object with the named Month array.
+		*	@return Print class object.
+		*/
+	Print(Month monthsArr[]);
+
+	/**
+	*	@pre None.
+	*	@post A standardized printout of the entire school year to the console
+	*	@return None.
+	*/
 	void printYear();
+
+	/**
+	*	@pre None.
+	*	@post A standardized printout of the chosen month to the console.
+	*	@return None.
+	*/
 	void printMonth(int monthNumber);
+
+	/**
+	*	@pre None.
+	*	@post Sets up weekDisplay for the input date
+	*	@return None.
+	*/
 	void printWeek(int currentDay, std::string currentMonth, int currentYear);
+
+	/**
+	*	@pre None.
+	*	@post A standardized printout of the week (Sunday-Saturday) the chosen day is in to the console.
+	*	@return None.
+	*/
+	//make this a private function?
 	void weekDisplay(int date, int month);
+
+	/**
+	*	@pre None.
+	*	@post Lists the input date in the format "Sunday, January 1, 2017" and reports the notes attached to the day or the lask of notes
+	*	@return None.
+	*/
 	void printDay(int day, int month);
 
+	//!> Array of Month objects
 	Month* months;
 
 	private:

@@ -62,21 +62,12 @@ std::string Month:: getMonthName()
     return(monthName);
 }
 
-
 int Month:: getNumDays()
 {
     return(numDays);
 }
 
-
 int Month:: getStartDay()
 {
     return(startDay);
 }
-
-/**
-Day getDay(int date)
-{
-  return ( days[date-1] );
-}
-*/

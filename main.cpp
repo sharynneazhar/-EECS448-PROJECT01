@@ -16,10 +16,15 @@ using namespace std;
 #include <string>
 #include <fstream>
 
-
-Month months[10]; //create array of length 10 (Aug thru May for academic year)
+//!> array of length 10 (Aug thru May for academic year)
+Month months[10];
 
 //-----------------------------------------------------------------------------
+/**
+* @pre None.
+* @post Initializes the months array to the srandard values for the 2016/2017 academic year
+* @return None.
+*/
 void initMonths() //intitalizes month object array
 {
 
@@ -67,6 +72,11 @@ void initMonths() //intitalizes month object array
 }
 
 //-----------------------------------------------------------------------------
+/**
+* @pre None.
+* @post The KAMYcal program will have run to user termination.
+* @return None.
+*/
 int main (int argc, char** argv)
 {
   bool repeat = true;
@@ -90,7 +100,7 @@ int main (int argc, char** argv)
 
 
   Print* printer = new Print(months);
-	
+
 	//printer -> printYear();
 	//printer -> printMonth(4);
 	//WeekDisplay(2, 3);

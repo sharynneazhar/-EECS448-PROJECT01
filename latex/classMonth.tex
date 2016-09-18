@@ -1,34 +1,45 @@
-\hypertarget{classMonth}{}\section{Month Class Reference}
+\hypertarget{classMonth}{\section{Month Class Reference}
 \label{classMonth}\index{Month@{Month}}
+}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classMonth_a36882c55ece9c4210ec1b01bd665ec89}{Month} ()
 \item 
-\hyperlink{classMonth_ae2b064f3abf4c38a9e2527920831ed3f}{Month} (const std\+::string Month\+Name, int Num\+Days, int Start\+Day)
+\hyperlink{classMonth_ae2b064f3abf4c38a9e2527920831ed3f}{Month} (const std\-::string Month\-Name, int Num\-Days, int Start\-Day)
 \item 
-void \hyperlink{classMonth_a77dee92af5de872d8579b1b142473f90}{set\+Month\+Name} (const std\+::string Month\+Name)
+void \hyperlink{classMonth_a77dee92af5de872d8579b1b142473f90}{set\-Month\-Name} (const std\-::string Month\-Name)
 \item 
-void \hyperlink{classMonth_a661a751213b495884ec258d3e6c687e9}{set\+Num\+Days} (const int Num\+Days)
+void \hyperlink{classMonth_a661a751213b495884ec258d3e6c687e9}{set\-Num\-Days} (const int Num\-Days)
 \item 
-void \hyperlink{classMonth_ae9730715451148a5a4629b9c450e8103}{set\+Start\+Day} (const int Start\+Day)
+void \hyperlink{classMonth_ae9730715451148a5a4629b9c450e8103}{set\-Start\-Day} (const int Start\-Day)
 \item 
-std\+::string \hyperlink{classMonth_a1cb2ba2c0e646b961f55d99e9f5b74de}{get\+Month\+Name} ()
+void \hyperlink{classMonth_a9309f01ffc97e5bbb13bf8f5801f2aec}{init\-Days} ()
 \item 
-int \hyperlink{classMonth_a5ab8e306d9f603872dcf68b7bc771aa0}{get\+Num\+Days} ()
+std\-::string \hyperlink{classMonth_a1cb2ba2c0e646b961f55d99e9f5b74de}{get\-Month\-Name} ()
 \item 
-int \hyperlink{classMonth_a5fd5d2bf55df35f09262198e416e1906}{get\+Start\+Day} ()
+int \hyperlink{classMonth_a5ab8e306d9f603872dcf68b7bc771aa0}{get\-Num\-Days} ()
+\item 
+int \hyperlink{classMonth_a5fd5d2bf55df35f09262198e416e1906}{get\-Start\-Day} ()
 \end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classMonth_a8ade9e4309247818f04ce3e7f7682d6f}{\hyperlink{classDay}{Day} $\ast$ \hyperlink{classMonth_a8ade9e4309247818f04ce3e7f7682d6f}{days}}\label{classMonth_a8ade9e4309247818f04ce3e7f7682d6f}
+
+\begin{DoxyCompactList}\small\item\em \begin{quotation}
+The array of \hyperlink{classDay}{Day} objects used as the calendar month \end{quotation}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
+\hypertarget{classMonth_a36882c55ece9c4210ec1b01bd665ec89}{\index{Month@{Month}!Month@{Month}}
 \index{Month@{Month}!Month@{Month}}
-\index{Month@{Month}!Month@{Month}}
-\subsubsection[{\texorpdfstring{Month()}{Month()}}]{\setlength{\rightskip}{0pt plus 5cm}Month\+::\+Month (
+\subsubsection[{Month}]{\setlength{\rightskip}{0pt plus 5cm}Month\-::\-Month (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}\hypertarget{classMonth_a36882c55ece9c4210ec1b01bd665ec89}{}\label{classMonth_a36882c55ece9c4210ec1b01bd665ec89}
+)}}\label{classMonth_a36882c55ece9c4210ec1b01bd665ec89}
 \begin{DoxyPrecond}{Precondition}
 None. 
 \end{DoxyPrecond}
@@ -38,20 +49,20 @@ Constructs a \hyperlink{classMonth}{Month} class object with an empty string nam
 \begin{DoxyReturn}{Returns}
 \hyperlink{classMonth}{Month} class object 
 \end{DoxyReturn}
+\hypertarget{classMonth_ae2b064f3abf4c38a9e2527920831ed3f}{\index{Month@{Month}!Month@{Month}}
 \index{Month@{Month}!Month@{Month}}
-\index{Month@{Month}!Month@{Month}}
-\subsubsection[{\texorpdfstring{Month(const std\+::string Month\+Name, int Num\+Days, int Start\+Day)}{Month(const std::string MonthName, int NumDays, int StartDay)}}]{\setlength{\rightskip}{0pt plus 5cm}Month\+::\+Month (
+\subsubsection[{Month}]{\setlength{\rightskip}{0pt plus 5cm}Month\-::\-Month (
 \begin{DoxyParamCaption}
-\item[{const std\+::string}]{Month\+Name, }
-\item[{int}]{Num\+Days, }
-\item[{int}]{Start\+Day}
+\item[{const std\-::string}]{Month\-Name, }
+\item[{int}]{Num\-Days, }
+\item[{int}]{Start\-Day}
 \end{DoxyParamCaption}
-)}\hypertarget{classMonth_ae2b064f3abf4c38a9e2527920831ed3f}{}\label{classMonth_ae2b064f3abf4c38a9e2527920831ed3f}
+)}}\label{classMonth_ae2b064f3abf4c38a9e2527920831ed3f}
 \begin{DoxyPrecond}{Precondition}
 None. 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-Constructs a \hyperlink{classMonth}{Month} class object with the corresponding arguments for month\+Name, num\+Days, and start\+Day 
+Constructs a \hyperlink{classMonth}{Month} class object with the corresponding arguments for month\-Name, num\-Days, and start\-Day 
 \end{DoxyPostcond}
 \begin{DoxyReturn}{Returns}
 \hyperlink{classMonth}{Month} class object 
@@ -59,13 +70,13 @@ Constructs a \hyperlink{classMonth}{Month} class object with the corresponding a
 
 
 \subsection{Member Function Documentation}
-\index{Month@{Month}!get\+Month\+Name@{get\+Month\+Name}}
-\index{get\+Month\+Name@{get\+Month\+Name}!Month@{Month}}
-\subsubsection[{\texorpdfstring{get\+Month\+Name()}{getMonthName()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Month\+::get\+Month\+Name (
+\hypertarget{classMonth_a1cb2ba2c0e646b961f55d99e9f5b74de}{\index{Month@{Month}!get\-Month\-Name@{get\-Month\-Name}}
+\index{get\-Month\-Name@{get\-Month\-Name}!Month@{Month}}
+\subsubsection[{get\-Month\-Name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Month\-::get\-Month\-Name (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}\hypertarget{classMonth_a1cb2ba2c0e646b961f55d99e9f5b74de}{}\label{classMonth_a1cb2ba2c0e646b961f55d99e9f5b74de}
+)}}\label{classMonth_a1cb2ba2c0e646b961f55d99e9f5b74de}
 \begin{DoxyPrecond}{Precondition}
 None. 
 \end{DoxyPrecond}
@@ -73,15 +84,15 @@ None.
 None. 
 \end{DoxyPostcond}
 \begin{DoxyReturn}{Returns}
-month\+Name value 
+month\-Name value 
 \end{DoxyReturn}
-\index{Month@{Month}!get\+Num\+Days@{get\+Num\+Days}}
-\index{get\+Num\+Days@{get\+Num\+Days}!Month@{Month}}
-\subsubsection[{\texorpdfstring{get\+Num\+Days()}{getNumDays()}}]{\setlength{\rightskip}{0pt plus 5cm}int Month\+::get\+Num\+Days (
+\hypertarget{classMonth_a5ab8e306d9f603872dcf68b7bc771aa0}{\index{Month@{Month}!get\-Num\-Days@{get\-Num\-Days}}
+\index{get\-Num\-Days@{get\-Num\-Days}!Month@{Month}}
+\subsubsection[{get\-Num\-Days}]{\setlength{\rightskip}{0pt plus 5cm}int Month\-::get\-Num\-Days (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}\hypertarget{classMonth_a5ab8e306d9f603872dcf68b7bc771aa0}{}\label{classMonth_a5ab8e306d9f603872dcf68b7bc771aa0}
+)}}\label{classMonth_a5ab8e306d9f603872dcf68b7bc771aa0}
 \begin{DoxyPrecond}{Precondition}
 None. 
 \end{DoxyPrecond}
@@ -89,15 +100,15 @@ None.
 None. 
 \end{DoxyPostcond}
 \begin{DoxyReturn}{Returns}
-num\+Days value 
+num\-Days value 
 \end{DoxyReturn}
-\index{Month@{Month}!get\+Start\+Day@{get\+Start\+Day}}
-\index{get\+Start\+Day@{get\+Start\+Day}!Month@{Month}}
-\subsubsection[{\texorpdfstring{get\+Start\+Day()}{getStartDay()}}]{\setlength{\rightskip}{0pt plus 5cm}int Month\+::get\+Start\+Day (
+\hypertarget{classMonth_a5fd5d2bf55df35f09262198e416e1906}{\index{Month@{Month}!get\-Start\-Day@{get\-Start\-Day}}
+\index{get\-Start\-Day@{get\-Start\-Day}!Month@{Month}}
+\subsubsection[{get\-Start\-Day}]{\setlength{\rightskip}{0pt plus 5cm}int Month\-::get\-Start\-Day (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}\hypertarget{classMonth_a5fd5d2bf55df35f09262198e416e1906}{}\label{classMonth_a5fd5d2bf55df35f09262198e416e1906}
+)}}\label{classMonth_a5fd5d2bf55df35f09262198e416e1906}
 \begin{DoxyPrecond}{Precondition}
 None. 
 \end{DoxyPrecond}
@@ -105,59 +116,75 @@ None.
 None. 
 \end{DoxyPostcond}
 \begin{DoxyReturn}{Returns}
-start\+Day value 
+start\-Day value 
 \end{DoxyReturn}
-\index{Month@{Month}!set\+Month\+Name@{set\+Month\+Name}}
-\index{set\+Month\+Name@{set\+Month\+Name}!Month@{Month}}
-\subsubsection[{\texorpdfstring{set\+Month\+Name(const std\+::string Month\+Name)}{setMonthName(const std::string MonthName)}}]{\setlength{\rightskip}{0pt plus 5cm}void Month\+::set\+Month\+Name (
+\hypertarget{classMonth_a9309f01ffc97e5bbb13bf8f5801f2aec}{\index{Month@{Month}!init\-Days@{init\-Days}}
+\index{init\-Days@{init\-Days}!Month@{Month}}
+\subsubsection[{init\-Days}]{\setlength{\rightskip}{0pt plus 5cm}void Month\-::init\-Days (
 \begin{DoxyParamCaption}
-\item[{const std\+::string}]{Month\+Name}
+{}
 \end{DoxyParamCaption}
-)}\hypertarget{classMonth_a77dee92af5de872d8579b1b142473f90}{}\label{classMonth_a77dee92af5de872d8579b1b142473f90}
+)}}\label{classMonth_a9309f01ffc97e5bbb13bf8f5801f2aec}
 \begin{DoxyPrecond}{Precondition}
 None. 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-Sets month\+Name to the argument 
+Sets up the individual \hyperlink{classDay}{Day} objects in the array with their respective month, date, and day of the week 
 \end{DoxyPostcond}
 \begin{DoxyReturn}{Returns}
 None. 
 \end{DoxyReturn}
-\index{Month@{Month}!set\+Num\+Days@{set\+Num\+Days}}
-\index{set\+Num\+Days@{set\+Num\+Days}!Month@{Month}}
-\subsubsection[{\texorpdfstring{set\+Num\+Days(const int Num\+Days)}{setNumDays(const int NumDays)}}]{\setlength{\rightskip}{0pt plus 5cm}void Month\+::set\+Num\+Days (
+\hypertarget{classMonth_a77dee92af5de872d8579b1b142473f90}{\index{Month@{Month}!set\-Month\-Name@{set\-Month\-Name}}
+\index{set\-Month\-Name@{set\-Month\-Name}!Month@{Month}}
+\subsubsection[{set\-Month\-Name}]{\setlength{\rightskip}{0pt plus 5cm}void Month\-::set\-Month\-Name (
 \begin{DoxyParamCaption}
-\item[{const int}]{Num\+Days}
+\item[{const std\-::string}]{Month\-Name}
 \end{DoxyParamCaption}
-)}\hypertarget{classMonth_a661a751213b495884ec258d3e6c687e9}{}\label{classMonth_a661a751213b495884ec258d3e6c687e9}
+)}}\label{classMonth_a77dee92af5de872d8579b1b142473f90}
 \begin{DoxyPrecond}{Precondition}
 None. 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-Sets num\+Days to the argument 
+Sets month\-Name to the argument 
 \end{DoxyPostcond}
 \begin{DoxyReturn}{Returns}
 None. 
 \end{DoxyReturn}
-\index{Month@{Month}!set\+Start\+Day@{set\+Start\+Day}}
-\index{set\+Start\+Day@{set\+Start\+Day}!Month@{Month}}
-\subsubsection[{\texorpdfstring{set\+Start\+Day(const int Start\+Day)}{setStartDay(const int StartDay)}}]{\setlength{\rightskip}{0pt plus 5cm}void Month\+::set\+Start\+Day (
+\hypertarget{classMonth_a661a751213b495884ec258d3e6c687e9}{\index{Month@{Month}!set\-Num\-Days@{set\-Num\-Days}}
+\index{set\-Num\-Days@{set\-Num\-Days}!Month@{Month}}
+\subsubsection[{set\-Num\-Days}]{\setlength{\rightskip}{0pt plus 5cm}void Month\-::set\-Num\-Days (
 \begin{DoxyParamCaption}
-\item[{const int}]{Start\+Day}
+\item[{const int}]{Num\-Days}
 \end{DoxyParamCaption}
-)}\hypertarget{classMonth_ae9730715451148a5a4629b9c450e8103}{}\label{classMonth_ae9730715451148a5a4629b9c450e8103}
+)}}\label{classMonth_a661a751213b495884ec258d3e6c687e9}
 \begin{DoxyPrecond}{Precondition}
 None. 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-Sets start\+Day to the argument 
+Sets num\-Days to the argument 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\hypertarget{classMonth_ae9730715451148a5a4629b9c450e8103}{\index{Month@{Month}!set\-Start\-Day@{set\-Start\-Day}}
+\index{set\-Start\-Day@{set\-Start\-Day}!Month@{Month}}
+\subsubsection[{set\-Start\-Day}]{\setlength{\rightskip}{0pt plus 5cm}void Month\-::set\-Start\-Day (
+\begin{DoxyParamCaption}
+\item[{const int}]{Start\-Day}
+\end{DoxyParamCaption}
+)}}\label{classMonth_ae9730715451148a5a4629b9c450e8103}
+\begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Sets start\-Day to the argument 
 \end{DoxyPostcond}
 \begin{DoxyReturn}{Returns}
 None. 
 \end{DoxyReturn}
 
 
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{Month_8h}{Month.\+h}\item 
-\hyperlink{Month_8cpp}{Month.\+cpp}\end{DoxyCompactItemize}
+\hyperlink{Month_8h}{Month.\-h}\item 
+\hyperlink{Month_8cpp}{Month.\-cpp}\end{DoxyCompactItemize}

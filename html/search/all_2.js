@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['main_2ecpp',['main.cpp',['../main_8cpp.html',1,'']]],
-  ['month',['Month',['../classMonth.html',1,'Month'],['../classMonth.html#a36882c55ece9c4210ec1b01bd665ec89',1,'Month::Month()'],['../classMonth.html#ae2b064f3abf4c38a9e2527920831ed3f',1,'Month::Month(const std::string MonthName, int NumDays, int StartDay)']]],
-  ['month_2ecpp',['Month.cpp',['../Month_8cpp.html',1,'']]],
-  ['month_2eh',['Month.h',['../Month_8h.html',1,'']]]
+  ['initdays',['initDays',['../classMonth.html#a9309f01ffc97e5bbb13bf8f5801f2aec',1,'Month']]],
+  ['initmonths',['initMonths',['../main_8cpp.html#a10bbe665fe4d7b7e2eef1fb906f23517',1,'main.cpp']]]
 ];

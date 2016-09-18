@@ -1,45 +1,75 @@
-\hypertarget{main_8cpp}{}\section{main.\+cpp File Reference}
-\label{main_8cpp}\index{main.\+cpp@{main.\+cpp}}
+\hypertarget{main_8cpp}{\section{main.\-cpp File Reference}
+\label{main_8cpp}\index{main.\-cpp@{main.\-cpp}}
+}
 
 
 Main runtime of the Calendar project.  
 
 
-{\ttfamily \#include \char`\"{}Print.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Day.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Month.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Print.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Day.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Month.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Note\-Reader.\-h\char`\"{}}\\*
 {\ttfamily \#include $<$iostream$>$}\\*
 {\ttfamily \#include $<$string$>$}\\*
 {\ttfamily \#include $<$fstream$>$}\\*
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void {\bfseries init\+Months} ()\hypertarget{main_8cpp_a10bbe665fe4d7b7e2eef1fb906f23517}{}\label{main_8cpp_a10bbe665fe4d7b7e2eef1fb906f23517}
-
+void \hyperlink{main_8cpp_a10bbe665fe4d7b7e2eef1fb906f23517}{init\-Months} ()
 \item 
-void {\bfseries Print\+Year} ()\hypertarget{main_8cpp_a58eb44707ce5772b29b212573a72cd7d}{}\label{main_8cpp_a58eb44707ce5772b29b212573a72cd7d}
-
-\item 
-void {\bfseries Print\+Calendar} (int menu\+Type, int month\+Number)\hypertarget{main_8cpp_a63a0160ceae2c411dc8f287a2d469eb8}{}\label{main_8cpp_a63a0160ceae2c411dc8f287a2d469eb8}
-
-\item 
-void {\bfseries Week\+Display} (int D, int M)\hypertarget{main_8cpp_a8952705dbb96621da7a9be8cebce1246}{}\label{main_8cpp_a8952705dbb96621da7a9be8cebce1246}
-
+int \hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
 \end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classMonth}{Month} {\bfseries months} \mbox{[}10\mbox{]}\hypertarget{main_8cpp_a12786cc41eca27dd4c0f53d32c8b378f}{}\label{main_8cpp_a12786cc41eca27dd4c0f53d32c8b378f}
+\hypertarget{main_8cpp_a12786cc41eca27dd4c0f53d32c8b378f}{\hyperlink{classMonth}{Month} \hyperlink{main_8cpp_a12786cc41eca27dd4c0f53d32c8b378f}{months} \mbox{[}10\mbox{]}}\label{main_8cpp_a12786cc41eca27dd4c0f53d32c8b378f}
 
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \begin{quotation}
+array of length 10 (Aug thru May for academic year) \end{quotation}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-Main runtime of the Calendar project. 
-
-\begin{DoxyAuthor}{Author}
+Main runtime of the Calendar project. \begin{DoxyAuthor}{Author}
 Andrew Thomas, Katie Hrenchir, Mac Crider, Yehan Li
 \end{DoxyAuthor}
 \begin{DoxySince}{Since}
 10 September 2016 
 \end{DoxySince}
+
+
+\subsection{Function Documentation}
+\hypertarget{main_8cpp_a10bbe665fe4d7b7e2eef1fb906f23517}{\index{main.\-cpp@{main.\-cpp}!init\-Months@{init\-Months}}
+\index{init\-Months@{init\-Months}!main.cpp@{main.\-cpp}}
+\subsubsection[{init\-Months}]{\setlength{\rightskip}{0pt plus 5cm}void init\-Months (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{main_8cpp_a10bbe665fe4d7b7e2eef1fb906f23517}
+\begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Initializes the months array to the srandard values for the 2016/2017 academic year 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\hypertarget{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{\index{main.\-cpp@{main.\-cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.\-cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}}\label{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+\begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The K\-A\-M\-Ycal program will have run to user termination. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}

@@ -24,7 +24,9 @@ class Month
       int numDays;//total number of days in the month
 
     public:
+      //!> The array of Day objects used as the calendar month
       Day* days;
+
       /**
       *  @pre None.
       *  @post Constructs a Month class object with an empty string name, no days in the month, and it starts on a Sunday
@@ -65,6 +67,11 @@ class Month
       */
       void setStartDay(const int StartDay);
 
+      /**
+      * @pre None.
+      * @post Sets up the individual Day objects in the array with their respective month, date, and day of the week
+      * @return None.
+      */
       void initDays();
 
       /**
