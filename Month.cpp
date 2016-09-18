@@ -46,9 +46,9 @@ void Month:: initDays()
 	days = new Day[ getNumDays() ];
   for (int i = 0; i < getNumDays(); i++)
   {
-    Day[i].setMonth(getMonthName());
-    Day[i].setDay(i+1);
-    Day[i].setWeek(dayOfWeek);
+    days[i].setMonth(getMonthName());
+    days[i].setDay(i+1);
+    days[i].setWeek(dayOfWeek);
     dayOfWeek++;
     if (dayOfWeek > 7)
     {
