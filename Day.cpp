@@ -181,3 +181,15 @@ string Day:: getDetail()//get the detail of a day.
 {
     return detail;
 }
+
+bool Day:: isEmpty()
+{
+    if(month=="")
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
