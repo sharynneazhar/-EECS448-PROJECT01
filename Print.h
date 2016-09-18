@@ -62,6 +62,8 @@ class Print
 	*/
 	void printDay(int day, int month);
 
+	void printDetail(Day *DayArr, int size, Day CurrentDay);
+
 	//!> Array of Month objects
 	Month* months;
 
