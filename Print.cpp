@@ -253,8 +253,8 @@ void Print:: weekDisplay(int date, int month)
 
 void Print:: printDay(int day, int month)
 {
-	switch (month[month].days[day-1].getWeek())
+	switch (months[month].days[day-1].getWeek())
 	{
-		case ()
+		//case ()
 	}
 }

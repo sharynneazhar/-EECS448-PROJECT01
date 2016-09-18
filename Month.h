@@ -22,7 +22,7 @@ class Month
                    //int 0 thru 6
                    // e.g., 0 = Sunday, 1 = Monday, etc.
       int numDays;//total number of days in the month
-	  Day* days;
+
 
     public:
       /**
@@ -90,6 +90,8 @@ class Month
       *
       */
       int getStartDay();
+
+	  Day* days;
 
 };
 

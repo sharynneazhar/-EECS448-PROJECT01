@@ -38,7 +38,7 @@ class Day
     *  @return Day class object
     *
     */
-    Day(const int Date, const int Year, int Week, bool note);
+    Day(const int Date, const int Year, int Week, std::string month, bool note);
 
     /**
     *  @pre None.
@@ -54,7 +54,7 @@ class Day
     *  @return None.
     *
     */
-    void setWeek(const char Week);
+    void setWeek(int Week);
 
     /**
     *  @pre None.
@@ -94,7 +94,7 @@ class Day
     *  @return Week value
     *
     */
-    char getWeek();
+    int getWeek();
 
     /**
     *  @pre None.
