@@ -76,7 +76,7 @@ std::string Day:: getMonth()
 
 bool Day:: notePresent()
 {
-    return(true);
+    return(note);
 }
 
 std::string Day:: getNote()

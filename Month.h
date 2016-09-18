@@ -23,8 +23,8 @@ class Month
                    // e.g., 0 = Sunday, 1 = Monday, etc.
       int numDays;//total number of days in the month
 
-
     public:
+      Day* days;
       /**
       *  @pre None.
       *  @post Constructs a Month class object with an empty string name, no days in the month, and it starts on a Sunday
@@ -90,9 +90,6 @@ class Month
       *
       */
       int getStartDay();
-
-	  Day* days;
-
 };
 
 #endif

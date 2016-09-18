@@ -13,7 +13,7 @@ Month:: Month(const std::string MonthName, int NumDays, int StartDay)
     monthName = MonthName;
     numDays = NumDays;
     startDay = StartDay;
-
+    days = new Day[ getNumDays() ];
 }
 
 Month:: Month()
@@ -21,8 +21,8 @@ Month:: Month()
     monthName = "";
     startDay = 0;
     numDays = 0;
+    days = new Day;
 }
-
 
 
 void Month:: setMonthName(const std::string MonthName)
@@ -43,7 +43,6 @@ void Month:: setStartDay(const int StartDay)
 void Month:: initDays()
 {
   int dayOfWeek = getStartDay();
-	days = new Day[ getNumDays() ];
   for (int i = 0; i < getNumDays(); i++)
   {
     days[i].setMonth(getMonthName());
@@ -74,3 +73,10 @@ int Month:: getStartDay()
 {
     return(startDay);
 }
+
+/**
+Day getDay(int date)
+{
+  return ( days[date-1] );
+}
+*/

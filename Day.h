@@ -120,7 +120,13 @@ class Day
     */
     bool notePresent();
 
-	std::string getNote();
+    /**
+    *  @pre There is a note present (note == true)
+    *  @post None.
+    *  @return The string of notes for the day
+    *
+    */
+    std::string getNote();
 
     //set and get functions
 

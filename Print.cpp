@@ -10,7 +10,6 @@
 Print:: Print(Month monthsArr[])
 {
 	months = monthsArr;
-
 }
 
 //destructor?
@@ -253,8 +252,100 @@ void Print:: weekDisplay(int date, int month)
 
 void Print:: printDay(int day, int month)
 {
+	//error checking for an invalid date
+	if (day < 0 || day > months[month].getNumDays() || month < 0 || month > 10)
+		{
+			std::cout<<"Invalid date chosen\n";
+			return;
+		}
+
+	//pull the week variable from the day in question and translate that into a word to output to the console
 	switch (months[month].days[day-1].getWeek())
 	{
-		//case ()
+		case 0:
+			std::cout<<"Sunday, ";
+			break;
+		case 1:
+			std::cout<<"Monday, ";
+			break;
+		case 2:
+			std::cout<<"Tuesday, ";
+			break;
+		case 3:
+			std::cout<<"Wednesday, ";
+			break;
+		case 4:
+			std::cout<<"Thursday, ";
+			break;
+		case 5:
+			std::cout<<"Friday, ";
+			break;
+		case 6:
+			std::cout<<"Saturday, ";
+			break;
+		default:
+			std::cout<<"Invalid date chosen\n";
+			return;
+	}
+
+	//pulls the input month for the name of the month for output into the console
+	switch (month)
+	{
+		case 0:
+			std::cout<<"August ";
+			break;
+		case 1:
+			std::cout<<"September ";
+			break;
+		case 2:
+			std::cout<<"October ";
+			break;
+		case 3:
+			std::cout<<"November ";
+			break;
+		case 4:
+			std::cout<<"December ";
+			break;
+		case 5:
+			std::cout<<"January ";
+			break;
+		case 6:
+			std::cout<<"February ";
+			break;
+		case 7:
+			std::cout<<"March ";
+			break;
+		case 8:
+			std::cout<<"April ";
+			break;
+		case 9:
+			std::cout<<"May ";
+			break;
+		default:
+			std::cout<<"Invalid date chosen\n";
+			break;
+	}
+
+	//pulls the input date for output into the console
+	std::cout<<day<<", ";
+
+	//correlates the month variable for outputting the year to the console
+	if (month <= 4)
+	{
+		std::cout<<"2016\n\n";
+	}
+	else
+	{
+		std::cout<<"2017\n\n";
+	}
+
+	//pulls the note bool from the specific Day object in question to output either a notification that there is no note on the date yet or the notes for the date
+	if (months[month].days[day-1].notePresent())
+	{
+		std::cout<<"Notes for today:\n"<<months[month].days[day-1].getNote();
+	}
+	else
+	{
+		std::cout<<"No notes for this date";
 	}
 }
