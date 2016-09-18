@@ -244,6 +244,7 @@ void Print:: weekDisplay(int date, int month)
                 std::cout << "  " << date-count+i<<"  ";
       }
     }
+    cout<<endl;
 }
 //Two casese: 1,the current week is in one month 2, the current week is in two months.
 //D+ (7-count)>total mumber of days in that month-> display days included in the next month.
@@ -348,4 +349,22 @@ void Print:: printDay(int day, int month)
 	{
 		std::cout<<"No notes for this date";
 	}
+}
+
+void Print:: printDetail(Day *DayArr, int size, Day CurrentDay)
+{
+  
+    for(int i=0; i<size; i++)
+    {
+        if(CurrentDay.getDate()==DayArr[i].getDate() && CurrentDay.getMonth()==DayArr[i].getMonth())
+        {
+           cout<<DayArr[i].getDetail()<<endl;
+           i=size+1;
+        }
+        else
+        {
+          cout<<CurrentDay.getDetail()<<endl;
+          i=size+1;
+        }
+    }
 }
