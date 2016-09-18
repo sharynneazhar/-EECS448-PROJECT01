@@ -24,7 +24,7 @@ class Print
 	void printMonth(int monthNumber);
 	void printWeek(int currentDay, std::string currentMonth, int currentYear);
 	void weekDisplay(int date, int month);
-	void printDay();
+	void printDay(int day, int month);
 
 	Month* months;
 

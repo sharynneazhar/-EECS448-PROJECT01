@@ -42,8 +42,19 @@ void Month:: setStartDay(const int StartDay)
 
 void Month:: initDays()
 {
-
+  int dayOfWeek = getStartDay();
 	days = new Day[ getNumDays() ];
+  for (int i = 0; i < getNumDays(); i++)
+  {
+    Day[i].setMonth(getMonthName());
+    Day[i].setDay(i+1);
+    Day[i].setWeek(dayOfWeek);
+    dayOfWeek++;
+    if (dayOfWeek > 7)
+    {
+      dayOfWeek = 0;
+    }
+  }
 
 }
 

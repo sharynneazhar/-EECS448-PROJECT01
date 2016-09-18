@@ -64,8 +64,8 @@ class Month
       *
       */
       void setStartDay(const int StartDay);
-	
-	  void initDays();
+
+      void initDays();
 
       /**
       *  @pre None.

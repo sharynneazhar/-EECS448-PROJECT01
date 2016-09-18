@@ -7,10 +7,11 @@
 
 #include "Day.h"
 
-Day:: Day(const int Date, int Year, char Week, bool Note)
+Day:: Day(const int Date, int Year, int Week, std::string month, bool Note)
 {
     date=Date;
     week=week;
+    month = month;
     note=Note;
     year=Year;
 }
@@ -19,6 +20,7 @@ Day:: Day()
 {
     date=0;
     week=0;
+    month = "";
     note=false;
     year=0;
 }
@@ -28,7 +30,7 @@ void Day:: setDay(int Date)
     date=Date;
 }
 
-void Day:: setWeek(char Week)
+void Day:: setWeek(int Week)
 {
     week=Week;
 }
@@ -62,7 +64,7 @@ int Day:: getDate()
     return(date);
 }
 
-char Day:: getWeek()
+int Day:: getWeek()
 {
     return(week);
 }
@@ -83,7 +85,7 @@ std::string Day:: getNote()
 		std::cout<<"There's no note for today!";
 	} else {
 		NoteReader* noteReader;
-		return noteReader -> readNote();	
+		return noteReader -> readNote();
 
 	}
 

@@ -170,14 +170,14 @@ void Print:: printWeek(int currentDay, std::string currentMonth, int currentYear
 
 //-----------------------------------------------------------------------------
 
-void Print:: weekDisplay(int date, int month) 
+void Print:: weekDisplay(int date, int month)
 //it works!!!!!!OMG!I cannot believe the complexity of this function!!!!
 {
 
 
       int count= months[month].getStartDay();
       for(int i=1; i<=months[month].getNumDays(); i++)
-        { 
+        {
           if(date==i)
           {
             i=100;
@@ -193,8 +193,8 @@ void Print:: weekDisplay(int date, int month)
               count=0;
             }
           }
-          
-        } 
+
+        }
       if(date+(7-count)>months[month].getNumDays())
       {
         int Num=0;
@@ -218,7 +218,7 @@ void Print:: weekDisplay(int date, int month)
       }
     }
     else if(date-count<0)
-    {  
+    {
       if((month==0&&date<2))
         {
           std::cout << "Part of this week is in July, display is out of range!!!" << std::endl;
@@ -251,7 +251,10 @@ void Print:: weekDisplay(int date, int month)
 
 //-----------------------------------------------------------------------------
 
-void Print:: printDay()
+void Print:: printDay(int day, int month)
 {
-
+	switch (month[month].days[day-1].getWeek())
+	{
+		case ()
+	}
 }

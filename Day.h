@@ -19,7 +19,7 @@ class Day
     private:
     int date; //date
     int year; //year
-    char week;// day of the week
+    int week;// day of the week
     std::string month; //name of the month
     bool note;//Does it have a note/description?
 
@@ -38,10 +38,7 @@ class Day
     *  @return Day class object
     *
     */
-    Day(const int Date, const int Year, char Week, bool note);
-
-	void setDay(int Date);
-
+    Day(const int Date, const int Year, int Week, bool note);
 
     /**
     *  @pre None.
@@ -49,8 +46,7 @@ class Day
     *  @return None.
     *
     */
-
-    void setDate(const int Date);
+    void setDay(int Date);
 
     /**
     *  @pre None.
