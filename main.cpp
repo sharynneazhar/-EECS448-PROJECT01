@@ -31,12 +31,10 @@ void initMonths() //intitalizes month object array
   months[0].setMonthName("Aug"); //August, 31 days long, starts on Monday
   months[0].setNumDays(31);
   months[0].setStartDay(1);
-  months[0].initDays();
 
   months[1].setMonthName("Sep"); //September, 30 days long, starts on Thursday
   months[1].setNumDays(30);
   months[1].setStartDay(4);
-  months[1].initDays();
 
   months[2].setMonthName("Oct"); //October, 31 days long, starts on Saturday
   months[2].setNumDays(31);
