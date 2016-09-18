@@ -6,14 +6,15 @@
 */
 
 #include "Day.h"
-
+using namespace std;
 Day:: Day(const int Date, int Year, int Week, std::string month, bool Note)
 {
     date=Date;
-    week=week;
+    week=Week;
     month = month;
     note=Note;
     year=Year;
+    detail="";
 }
 
 Day:: Day()
@@ -23,6 +24,7 @@ Day:: Day()
     month = "";
     note=false;
     year=0;
+    detail="";
 }
 
 void Day:: setDay(int Date)
@@ -148,4 +150,34 @@ bool Day:: DateTest(std::string month, int day, int year)
       std::cout<<"Please input valid day and year."<<std::endl;
       return false;
   }
+}
+
+void Day:: setDetail(string De)//just set the detail of a day
+{
+    detail=De;
+}
+
+bool Day:: WriteDetail(Day *DayArr, int size)//check if there are some exiting notes on this day
+//(if the date and month of the current day is as same as one of the objects in the array<I created a day array in main>), 
+//if there is an exsting note, just do string(detail) addtion.
+{
+    for(int i=0; i<size; i++)
+    {
+        if(date==DayArr[i].getDate() && month==DayArr[i].getMonth())
+        {
+            detail=detail+DayArr[i].getDetail();
+            DayArr[i].setDetail(detail);
+            i=size+1;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+}
+
+string Day:: getDetail()//get the detail of a day.
+{
+    return detail;
 }
