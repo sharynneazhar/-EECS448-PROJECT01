@@ -86,7 +86,7 @@ int DetailNum()//read through the file to check how many days have details. What
     num=num+1;
   }
   inp.close();
-  return num-1;
+  return num;
 }
 
 //-----------------------------------------------------------------------------
@@ -120,7 +120,7 @@ void readNote(Day *DayArr, int size) //this function has the ability to read thr
       DayArr[i].setDetail(Detail);
     }
   }
-
+  cout<<"DayArr works?"<<DayArr[0].getDetail()<<endl;
 	inputFile.close();
 }
 
@@ -132,11 +132,12 @@ void readNote(Day *DayArr, int size) //this function has the ability to read thr
 */
 int main (int argc, char** argv)
 {
-  bool repeat = true;
+  //bool repeat = true;
 	//temp for testing purposes
 
   std::cout << "\nWelcome to KAMYcal" << std::endl;
   //Variables blow are used for setting a current day
+  int option=0;
   int CurrentDay=0;
   int CurrentYear=0;
   int arrSize=0;
@@ -146,63 +147,97 @@ int main (int argc, char** argv)
   initMonths(); //initialize months
 
   Day CurrentDate;  // create a day object. It's used for setting a current day.
+
  
   arrSize=DetailNum();
-  
-  Day *DayArr=new Day[arrSize]; // here is where I initialized the object array.
-  //however, I don't know what I should do if there are no notes in the txt file.
-  //just don't initialize this array?'
-  delete[] DayArr;
-
-
-	NoteReader* noteReader = new NoteReader("notes.txt");
+  Day *DayArr=new Day[arrSize];
+	//NoteReader* noteReader = new NoteReader("notes.txt");
 	//CurrentDate.getNote();
-
 
   Print* printer = new Print(months);
 
 	//printer -> printYear();
 	//printer -> printMonth(4);
 	//WeekDisplay(2, 3);
-	printer -> printWeek(10, "Sep", 2016);
-
-  cout<<"\nPlease enter a current date(e.g., Aug/01/2016): "<<endl;
-  cin>>date;
-
-  //discerns the date from the user's string
-  CurrentMonth= date.substr(0,3);
-  CurrentDay=std::stoi(date.substr(5,6));
-  CurrentYear=std::stoi(date.substr(8,11)) + 2000;
-
- if(CurrentDate.DateTest(CurrentMonth, CurrentDay, CurrentYear))
+	//printer -> printWeek(10, "Sep", 2016);
+  while(option!=6)
   {
-
-   //PrintWeek(CurrentDay, CurrentMonth, CurrentYear);
-  }// check if the user's input is correct and print week calendar
-
-
-  while (repeat)
-  {
-    std::string monthUserInput;
-    std::cout << "\nPlease enter the name of the month (e.g., Aug): " << std::endl;
-    std::cin >> monthUserInput;
-
-    std::string temp;
-    for (int i=0 ; i<10 ; i++)
+    readNote(DayArr, arrSize);
+    if(CurrentDate.isEmpty())
     {
-      temp = months[i].getMonthName();
-      if(temp==monthUserInput){
-        printer -> printMonth(i);
-        break;
-      }
-
-      if(i==9){
-        std::cout << "\nMonth name is invalid." << std::endl;
-      }
-
+      do
+      {
+        cout<<"\nPlease enter a current date(e.g., Aug/01/2016): "<<endl;
+        cin>>date;
+        //discerns the date from the user's string
+        CurrentMonth= date.substr(0,3);
+        CurrentDay=std::stoi(date.substr(5,6));
+        CurrentYear=std::stoi(date.substr(8,11)) + 2000;
+      }while(!CurrentDate.DateTest(CurrentMonth, CurrentDay, CurrentYear));
     }
+      CurrentDate.setDay(CurrentDay);
+      CurrentDate.setMonth(CurrentMonth);
+      CurrentDate.setYear(CurrentYear);
+      cout<<"Do you want to display the current day?(Type 1)"<<endl;
+      cout<<"Do you want to do week display?(Type 2)"<<endl;
+      cout<<"Do you want to add details to the current day?(Type 3)"<<endl;
+      cout <<"Do you want to display a month?(Type 4)"<<endl;
+      cout <<"Do you want to display a year?(Type 5)"<<endl;
+      cout<<"Do you want to quit?(Type 6)"<<endl;
+      cin>>option;
+      if(option==1)
+      {
+        cout<<CurrentDay<<"/"<<CurrentMonth<<"/"<<CurrentYear<<endl;
+        printer->printDetail(DayArr, arrSize, CurrentDate);
+        
+      }
+      else if(option==2)
+      {
+        printer -> printWeek(CurrentDay, CurrentMonth, CurrentYear);
+      }
+      else if(option==3)
+      { 
+        string detail="";
+        cout<<"What do you want to add to the current day?"<<endl;
+        cin>>detail;
+        getline(cin, detail);
+        cin.ignore();
+        if(CurrentDate.WriteDetail(DayArr, arrSize))
+        {
+          
+        }
+        else
+        {
+          CurrentDate.setDetail(detail);
+        }
+      }
+      else if(option==4)
+      {
+          std::string monthUserInput;
+          std::cout << "\nPlease enter the name of the month (e.g., Aug): " << std::endl;
+          std::cin >> monthUserInput;
 
-    //switch based off of first character of string to set month
+          std::string temp;
+          for (int i=0 ; i<10 ; i++)
+          {
+            temp = months[i].getMonthName();
+            if(temp==monthUserInput){
+              printer -> printMonth(i);
+              break;
+            }
+
+            if(i==9){
+              std::cout << "\nMonth name is invalid." << std::endl;
+            }
+
+          }
+
+          //switch based off of first character of string to set month
+      }
+      else if(option==5)
+      {
+        printer-> printYear();
+      }
   }
-
 }
+
