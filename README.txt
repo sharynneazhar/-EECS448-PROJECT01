@@ -36,3 +36,12 @@ that file in the initial calendar builder so it shows up whenever the program is
 launched.
   I know it seems like a lot of work (at least it does to me), but there's four
 of us, github, and a little over a week of time.
+
+September 14
+ANDREW:
+  I've set up documentation for the project. Take a look at Day.h for the general
+format of commenting on files for the system (the same commenting system used in
+168/268). If you ever need to check the documentation, run "doxygen Doxyfile" in
+the console while you're in the folder with this repository. Once that's done
+(or you just want to check the current documentation) look in the "html" folder
+for "index.html" and open that in your browser of choice.

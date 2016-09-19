@@ -5,20 +5,28 @@
 * @brief Main runtime of the Calendar project.
 */
 
+#include "Print.h"
 #include "Day.h"
 #include "Month.h"
+#include "NoteReader.h"
+
 
 #include <iostream>
 using namespace std;
 #include <string>
 #include <fstream>
 
-
+//!> array of length 10 (Aug thru May for academic year)
+Month months[10];
 
 //-----------------------------------------------------------------------------
+/**
+* @pre None.
+* @post Initializes the months array to the srandard values for the 2016/2017 academic year
+* @return None.
+*/
 void initMonths() //intitalizes month object array
 {
-  Month months[10]; //create array of length 10 (Aug thru May for academic year)
 
   months[0].setMonthName("Aug"); //August, 31 days long, starts on Monday
   months[0].setNumDays(31);
@@ -54,104 +62,209 @@ void initMonths() //intitalizes month object array
 
   months[8].setMonthName("Apr"); //April, 30 days long, starts on Saturday
   months[8].setNumDays(30);
-  months[8].setStartDay(7);
+  months[8].setStartDay(6);
 
   months[9].setMonthName("May"); //May, 31 days long, starts on Monday
   months[9].setNumDays(31);
   months[9].setStartDay(1);
 }
 
-//-----------------------------------------------------------------------------
-int main (int argc, char** argv)
+//----------------------------------------------------------------------------------------
+int DetailNum()//read through the file to check how many days have details. What should be the size of the day array.
 {
-  bool repeat = true;
-  std::cout << "Welcome to KAMYcal" << std::endl;
-  int menuSelect = 0;
-  initMonths(); //initialize months
-
-  while (repeat)
+  int num=0;
+  char check=' ';
+  ifstream inp;
+  inp.open("Detail.txt");
+  while(!inp.eof())
   {
-    std::string monthUserInput;
-    std::cout << "Please enter the name of the month (e.g., Aug): " << std::endl;
-    std::cin >> monthUserInput;
-
-    std::string temp;
-    for (int i=0 ; i<10 ; i++)
+    while(check!='\n'&& !inp.eof())
     {
-      temp = months[i].getMonthName();
-      if(temp==monthUserInput){
-        PrintCalendar(1, i);
-        break;
-      }
-
-      if(i==9){
-        std::cout << "\nMonth name is invalid." << std::endl;
-      }
-
+      check=inp.get();
     }
-
-    //switch based off of first character of string to set month
+    check=' ';
+    num=num+1;
   }
-
+  inp.close();
+  return num;
 }
 
 //-----------------------------------------------------------------------------
-void PrintCalendar (int menuType, int monthNumber)
+void readNote(Day *DayArr, int size) //this function has the ability to read through the txt file.
+//it created an Day object array and save those days, details. Now we have an array with all days and details in it.
+//we can use this to do single day display. eg. (After making sure which day to do single day display) cout<< DayArr[0].GetDetail();
+//you can use getMonth/date/year methods to check if the day you are going to display is an object in the object array!
 {
-  /*
-    menuType=1 => Month view calendar
-    menuType=2 => Week view calendar
-    menuType=3 => Single day calendar
-  */
-  std::cout << "\n\n";
-  if(menuType==1)   //Month view calendar
+  string Month="";
+  string Detail="";
+  int Day=0;
+  int Year=0;
+  ifstream inputFile;
+  inputFile.open("Detail.txt");
+	char x= ' ';
+  if(inputFile.good() )
   {
-      int firstDay = months[monthNumber].getStartDay();
-      int totalDays = months[monthNumber].getNumDays();
-      std::cout << " Sun  Mon  Tue  Wed  Thu  Fri " << std::endl;
-
-
-      for(int i=0 ; i<7 ; i++){
-      //print first line of calendar
-        if(i<firstDay){
-          //5 spaces total: 3 for the day width, and 1 on either end
-          std::cout << "     ";
-          //           " Sun ";
-          //           "  4  ";
-        }
-        else{
-          std::cout << "  " << i-firstDay+1 << "  " << std::endl;
+    for(int i=0; i<size; i++)
+    { 
+      if(x!='\n')//the order of reading files.
+      { 
+        inputFile >> Month >> Day >>Year;
+        while( x != '\n' && !inputFile.eof())
+        {	
+          x=inputFile.get();
+          if(x!='\n')
+          { 
+            Detail= Detail+ x;
+          }
         }
       }
+      DayArr[i].setDay(Day);
+      DayArr[i].setMonth(Month);
+      DayArr[i].setYear(Year);
+      DayArr[i].setDetail(Detail);
+      x=' ';
+      Detail="";
+      Month="";
+      Day=0;
+      Year=0;
+    }
+  }
+	inputFile.close();
+}
+//--------------------------------------------------------------------------------
+void writeNote(Day *DayArr, int size, Day CurrentDate, bool overlap) //this function has the ability to read through the txt file.
+//it created an Day object array and save those days, details. Now we have an array with all days and details in it.
+//we can use this to do single day display. eg. (After making sure which day to do single day display) cout<< DayArr[0].GetDetail();
+//you can use getMonth/date/year methods to check if the day you are going to display is an object in the object array!
+{
+	ofstream outputFile;
+  outputFile.open("Detail.txt");
+    for(int i=0; i<size; i++)
+    {
+        if(DayArr[i].getMonth()!=""||DayArr[i].getDate()!=0||DayArr[i].getYear()!=0)
+        {
+           outputFile << DayArr[i].getMonth() << " " << DayArr[i].getDate() << " " << DayArr[i].getYear() << " "<<DayArr[i].getDetail()<<'\n'; 
+        } 
+    }
 
-      int tempDay = 0;
-      for(int i=(7-firstDay+1) ; i<=totalDays ; i++){
-        if(i<10){//spacing for single digit numbers:
-          std::cout << "  " << i << "  ";
-        }
-        else{ //spacing for double digit numbers:
-          std::cout << " "  << i << "  ";
-        }
-        tempDay++;
-        if(tempDay>5){
-          std::cout << "\n";
-          tempDay=0;
-        }
+	outputFile.close();
+}
+
+//-----------------------------------------------------------------------------
+/**
+* @pre None.
+* @post The KAMYcal program will have run to user termination.
+* @return None.
+*/
+int main (int argc, char** argv)
+{
+  std::cout << "\nWelcome to KAMYcal" << std::endl;
+  //Variables blow are used for setting a current day
+  int option=0;
+  int CurrentDay=0;
+  int CurrentYear=0;
+  int arrSize=0;
+  bool overlap=false;
+  string date="";
+  string CurrentMonth="";
+  //Variables above are used for setting a current day
+  initMonths(); //initialize months
+
+  Day CurrentDate;  // create a day object. It's used for setting a current day.
+
+ 
+  arrSize=DetailNum();
+  Day *DayArr=new Day[arrSize];
+	//NoteReader* noteReader = new NoteReader("notes.txt");
+	//CurrentDate.getNote();
+  Print* printer = new Print(months);
+
+	//printer -> printYear();
+	//printer -> printMonth(4);
+	//WeekDisplay(2, 3);
+	//printer -> printWeek(10, "Sep", 2016);
+  readNote(DayArr, arrSize);
+  while(option!=6)
+  {
+    if(CurrentDate.isEmpty())
+    {
+      do
+      {
+        cout<<"\nPlease enter a current date(e.g., Aug/01/2016): "<<endl;
+        cin>>date;
+        //discerns the date from the user's string
+        CurrentMonth= date.substr(0,3);
+        CurrentDay=std::stoi(date.substr(4,5));
+        CurrentYear=std::stoi(date.substr(8,11)) + 2000;
+      }while(!CurrentDate.DateTest(CurrentMonth, CurrentDay, CurrentYear));
+    }
+      CurrentDate.setDay(CurrentDay);
+      CurrentDate.setMonth(CurrentMonth);
+      CurrentDate.setYear(CurrentYear);
+      cout<<"Do you want to display the current day?(Type 1)"<<endl;
+      cout<<"Do you want to do week display?(Type 2)"<<endl;
+      cout<<"Do you want to add details to the current day?(Type 3)"<<endl;
+      cout <<"Do you want to display a month?(Type 4)"<<endl;
+      cout <<"Do you want to display a year?(Type 5)"<<endl;
+      cout<<"Do you want to quit?(Type 6)"<<endl;
+      cin>>option;
+      if(option==1)
+      {
+        cout<<CurrentDay<<"/"<<CurrentMonth<<"/"<<CurrentYear<<endl;
+        printer->printDetail(DayArr, arrSize, CurrentDate);
+        
       }
+      else if(option==2)
+      {
+        printer -> printWeek(CurrentDay, CurrentMonth, CurrentYear);
+      }
+      else if(option==3)
+      { 
+        string detail="";
+        cout<<"What do you want to add to the current day?"<<endl;
+        cin.ignore(1,'\n');
+        getline(cin, detail);
+        cout<<"The added detail is: "<<detail<<endl;
+        CurrentDate.setDetail(detail);
+        if(!CurrentDate.contain(DayArr, arrSize))
+        {
+          DayArr[arrSize-1].setDay(CurrentDay);
+          DayArr[arrSize-1].setMonth(CurrentMonth);
+          DayArr[arrSize-1].setYear(CurrentYear);
+          DayArr[arrSize-1].setDetail(detail);
+        }
+        else
+        {
+          CurrentDate.updateArr(DayArr,arrSize);
+        }
+        writeNote(DayArr, arrSize, CurrentDate, overlap);
+      }
+      else if(option==4)
+      {
+          std::string monthUserInput;
+          std::cout << "\nPlease enter the name of the month (e.g., Aug): " << std::endl;
+          std::cin >> monthUserInput;
 
+          std::string temp;
+          for (int i=0 ; i<10 ; i++)
+          {
+            temp = months[i].getMonthName();
+            if(temp==monthUserInput){
+              printer -> printMonth(i);
+              break;
+            }
+
+            if(i==9){
+              std::cout << "\nMonth name is invalid." << std::endl;
+            }
+
+          }
+
+          //switch based off of first character of string to set month
+      }
+      else if(option==5)
+      {
+        printer-> printYear();
+      }
   }
-
-
-  else if(menuType==2)    //Week view calendar
-  {
-
-  }
-
-
-  else if(menuType==3)    //Single day calendar
-  {
-
-  }
-
-
 }
