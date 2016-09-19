@@ -57,11 +57,7 @@ int Day:: getYear()
     return(year);
 }
 
-
 int Day:: getDate()
-
-//int Day:: getDay()we have a getDate function, how are these two different?
-
 {
     return(date);
 }
@@ -88,10 +84,7 @@ std::string Day:: getNote()
 	} else {
 		NoteReader* noteReader;
 		return noteReader -> readNote();
-
 	}
-
-
 }
 
 bool Day:: DateTest(std::string month, int day, int year)
@@ -158,7 +151,7 @@ void Day:: setDetail(string De)//just set the detail of a day
 }
 
 bool Day:: contain(Day *DayArr, int size)//check if there are some exiting notes on this day
-//(if the date and month of the current day is as same as one of the objects in the array<I created a day array in main>), 
+//(if the date and month of the current day is as same as one of the objects in the array<I created a day array in main>),
 //if there is an exsting note, just do string(detail) addtion.
 {
     for(int i=0; i<size-1; i++)
@@ -178,7 +171,6 @@ bool Day:: contain(Day *DayArr, int size)//check if there are some exiting notes
 
 void Day:: updateArr(Day *DayArr, int size)
 {
-
     for(int i=0; i<size; i++)
     {
          if(date==DayArr[i].getDate() && month==DayArr[i].getMonth())
@@ -190,7 +182,7 @@ void Day:: updateArr(Day *DayArr, int size)
     }
 }
 
-string Day:: getDetail()//get the detail of a day.
+string Day:: getDetail()
 {
     return detail;
 }

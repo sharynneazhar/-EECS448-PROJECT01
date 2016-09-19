@@ -8,6 +8,14 @@
 \item 
 \hyperlink{classDay_a1f2f885b1328511d8b96b050673ba35d}{Day} (const int Date, const int Year, int Week, std\-::string month, bool note)
 \item 
+void \hyperlink{classDay_acb0181b89543f4a0e71f85d5ddb78651}{set\-Detail} (string De)
+\item 
+bool \hyperlink{classDay_a75acf851742fcd7ba36b742056c42d69}{contain} (\hyperlink{classDay}{Day} $\ast$Day\-Arr, int size)
+\item 
+string \hyperlink{classDay_adf187d211b1ea4561832486f7094b18b}{get\-Detail} ()
+\item 
+void \hyperlink{classDay_a9e9004a3ecb48ce0c4749766bd228898}{update\-Arr} (\hyperlink{classDay}{Day} $\ast$Day\-Arr, int size)
+\item 
 void \hyperlink{classDay_a0dcbab77f0504f01fdd9a8584b590121}{set\-Day} (int Date)
 \item 
 void \hyperlink{classDay_abd9ffcfab90af3e2defaa2491a3761bb}{set\-Week} (int Week)
@@ -31,6 +39,8 @@ bool \hyperlink{classDay_a097b2409c34e772e1b133c2c344ab2bf}{note\-Present} ()
 std\-::string \hyperlink{classDay_ac0d1e5a970de4e30bc563c33cf69cbc3}{get\-Note} ()
 \item 
 bool \hyperlink{classDay_afb77f4b9df921cfb4176ba6ef309b9b8}{Date\-Test} (std\-::string month, int day, int year)
+\item 
+bool \hyperlink{classDay_aa4dd0d85c6fa11300b10c2a40c530c4f}{is\-Empty} ()
 \end{DoxyCompactItemize}
 
 
@@ -74,6 +84,23 @@ Constructs a \hyperlink{classDay}{Day} class object with the given arguments for
 
 
 \subsection{Member Function Documentation}
+\hypertarget{classDay_a75acf851742fcd7ba36b742056c42d69}{\index{Day@{Day}!contain@{contain}}
+\index{contain@{contain}!Day@{Day}}
+\subsubsection[{contain}]{\setlength{\rightskip}{0pt plus 5cm}bool Day\-::contain (
+\begin{DoxyParamCaption}
+\item[{{\bf Day} $\ast$}]{Day\-Arr, }
+\item[{int}]{size}
+\end{DoxyParamCaption}
+)}}\label{classDay_a75acf851742fcd7ba36b742056c42d69}
+\begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+None. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+Bool for if there is a detail for this day in the input \hyperlink{classDay}{Day} array. 
+\end{DoxyReturn}
 \hypertarget{classDay_afb77f4b9df921cfb4176ba6ef309b9b8}{\index{Day@{Day}!Date\-Test@{Date\-Test}}
 \index{Date\-Test@{Date\-Test}!Day@{Day}}
 \subsubsection[{Date\-Test}]{\setlength{\rightskip}{0pt plus 5cm}bool Day\-::\-Date\-Test (
@@ -107,6 +134,22 @@ None.
 \end{DoxyPostcond}
 \begin{DoxyReturn}{Returns}
 Date value 
+\end{DoxyReturn}
+\hypertarget{classDay_adf187d211b1ea4561832486f7094b18b}{\index{Day@{Day}!get\-Detail@{get\-Detail}}
+\index{get\-Detail@{get\-Detail}!Day@{Day}}
+\subsubsection[{get\-Detail}]{\setlength{\rightskip}{0pt plus 5cm}string Day\-::get\-Detail (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDay_adf187d211b1ea4561832486f7094b18b}
+\begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+None. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+Detail value 
 \end{DoxyReturn}
 \hypertarget{classDay_ae10fc576ccdf6d58ef42c8cd1b371401}{\index{Day@{Day}!get\-Month@{get\-Month}}
 \index{get\-Month@{get\-Month}!Day@{Day}}
@@ -172,6 +215,22 @@ None.
 \begin{DoxyReturn}{Returns}
 Year value 
 \end{DoxyReturn}
+\hypertarget{classDay_aa4dd0d85c6fa11300b10c2a40c530c4f}{\index{Day@{Day}!is\-Empty@{is\-Empty}}
+\index{is\-Empty@{is\-Empty}!Day@{Day}}
+\subsubsection[{is\-Empty}]{\setlength{\rightskip}{0pt plus 5cm}bool Day\-::is\-Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDay_aa4dd0d85c6fa11300b10c2a40c530c4f}
+\begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+None. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+Bool for if the \hyperlink{classDay}{Day} has no month assigned 
+\end{DoxyReturn}
 \hypertarget{classDay_a097b2409c34e772e1b133c2c344ab2bf}{\index{Day@{Day}!note\-Present@{note\-Present}}
 \index{note\-Present@{note\-Present}!Day@{Day}}
 \subsubsection[{note\-Present}]{\setlength{\rightskip}{0pt plus 5cm}bool Day\-::note\-Present (
@@ -200,6 +259,22 @@ None.
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Sets the date variable. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\hypertarget{classDay_acb0181b89543f4a0e71f85d5ddb78651}{\index{Day@{Day}!set\-Detail@{set\-Detail}}
+\index{set\-Detail@{set\-Detail}!Day@{Day}}
+\subsubsection[{set\-Detail}]{\setlength{\rightskip}{0pt plus 5cm}void Day\-::set\-Detail (
+\begin{DoxyParamCaption}
+\item[{string}]{De}
+\end{DoxyParamCaption}
+)}}\label{classDay_acb0181b89543f4a0e71f85d5ddb78651}
+\begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Sets the detail variable. 
 \end{DoxyPostcond}
 \begin{DoxyReturn}{Returns}
 None. 
@@ -267,6 +342,23 @@ Sets the year variable.
 \end{DoxyPostcond}
 \begin{DoxyReturn}{Returns}
 None. 
+\end{DoxyReturn}
+\hypertarget{classDay_a9e9004a3ecb48ce0c4749766bd228898}{\index{Day@{Day}!update\-Arr@{update\-Arr}}
+\index{update\-Arr@{update\-Arr}!Day@{Day}}
+\subsubsection[{update\-Arr}]{\setlength{\rightskip}{0pt plus 5cm}void Day\-::update\-Arr (
+\begin{DoxyParamCaption}
+\item[{{\bf Day} $\ast$}]{Day\-Arr, }
+\item[{int}]{size}
+\end{DoxyParamCaption}
+)}}\label{classDay_a9e9004a3ecb48ce0c4749766bd228898}
+\begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+None. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+Updates the date array with details 
 \end{DoxyReturn}
 
 

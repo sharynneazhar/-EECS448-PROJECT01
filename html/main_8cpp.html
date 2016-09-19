@@ -102,6 +102,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Functions</h2></td></tr>
 <tr class="memitem:a10bbe665fe4d7b7e2eef1fb906f23517"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a10bbe665fe4d7b7e2eef1fb906f23517">initMonths</a> ()</td></tr>
 <tr class="separator:a10bbe665fe4d7b7e2eef1fb906f23517"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55f6dc109fd03d82ba6880948c9ad8ed"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a55f6dc109fd03d82ba6880948c9ad8ed">DetailNum</a> ()</td></tr>
+<tr class="separator:a55f6dc109fd03d82ba6880948c9ad8ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6263765f30b2b40db49565166cede7b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a6263765f30b2b40db49565166cede7b3">readNote</a> (<a class="el" href="classDay.html">Day</a> *DayArr, int size)</td></tr>
+<tr class="separator:a6263765f30b2b40db49565166cede7b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7315950f8e2c50d6f6dc5fc0e30fd597"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a7315950f8e2c50d6f6dc5fc0e30fd597">writeNote</a> (<a class="el" href="classDay.html">Day</a> *DayArr, int size, <a class="el" href="classDay.html">Day</a> CurrentDate, bool overlap)</td></tr>
+<tr class="separator:a7315950f8e2c50d6f6dc5fc0e30fd597"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
 <tr class="separator:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -120,6 +126,24 @@ Variables</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Andrew Thomas, Katie Hrenchir, Mac Crider, Yehan Li</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>10 September 2016 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a55f6dc109fd03d82ba6880948c9ad8ed"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int DetailNum </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section pre"><dt>Precondition</dt><dd>None. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Read through the file to check how many days have details. What should be the size of the day array. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of days with details. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a10bbe665fe4d7b7e2eef1fb906f23517"></a>
 <div class="memitem">
 <div class="memproto">
@@ -163,6 +187,76 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section pre"><dt>Precondition</dt><dd>None. </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>The KAMYcal program will have run to user termination. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>None. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6263765f30b2b40db49565166cede7b3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void readNote </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classDay.html">Day</a> *&#160;</td>
+          <td class="paramname"><em>DayArr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section pre"><dt>Precondition</dt><dd>None. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Builds a <a class="el" href="classDay.html">Day</a> array with days from the input file with the details </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>None. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7315950f8e2c50d6f6dc5fc0e30fd597"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void writeNote </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classDay.html">Day</a> *&#160;</td>
+          <td class="paramname"><em>DayArr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classDay.html">Day</a>&#160;</td>
+          <td class="paramname"><em>CurrentDate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>overlap</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section pre"><dt>Precondition</dt><dd>None. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Writes the program's <a class="el" href="classDay.html">Day</a> array objects with notes to the output file </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>None. </dd></dl>
 
 </div>

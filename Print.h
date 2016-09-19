@@ -57,11 +57,16 @@ class Print
 
 	/**
 	*	@pre None.
-	*	@post Lists the input date in the format "Sunday, January 1, 2017" and reports the notes attached to the day or the lask of notes
+	*	@post Outputs the input date in the format "Sunday, January 1, 2017" and reports the notes attached to the day or the lask of notes to the console.
 	*	@return None.
 	*/
 	void printDay(int day, int month);
 
+	/**
+	*	@pre None.
+	*	@post Outputs the details of the date to the console.
+	*	@return None.
+	*/
 	void printDetail(Day *DayArr, int size, Day CurrentDay);
 
 	//!> Array of Month objects

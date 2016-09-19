@@ -42,15 +42,38 @@ class Day
     */
     Day(const int Date, const int Year, int Week, std::string month, bool note);
 
+    /**
+    *  @pre None.
+    *  @post Sets the detail variable.
+    *  @return None.
+    */
     void setDetail(string De);
+
+    /**
+    *  @pre None.
+    *  @post None.
+    *  @return Bool for if there is a detail for this day in the input Day array.
+    */
     bool contain(Day *DayArr, int size);//write detals to a txt file;
+
+    /**
+    *  @pre None.
+    *  @post None.
+    *  @return Detail value
+    */
     string getDetail();//get the detail of a day.
+
+    /**
+    *  @pre None.
+    *  @post None.
+    *  @return Updates the date array with details
+    */
     void updateArr(Day *DayArr, int size);
+
     /**
     *  @pre None.
     *  @post Sets the date variable.
     *  @return None.
-    *
     */
     void setDay(int Date);
 
@@ -58,7 +81,6 @@ class Day
     *  @pre None.
     *  @post Sets the week variable.
     *  @return None.
-    *
     */
     void setWeek(int Week);
 
@@ -66,7 +88,6 @@ class Day
     *  @pre None.
     *  @post Sets the month variable.
     *  @return None.
-    *
     */
     void setMonth(std::string month);
 
@@ -74,7 +95,6 @@ class Day
     *  @pre None.
     *  @post Sets the year variable.
     *  @return None.
-    *
     */
     void setYear(const int Year);
 
@@ -82,7 +102,6 @@ class Day
     *  @pre None.
     *  @post Sets the note variable.
     *  @return None.
-    *
     */
     void setNote(bool note);
 
@@ -90,7 +109,6 @@ class Day
     *  @pre None.
     *  @post None.
     *  @return Date value
-    *
     */
     int getDate();
 
@@ -98,7 +116,6 @@ class Day
     *  @pre None.
     *  @post None.
     *  @return Week value
-    *
     */
     int getWeek();
 
@@ -106,7 +123,6 @@ class Day
     *  @pre None.
     *  @post None.
     *  @return Returns the month variable (string).
-    *
     */
     std::string getMonth();
 
@@ -114,7 +130,6 @@ class Day
     *  @pre None.
     *  @post None.
     *  @return Year value
-    *
     */
     int getYear();
 
@@ -122,7 +137,6 @@ class Day
     *  @pre None.
     *  @post None.
     *  @return Note value
-    *
     */
     bool notePresent();
 
@@ -130,7 +144,6 @@ class Day
     *  @pre There is a note present (note == true)
     *  @post None.
     *  @return The string of notes for the day
-    *
     */
     std::string getNote();
 
@@ -140,9 +153,14 @@ class Day
     *  @pre None.
     *  @post None.
     *  @return Bool for if the input date is a valid calendar date
-    *
     */
     bool DateTest(std::string month, int day, int year);
+
+    /**
+    *  @pre None.
+    *  @post None.
+    *  @return Bool for if the Day has no month assigned
+    */
     bool isEmpty();
 
 };
