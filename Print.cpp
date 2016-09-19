@@ -380,13 +380,11 @@ void Print:: printDetail(Day *DayArr, int size, Day CurrentDay)
            cout<< "-" << DayArr[i].getDetail()<<endl;
            i=size+1;
         }
-        /*
         else
         {
           cout<<"!!!!!"<<endl;
           cout<<CurrentDay.getDetail()<<endl;
           i=size+1;
         }
-        */
     }
 }
