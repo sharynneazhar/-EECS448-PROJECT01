@@ -16,12 +16,24 @@ class NoteReader
 {
 
 	public:
-	NoteReader(std::string file);
-	std::string readNote();
+
+		/**
+		*	@pre None.
+		*	@post Constructs a NoteReader class object with input file "file"
+		*	@return NoteReader class object
+		*/
+		NoteReader(std::string file);
+
+		/**
+		*	@pre An external input file is available
+		*	@post None.
+		*	@return Note string from an input file
+		*/
+		std::string readNote();
 
 	private:
-	std::string m_file;
-	std::string note;
+		std::string m_file;
+		std::string note;
 
 };
 

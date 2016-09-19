@@ -62,6 +62,11 @@ std::string Month:: getMonthName()
     return(monthName);
 }
 
+Day* Month:: getDays()
+{
+	return days;
+}
+
 int Month:: getNumDays()
 {
     return(numDays);

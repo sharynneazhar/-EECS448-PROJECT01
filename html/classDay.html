@@ -94,6 +94,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a0d38b5839dd80b179cb8f0669283b3aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f2f885b1328511d8b96b050673ba35d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDay.html#a1f2f885b1328511d8b96b050673ba35d">Day</a> (const int Date, const int Year, int Week, std::string month, bool note)</td></tr>
 <tr class="separator:a1f2f885b1328511d8b96b050673ba35d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb0181b89543f4a0e71f85d5ddb78651"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDay.html#acb0181b89543f4a0e71f85d5ddb78651">setDetail</a> (string De)</td></tr>
+<tr class="separator:acb0181b89543f4a0e71f85d5ddb78651"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75acf851742fcd7ba36b742056c42d69"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDay.html#a75acf851742fcd7ba36b742056c42d69">contain</a> (<a class="el" href="classDay.html">Day</a> *DayArr, int size)</td></tr>
+<tr class="separator:a75acf851742fcd7ba36b742056c42d69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf187d211b1ea4561832486f7094b18b"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDay.html#adf187d211b1ea4561832486f7094b18b">getDetail</a> ()</td></tr>
+<tr class="separator:adf187d211b1ea4561832486f7094b18b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e9004a3ecb48ce0c4749766bd228898"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDay.html#a9e9004a3ecb48ce0c4749766bd228898">updateArr</a> (<a class="el" href="classDay.html">Day</a> *DayArr, int size)</td></tr>
+<tr class="separator:a9e9004a3ecb48ce0c4749766bd228898"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0dcbab77f0504f01fdd9a8584b590121"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDay.html#a0dcbab77f0504f01fdd9a8584b590121">setDay</a> (int Date)</td></tr>
 <tr class="separator:a0dcbab77f0504f01fdd9a8584b590121"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd9ffcfab90af3e2defaa2491a3761bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDay.html#abd9ffcfab90af3e2defaa2491a3761bb">setWeek</a> (int Week)</td></tr>
@@ -118,6 +126,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac0d1e5a970de4e30bc563c33cf69cbc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb77f4b9df921cfb4176ba6ef309b9b8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDay.html#afb77f4b9df921cfb4176ba6ef309b9b8">DateTest</a> (std::string month, int day, int year)</td></tr>
 <tr class="separator:afb77f4b9df921cfb4176ba6ef309b9b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4dd0d85c6fa11300b10c2a40c530c4f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDay.html#aa4dd0d85c6fa11300b10c2a40c530c4f">isEmpty</a> ()</td></tr>
+<tr class="separator:aa4dd0d85c6fa11300b10c2a40c530c4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a0d38b5839dd80b179cb8f0669283b3aa"></a>
@@ -186,6 +196,35 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a75acf851742fcd7ba36b742056c42d69"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Day::contain </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classDay.html">Day</a> *&#160;</td>
+          <td class="paramname"><em>DayArr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section pre"><dt>Precondition</dt><dd>None. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>None. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Bool for if there is a detail for this day in the input <a class="el" href="classDay.html">Day</a> array. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="afb77f4b9df921cfb4176ba6ef309b9b8"></a>
 <div class="memitem">
 <div class="memproto">
@@ -236,6 +275,24 @@ Public Member Functions</h2></td></tr>
 <dl class="section pre"><dt>Precondition</dt><dd>None. </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>None. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>Date value </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="adf187d211b1ea4561832486f7094b18b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Day::getDetail </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section pre"><dt>Precondition</dt><dd>None. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>None. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Detail value </dd></dl>
 
 </div>
 </div>
@@ -311,6 +368,24 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aa4dd0d85c6fa11300b10c2a40c530c4f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Day::isEmpty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section pre"><dt>Precondition</dt><dd>None. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>None. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Bool for if the <a class="el" href="classDay.html">Day</a> has no month assigned </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a097b2409c34e772e1b133c2c344ab2bf"></a>
 <div class="memitem">
 <div class="memproto">
@@ -344,6 +419,25 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section pre"><dt>Precondition</dt><dd>None. </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Sets the date variable. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>None. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="acb0181b89543f4a0e71f85d5ddb78651"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Day::setDetail </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>De</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section pre"><dt>Precondition</dt><dd>None. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Sets the detail variable. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>None. </dd></dl>
 
 </div>
@@ -421,6 +515,35 @@ Public Member Functions</h2></td></tr>
 <dl class="section pre"><dt>Precondition</dt><dd>None. </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Sets the year variable. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>None. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9e9004a3ecb48ce0c4749766bd228898"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Day::updateArr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classDay.html">Day</a> *&#160;</td>
+          <td class="paramname"><em>DayArr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section pre"><dt>Precondition</dt><dd>None. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>None. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Updates the date array with details </dd></dl>
 
 </div>
 </div>

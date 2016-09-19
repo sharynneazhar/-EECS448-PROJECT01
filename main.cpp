@@ -70,7 +70,12 @@ void initMonths() //intitalizes month object array
 }
 
 //----------------------------------------------------------------------------------------
-int DetailNum()//read through the file to check how many days have details. What should be the size of the day array.
+/**
+* @pre None.
+* @post Read through the file to check how many days have details. What should be the size of the day array.
+* @return Number of days with details.
+*/
+int DetailNum()
 {
   int num=0;
   char check=' ';
@@ -90,10 +95,12 @@ int DetailNum()//read through the file to check how many days have details. What
 }
 
 //-----------------------------------------------------------------------------
-void readNote(Day *DayArr, int size) //this function has the ability to read through the txt file.
-//it created an Day object array and save those days, details. Now we have an array with all days and details in it.
-//we can use this to do single day display. eg. (After making sure which day to do single day display) cout<< DayArr[0].GetDetail();
-//you can use getMonth/date/year methods to check if the day you are going to display is an object in the object array!
+/**
+* @pre None.
+* @post Builds a Day array with days from the input file with the details
+* @return None.
+*/
+void readNote(Day *DayArr, int size)
 {
   string Month="";
   string Detail="";
@@ -105,15 +112,15 @@ void readNote(Day *DayArr, int size) //this function has the ability to read thr
   if(inputFile.good() )
   {
     for(int i=0; i<size; i++)
-    { 
+    {
       if(x!='\n')//the order of reading files.
-      { 
+      {
         inputFile >> Month >> Day >>Year;
         while( x != '\n' && !inputFile.eof())
-        {	
+        {
           x=inputFile.get();
           if(x!='\n')
-          { 
+          {
             Detail= Detail+ x;
           }
         }
@@ -132,10 +139,12 @@ void readNote(Day *DayArr, int size) //this function has the ability to read thr
 	inputFile.close();
 }
 //--------------------------------------------------------------------------------
-void writeNote(Day *DayArr, int size, Day CurrentDate, bool overlap) //this function has the ability to read through the txt file.
-//it created an Day object array and save those days, details. Now we have an array with all days and details in it.
-//we can use this to do single day display. eg. (After making sure which day to do single day display) cout<< DayArr[0].GetDetail();
-//you can use getMonth/date/year methods to check if the day you are going to display is an object in the object array!
+/**
+* @pre None.
+* @post Writes the program's Day array objects with notes to the output file
+* @return None.
+*/
+void writeNote(Day *DayArr, int size, Day CurrentDate, bool overlap)
 {
 	ofstream outputFile;
   outputFile.open("Detail.txt");
@@ -143,11 +152,39 @@ void writeNote(Day *DayArr, int size, Day CurrentDate, bool overlap) //this func
     {
         if(DayArr[i].getMonth()!=""||DayArr[i].getDate()!=0||DayArr[i].getYear()!=0)
         {
-           outputFile << DayArr[i].getMonth() << " " << DayArr[i].getDate() << " " << DayArr[i].getYear() << " "<<DayArr[i].getDetail()<<'\n'; 
-        } 
+           outputFile << DayArr[i].getMonth() << " " << DayArr[i].getDate() << " " << DayArr[i].getYear() << " "<<DayArr[i].getDetail()<<'\n';
+        }
     }
 
 	outputFile.close();
+}
+
+//-----------------------------------------------------------------------------
+
+void removeNote(Day *DayArr, int size, std::string date, Day CurrentDate)
+{
+
+        std::string month= date.substr(0,3);
+        int day =std::stoi(date.substr(4,5));
+
+		for(int i=0; i < size; i++) {
+
+			if(DayArr[i].getMonth() == month && DayArr[i].getDate() == day) {
+				std::cout << DayArr[i].getDetail() << std::endl;
+				DayArr[i].setDetail("");
+				std::cout<< DayArr[i].getDetail() << std::endl;
+
+				writeNote(DayArr, size, CurrentDate, false);
+
+				return;
+
+			}
+
+		}
+
+		std::cout<< "No note was found on that date.\n";
+
+
 }
 
 //-----------------------------------------------------------------------------
@@ -172,19 +209,13 @@ int main (int argc, char** argv)
 
   Day CurrentDate;  // create a day object. It's used for setting a current day.
 
- 
+
   arrSize=DetailNum();
   Day *DayArr=new Day[arrSize];
-	//NoteReader* noteReader = new NoteReader("notes.txt");
-	//CurrentDate.getNote();
   Print* printer = new Print(months);
 
-	//printer -> printYear();
-	//printer -> printMonth(4);
-	//WeekDisplay(2, 3);
-	//printer -> printWeek(10, "Sep", 2016);
   readNote(DayArr, arrSize);
-  while(option!=6)
+  while(option!=7)
   {
     if(CurrentDate.isEmpty())
     {
@@ -201,25 +232,26 @@ int main (int argc, char** argv)
       CurrentDate.setDay(CurrentDay);
       CurrentDate.setMonth(CurrentMonth);
       CurrentDate.setYear(CurrentYear);
-      cout<<"Do you want to display the current day?(Type 1)"<<endl;
+      cout<<"\n\nDo you want to display the current day?(Type 1)"<<endl;
       cout<<"Do you want to do week display?(Type 2)"<<endl;
       cout<<"Do you want to add details to the current day?(Type 3)"<<endl;
       cout <<"Do you want to display a month?(Type 4)"<<endl;
       cout <<"Do you want to display a year?(Type 5)"<<endl;
-      cout<<"Do you want to quit?(Type 6)"<<endl;
+      cout <<"Do you want to remove from current date?(Type 6)"<<endl;
+      cout<<"Do you want to quit?(Type 7)"<<endl;
       cin>>option;
       if(option==1)
       {
         cout<<CurrentDay<<"/"<<CurrentMonth<<"/"<<CurrentYear<<endl;
         printer->printDetail(DayArr, arrSize, CurrentDate);
-        
+
       }
       else if(option==2)
       {
         printer -> printWeek(CurrentDay, CurrentMonth, CurrentYear);
       }
       else if(option==3)
-      { 
+      {
         string detail="";
         cout<<"What do you want to add to the current day?"<<endl;
         cin.ignore(1,'\n');
@@ -266,5 +298,9 @@ int main (int argc, char** argv)
       {
         printer-> printYear();
       }
+	  else if (option == 6)
+	  {
+		removeNote(DayArr, arrSize, date, CurrentDate);
+	  }
   }
 }

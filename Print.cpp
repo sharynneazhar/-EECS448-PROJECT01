@@ -19,20 +19,20 @@ Print:: Print(Month monthsArr[])
 void Print:: printYear()
 {
 
-  for(int i=0; i<=9; i++)
+  for(int j=0; j<=9; j++)
   {
-      int firstDay = months[i].getStartDay();
-      int totalDays = months[i].getNumDays();
+      int firstDay = months[j].getStartDay();
+      int totalDays = months[j].getNumDays();
 
-	  std::cout << "\n\n" << months[i].getMonthName() << std::endl;
+	  std::cout << "\n\n" << "\e[1m " << months[j].getMonthName() << "\e[0m" << std::endl;
       std::cout << "\n Sun  Mon  Tue  Wed  Thu  Fri Sat  " << std::endl;
 
       for(int i=0 ; i<7 ; i++){
       //print first line of calendar
         if(i>=firstDay){
 
-          std::cout << "  " << i-firstDay+1  ;
-
+	  noteCheck( i-firstDay +1, j);
+      std::cout << "  " << i-firstDay+1 << "\e[0m" ;
 			if(i==6){
 				std::cout<< "\n";
 			} else {
@@ -51,10 +51,12 @@ void Print:: printYear()
       int tempDay = 0;
       for(int i=(7-firstDay+1) ; i<=totalDays ; i++){
         if(i<10){//spacing for single digit numbers:
-          std::cout << "  " << i << "  ";
+ 			noteCheck(i, j);
+     		 std::cout << "  " << i <<"\e[0m" << "  ";
         }
         else{ //spacing for double digit numbers:
-          std::cout << " "  << i << "  ";
+			noteCheck(i, j);
+          std::cout << " "  << i <<"\e[0m" << "  ";
         }
         tempDay++;
         if(tempDay>6){
@@ -71,20 +73,55 @@ void Print:: printYear()
 
 void Print:: printMonth(int monthNumber)
 {
+<<<<<<< HEAD
 	std::cout << "\n\n";
+||||||| merged common ancestors
+std::cout << "\n\n";
+=======
+std::cout << "\n";
+>>>>>>> 13f67b349b0c6043c96c59946c40de13004e6cbe
 
   int firstDay = months[monthNumber].getStartDay();
   int totalDays = months[monthNumber].getNumDays();
+<<<<<<< HEAD
 
   std::cout << " Sun  Mon  Tue  Wed  Thu  Fri  Sat " << std::endl;
+||||||| merged common ancestors
+  std::cout << " Sun  Mon  Tue  Wed  Thu  Fri Sat  " << std::endl;
+=======
+
+  std::cout << "\n" << "\e[1m" << months[monthNumber].getMonthName() << "\e[0m"<< std::endl;
+  std::cout << " Sun  Mon  Tue  Wed  Thu  Fri Sat  " << std::endl;
+>>>>>>> 13f67b349b0c6043c96c59946c40de13004e6cbe
 
   for(int i=0 ; i<7 ; i++){
   //print first line of calendar
     if(i>=firstDay){
+<<<<<<< HEAD
       std::cout << "  " << i-firstDay+1  << "  ";
 			if(i==6){
 					std::cout<< "\n";
 			}
+||||||| merged common ancestors
+
+      std::cout << "  " << i-firstDay+1  ;
+
+		if(i==6){
+			std::cout<< "\n";
+		} else {
+			std::cout<< "  ";
+		}
+=======
+
+	  noteCheck( i-firstDay +1, monthNumber);
+      std::cout << "  " << i-firstDay+1 << "\e[0m" ;
+
+		if(i==6){
+			std::cout<< "\n";
+		} else {
+			std::cout<< "  ";
+		}
+>>>>>>> 13f67b349b0c6043c96c59946c40de13004e6cbe
     }
     else{
       //5 spaces total: 3 for the day width, and 1 on either end
@@ -121,6 +158,7 @@ void Print:: printMonth(int monthNumber)
 
 	//prints the remaining lines of the calendar:
   for(int i=(7-firstDay+1) ; i<=totalDays ; i++){
+<<<<<<< HEAD
 		if(i<=totalDays){
 			if(i<10){//spacing for single digit numbers:
 	      	std::cout << "  " << i << "  ";
@@ -134,6 +172,22 @@ void Print:: printMonth(int monthNumber)
 			tempDay=6;
 		}
 
+||||||| merged common ancestors
+    if(i<10){//spacing for single digit numbers:
+      std::cout << "  " << i << "  ";
+    }
+    else{ //spacing for double digit numbers:
+      std::cout << " "  << i << "  ";
+    }
+=======
+    if(i<10){//spacing for single digit numbers:
+	 noteCheck(i, monthNumber);
+      std::cout << "  " << i <<"\e[0m" << "  ";
+    }
+    else{ //spacing for double digit numbers:
+      std::cout << " "  << i <<"\e[0m" << "  ";
+    }
+>>>>>>> 13f67b349b0c6043c96c59946c40de13004e6cbe
     tempDay++;
     if(tempDay>6){
 	      std::cout << "\n";
@@ -163,6 +217,19 @@ void Print:: printMonth(int monthNumber)
 
 //-----------------------------------------------------------------------------
 
+void Print :: noteCheck(int date, int monthNumber)
+{
+	Day* daysArr = months[monthNumber].getDays();
+
+	if ( daysArr[date+1].notePresent() == true ) {
+		std::cout<< "\e[31m" ;
+	}
+	//delete daysArr;
+
+}
+
+
+//-----------------------------------------------------------------------------
 
 void Print:: printWeek(int currentDay, std::string currentMonth, int currentYear)
 {
@@ -408,16 +475,14 @@ void Print:: printDetail(Day *DayArr, int size, Day CurrentDay)
     {
         if(CurrentDay.getDate()==DayArr[i].getDate() && CurrentDay.getMonth()==DayArr[i].getMonth())
         {
-           cout<<DayArr[i].getDetail()<<endl;
+           cout<< "-" << DayArr[i].getDetail()<<endl;
            i=size+1;
         }
-        /*
         else
         {
           cout<<"!!!!!"<<endl;
           cout<<CurrentDay.getDetail()<<endl;
           i=size+1;
         }
-        */
     }
 }
