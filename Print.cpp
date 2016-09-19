@@ -377,7 +377,7 @@ void Print:: printDetail(Day *DayArr, int size, Day CurrentDay)
     {
         if(CurrentDay.getDate()==DayArr[i].getDate() && CurrentDay.getMonth()==DayArr[i].getMonth())
         {
-           cout<<DayArr[i].getDetail()<<endl;
+           cout<< "-" << DayArr[i].getDetail()<<endl;
            i=size+1;
         }
         /*

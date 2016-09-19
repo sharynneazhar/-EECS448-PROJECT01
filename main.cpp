@@ -170,11 +170,17 @@ void removeNote(Day *DayArr, int size, std::string CurrentDate)
 		for(int i=0; i < size; i++) {
 
 			if(DayArr[i].getMonth() == month && DayArr[i].getDate() == day) {
-				std::cout<<"help";
+				std::cout << DayArr[i].getDetail() << std::endl;
+				DayArr[i].setDetail("");
+				std::cout<< DayArr[i].getDetail() << std::endl;
+
+				return;
 
 			}
 
 		}
+
+		std::cout<< "No note was found on that date.\n";
 
 
 }
