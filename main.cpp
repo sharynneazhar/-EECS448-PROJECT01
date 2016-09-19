@@ -160,6 +160,26 @@ void writeNote(Day *DayArr, int size, Day CurrentDate, bool overlap)
 }
 
 //-----------------------------------------------------------------------------
+
+void removeNote(Day *DayArr, int size, std::string CurrentDate)
+{
+
+        std::string month= CurrentDate.substr(0,3);
+        int day =std::stoi(CurrentDate.substr(4,5));
+
+		for(int i=0; i < size; i++) {
+
+			if(DayArr[i].getMonth() == month && DayArr[i].getDate() == day) {
+				std::cout<<"help";
+
+			}
+
+		}
+
+
+}
+
+//-----------------------------------------------------------------------------
 /**
 * @pre None.
 * @post The KAMYcal program will have run to user termination.
@@ -184,16 +204,10 @@ int main (int argc, char** argv)
 
   arrSize=DetailNum();
   Day *DayArr=new Day[arrSize];
-	//NoteReader* noteReader = new NoteReader("notes.txt");
-	//CurrentDate.getNote();
   Print* printer = new Print(months);
 
-	//printer -> printYear();
-	//printer -> printMonth(4);
-	//WeekDisplay(2, 3);
-	//printer -> printWeek(10, "Sep", 2016);
   readNote(DayArr, arrSize);
-  while(option!=6)
+  while(option!=7)
   {
     if(CurrentDate.isEmpty())
     {
@@ -210,12 +224,13 @@ int main (int argc, char** argv)
       CurrentDate.setDay(CurrentDay);
       CurrentDate.setMonth(CurrentMonth);
       CurrentDate.setYear(CurrentYear);
-      cout<<"Do you want to display the current day?(Type 1)"<<endl;
+      cout<<"\n\nDo you want to display the current day?(Type 1)"<<endl;
       cout<<"Do you want to do week display?(Type 2)"<<endl;
       cout<<"Do you want to add details to the current day?(Type 3)"<<endl;
       cout <<"Do you want to display a month?(Type 4)"<<endl;
       cout <<"Do you want to display a year?(Type 5)"<<endl;
-      cout<<"Do you want to quit?(Type 6)"<<endl;
+      cout <<"Do you want to remove from current date?(Type 6)"<<endl;
+      cout<<"Do you want to quit?(Type 7)"<<endl;
       cin>>option;
       if(option==1)
       {
@@ -275,5 +290,9 @@ int main (int argc, char** argv)
       {
         printer-> printYear();
       }
+	  else if (option == 6)
+	  {
+		removeNote(DayArr, arrSize, date);
+	  }
   }
 }
