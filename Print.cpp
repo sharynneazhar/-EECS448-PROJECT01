@@ -354,17 +354,20 @@ void Print:: printDay(int day, int month)
 void Print:: printDetail(Day *DayArr, int size, Day CurrentDay)
 {
   
-    for(int i=0; i<size; i++)
+    for(int i=0; i<size-1; i++)
     {
         if(CurrentDay.getDate()==DayArr[i].getDate() && CurrentDay.getMonth()==DayArr[i].getMonth())
         {
-           cout<<DayArr[i].getDetail()<< CurrentDay.getDetail()<<endl;
+           cout<<DayArr[i].getDetail()<<endl;
            i=size+1;
         }
+        /*
         else
         {
+          cout<<"!!!!!"<<endl;
           cout<<CurrentDay.getDetail()<<endl;
           i=size+1;
         }
+        */
     }
 }
