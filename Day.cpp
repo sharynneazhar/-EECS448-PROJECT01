@@ -81,6 +81,7 @@ bool Day:: notePresent()
     return(note);
 }
 
+
 std::string Day:: getNote()
 {
 	if(!notePresent() ) {
@@ -90,9 +91,8 @@ std::string Day:: getNote()
 		return noteReader -> readNote();
 
 	}
-
-
 }
+
 
 bool Day:: DateTest(std::string month, int day, int year)
 {
@@ -140,8 +140,8 @@ bool Day:: DateTest(std::string month, int day, int year)
     }
     else
     {
-        return false;
         std::cout<<"Please input the month as what is demonstrated in the examples."<<std::endl;
+        return false;
     }
     //check the format of user's input of Current date.
   }
@@ -158,7 +158,7 @@ void Day:: setDetail(string De)//just set the detail of a day
 }
 
 bool Day:: contain(Day *DayArr, int size)//check if there are some exiting notes on this day
-//(if the date and month of the current day is as same as one of the objects in the array<I created a day array in main>), 
+//(if the date and month of the current day is as same as one of the objects in the array<I created a day array in main>),
 //if there is an exsting note, just do string(detail) addtion.
 {
     for(int i=0; i<size-1; i++)
