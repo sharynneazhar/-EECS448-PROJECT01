@@ -45,24 +45,20 @@ class Day
     */
     Day(const int Date, const int Year, int Week, std::string month, bool note);
 
-<<<<<<< HEAD
-    void setDetail(std::string De);
-||||||| merged common ancestors
+
     void setDetail(string De);
-=======
+
     /**
     *  @pre None.
     *  @post Sets the detail variable.
     *  @return None.
     */
-    void setDetail(string De);
 
     /**
     *  @pre None.
     *  @post None.
     *  @return Bool for if there is a detail for this day in the input Day array.
     */
->>>>>>> 13f67b349b0c6043c96c59946c40de13004e6cbe
     bool contain(Day *DayArr, int size);//write detals to a txt file;
 
     /**
