@@ -19,20 +19,20 @@ Print:: Print(Month monthsArr[])
 void Print:: printYear()
 {
 
-  for(int i=0; i<=9; i++)
+  for(int j=0; j<=9; j++)
   {
-      int firstDay = months[i].getStartDay();
-      int totalDays = months[i].getNumDays();
+      int firstDay = months[j].getStartDay();
+      int totalDays = months[j].getNumDays();
 
-	  std::cout << "\n\n" << months[i].getMonthName() << std::endl;
+	  std::cout << "\n\n" << "\e[1m " << months[j].getMonthName() << "\e[0m" << std::endl;
       std::cout << "\n Sun  Mon  Tue  Wed  Thu  Fri Sat  " << std::endl;
 
       for(int i=0 ; i<7 ; i++){
       //print first line of calendar
         if(i>=firstDay){
 
-          std::cout << "  " << i-firstDay+1  ;
-
+	  noteCheck( i-firstDay +1, j);
+      std::cout << "  " << i-firstDay+1 << "\e[0m" ;
 			if(i==6){
 				std::cout<< "\n";
 			} else {
@@ -51,10 +51,12 @@ void Print:: printYear()
       int tempDay = 0;
       for(int i=(7-firstDay+1) ; i<=totalDays ; i++){
         if(i<10){//spacing for single digit numbers:
-          std::cout << "  " << i << "  ";
+ 			noteCheck(i, j);
+     		 std::cout << "  " << i <<"\e[0m" << "  ";
         }
         else{ //spacing for double digit numbers:
-          std::cout << " "  << i << "  ";
+			noteCheck(i, j);
+          std::cout << " "  << i <<"\e[0m" << "  ";
         }
         tempDay++;
         if(tempDay>6){
@@ -71,17 +73,20 @@ void Print:: printYear()
 
 void Print:: printMonth(int monthNumber)
 {
-std::cout << "\n\n";
+std::cout << "\n";
 
   int firstDay = months[monthNumber].getStartDay();
   int totalDays = months[monthNumber].getNumDays();
+
+  std::cout << "\n" << "\e[1m" << months[monthNumber].getMonthName() << "\e[0m"<< std::endl;
   std::cout << " Sun  Mon  Tue  Wed  Thu  Fri Sat  " << std::endl;
 
   for(int i=0 ; i<7 ; i++){
   //print first line of calendar
     if(i>=firstDay){
 
-      std::cout << "  " << i-firstDay+1  ;
+	  noteCheck( i-firstDay +1, monthNumber);
+      std::cout << "  " << i-firstDay+1 << "\e[0m" ;
 
 		if(i==6){
 			std::cout<< "\n";
@@ -101,10 +106,11 @@ std::cout << "\n\n";
   int tempDay = 0;
   for(int i=(7-firstDay+1) ; i<=totalDays ; i++){
     if(i<10){//spacing for single digit numbers:
-      std::cout << "  " << i << "  ";
+	 noteCheck(i, monthNumber);
+      std::cout << "  " << i <<"\e[0m" << "  ";
     }
     else{ //spacing for double digit numbers:
-      std::cout << " "  << i << "  ";
+      std::cout << " "  << i <<"\e[0m" << "  ";
     }
     tempDay++;
     if(tempDay>6){
@@ -118,6 +124,19 @@ std::cout << "\n\n";
 
 //-----------------------------------------------------------------------------
 
+void Print :: noteCheck(int date, int monthNumber)
+{
+	Day* daysArr = months[monthNumber].getDays();
+
+	if ( daysArr[date+1].notePresent() == true ) {
+		std::cout<< "\e[31m" ;
+	}
+	//delete daysArr;
+
+}
+
+
+//-----------------------------------------------------------------------------
 
 void Print:: printWeek(int currentDay, std::string currentMonth, int currentYear)
 {

@@ -90,6 +90,8 @@ class Month
       */
       int getNumDays();
 
+	  Day* getDays();
+
       /**
       *  @pre None.
       *  @post None.

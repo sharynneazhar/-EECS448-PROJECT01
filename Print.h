@@ -40,6 +40,8 @@ class Print
 	*/
 	void printMonth(int monthNumber);
 
+	void noteCheck(int date, int monthNumber);
+
 	/**
 	*	@pre None.
 	*	@post Sets up weekDisplay for the input date
