@@ -43,8 +43,9 @@ class Day
     Day(const int Date, const int Year, int Week, std::string month, bool note);
 
     void setDetail(string De);
-    bool WriteDetail(Day *DayArr, int size);//write detals to a txt file;
+    bool contain(Day *DayArr, int size);//write detals to a txt file;
     string getDetail();//get the detail of a day.
+    void updateArr(Day *DayArr, int size);
     /**
     *  @pre None.
     *  @post Sets the date variable.
