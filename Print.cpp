@@ -73,36 +73,36 @@ void Print:: printYear()
 
 void Print:: printMonth(int monthNumber)
 {
-<<<<<<< HEAD
+
 	std::cout << "\n\n";
-||||||| merged common ancestors
+
 std::cout << "\n\n";
-=======
+
 std::cout << "\n";
->>>>>>> 13f67b349b0c6043c96c59946c40de13004e6cbe
+
 
   int firstDay = months[monthNumber].getStartDay();
   int totalDays = months[monthNumber].getNumDays();
-<<<<<<< HEAD
+
 
   std::cout << " Sun  Mon  Tue  Wed  Thu  Fri  Sat " << std::endl;
-||||||| merged common ancestors
+
   std::cout << " Sun  Mon  Tue  Wed  Thu  Fri Sat  " << std::endl;
-=======
+
 
   std::cout << "\n" << "\e[1m" << months[monthNumber].getMonthName() << "\e[0m"<< std::endl;
   std::cout << " Sun  Mon  Tue  Wed  Thu  Fri Sat  " << std::endl;
->>>>>>> 13f67b349b0c6043c96c59946c40de13004e6cbe
+
 
   for(int i=0 ; i<7 ; i++){
   //print first line of calendar
     if(i>=firstDay){
-<<<<<<< HEAD
+
       std::cout << "  " << i-firstDay+1  << "  ";
 			if(i==6){
 					std::cout<< "\n";
 			}
-||||||| merged common ancestors
+
 
       std::cout << "  " << i-firstDay+1  ;
 
@@ -111,7 +111,7 @@ std::cout << "\n";
 		} else {
 			std::cout<< "  ";
 		}
-=======
+
 
 	  noteCheck( i-firstDay +1, monthNumber);
       std::cout << "  " << i-firstDay+1 << "\e[0m" ;
@@ -121,7 +121,7 @@ std::cout << "\n";
 		} else {
 			std::cout<< "  ";
 		}
->>>>>>> 13f67b349b0c6043c96c59946c40de13004e6cbe
+
     }
     else{
       //5 spaces total: 3 for the day width, and 1 on either end
@@ -158,7 +158,7 @@ std::cout << "\n";
 
 	//prints the remaining lines of the calendar:
   for(int i=(7-firstDay+1) ; i<=totalDays ; i++){
-<<<<<<< HEAD
+
 		if(i<=totalDays){
 			if(i<10){//spacing for single digit numbers:
 	      	std::cout << "  " << i << "  ";
@@ -172,14 +172,14 @@ std::cout << "\n";
 			tempDay=6;
 		}
 
-||||||| merged common ancestors
+
     if(i<10){//spacing for single digit numbers:
       std::cout << "  " << i << "  ";
     }
     else{ //spacing for double digit numbers:
       std::cout << " "  << i << "  ";
     }
-=======
+
     if(i<10){//spacing for single digit numbers:
 	 noteCheck(i, monthNumber);
       std::cout << "  " << i <<"\e[0m" << "  ";
@@ -187,7 +187,7 @@ std::cout << "\n";
     else{ //spacing for double digit numbers:
       std::cout << " "  << i <<"\e[0m" << "  ";
     }
->>>>>>> 13f67b349b0c6043c96c59946c40de13004e6cbe
+
     tempDay++;
     if(tempDay>6){
 	      std::cout << "\n";
