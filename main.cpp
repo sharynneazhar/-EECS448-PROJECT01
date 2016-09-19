@@ -161,11 +161,11 @@ void writeNote(Day *DayArr, int size, Day CurrentDate, bool overlap)
 
 //-----------------------------------------------------------------------------
 
-void removeNote(Day *DayArr, int size, std::string CurrentDate)
+void removeNote(Day *DayArr, int size, std::string date, Day CurrentDate)
 {
 
-        std::string month= CurrentDate.substr(0,3);
-        int day =std::stoi(CurrentDate.substr(4,5));
+        std::string month= date.substr(0,3);
+        int day =std::stoi(date.substr(4,5));
 
 		for(int i=0; i < size; i++) {
 
@@ -173,6 +173,8 @@ void removeNote(Day *DayArr, int size, std::string CurrentDate)
 				std::cout << DayArr[i].getDetail() << std::endl;
 				DayArr[i].setDetail("");
 				std::cout<< DayArr[i].getDetail() << std::endl;
+
+				writeNote(DayArr, size, CurrentDate, false);
 
 				return;
 
@@ -298,7 +300,7 @@ int main (int argc, char** argv)
       }
 	  else if (option == 6)
 	  {
-		removeNote(DayArr, arrSize, date);
+		removeNote(DayArr, arrSize, date, CurrentDate);
 	  }
   }
 }
