@@ -105,23 +105,49 @@ void readNote(Day *DayArr, int size) //this function has the ability to read thr
   if(!inputFile.eof())
   {
     for(int i=0; i<size; i++)
-    {
+    { 
       if(x!='\n')//the order of reading files.
-      {
+      { 
         inputFile >> Month >> Day >>Year;
         while( x != '\n' && !inputFile.eof())
-        {	x=inputFile.get();
-          Detail= Detail+ x;
+        {	
+          x=inputFile.get();
+          if(x!='\n')
+          { 
+            Detail= Detail+ x;
+          }
         }
       }
       DayArr[i].setDay(Day);
       DayArr[i].setMonth(Month);
       DayArr[i].setYear(Year);
       DayArr[i].setDetail(Detail);
+      x=' ';
+      Detail="";
+      Month="";
+      Day=0;
+      Year=0;
     }
   }
-  cout<<"DayArr works?"<<DayArr[0].getDetail()<<endl;
 	inputFile.close();
+}
+//--------------------------------------------------------------------------------
+void writeNote(Day *DayArr, int size, Day CurrentDate, bool overlap) //this function has the ability to read through the txt file.
+//it created an Day object array and save those days, details. Now we have an array with all days and details in it.
+//we can use this to do single day display. eg. (After making sure which day to do single day display) cout<< DayArr[0].GetDetail();
+//you can use getMonth/date/year methods to check if the day you are going to display is an object in the object array!
+{
+	ofstream outputFile;
+  outputFile.open("Detail.txt");
+    for(int i=0; i<size; i++)
+    {
+        if(DayArr[i].getMonth()!=""||DayArr[i].getDate()!=0||DayArr[i].getYear()!=0)
+        {
+           outputFile << DayArr[i].getMonth() << " " << DayArr[i].getDate() << " " << DayArr[i].getYear() << " "<<DayArr[i].getDetail()<<'\n'; 
+        } 
+    }
+
+	outputFile.close();
 }
 
 //-----------------------------------------------------------------------------
@@ -132,15 +158,13 @@ void readNote(Day *DayArr, int size) //this function has the ability to read thr
 */
 int main (int argc, char** argv)
 {
-  //bool repeat = true;
-	//temp for testing purposes
-
   std::cout << "\nWelcome to KAMYcal" << std::endl;
   //Variables blow are used for setting a current day
   int option=0;
   int CurrentDay=0;
   int CurrentYear=0;
   int arrSize=0;
+  bool overlap=false;
   string date="";
   string CurrentMonth="";
   //Variables above are used for setting a current day
@@ -153,16 +177,15 @@ int main (int argc, char** argv)
   Day *DayArr=new Day[arrSize];
 	//NoteReader* noteReader = new NoteReader("notes.txt");
 	//CurrentDate.getNote();
-
   Print* printer = new Print(months);
 
 	//printer -> printYear();
 	//printer -> printMonth(4);
 	//WeekDisplay(2, 3);
 	//printer -> printWeek(10, "Sep", 2016);
+  readNote(DayArr, arrSize);
   while(option!=6)
   {
-    readNote(DayArr, arrSize);
     if(CurrentDate.isEmpty())
     {
       do
@@ -171,7 +194,7 @@ int main (int argc, char** argv)
         cin>>date;
         //discerns the date from the user's string
         CurrentMonth= date.substr(0,3);
-        CurrentDay=std::stoi(date.substr(5,6));
+        CurrentDay=std::stoi(date.substr(4,5));
         CurrentYear=std::stoi(date.substr(8,11)) + 2000;
       }while(!CurrentDate.DateTest(CurrentMonth, CurrentDay, CurrentYear));
     }
@@ -199,17 +222,22 @@ int main (int argc, char** argv)
       { 
         string detail="";
         cout<<"What do you want to add to the current day?"<<endl;
-        cin>>detail;
+        cin.ignore(1,'\n');
         getline(cin, detail);
-        cin.ignore();
-        if(CurrentDate.WriteDetail(DayArr, arrSize))
+        cout<<"The added detail is: "<<detail<<endl;
+        CurrentDate.setDetail(detail);
+        if(!CurrentDate.contain(DayArr, arrSize))
         {
-          
+          DayArr[arrSize-1].setDay(CurrentDay);
+          DayArr[arrSize-1].setMonth(CurrentMonth);
+          DayArr[arrSize-1].setYear(CurrentYear);
+          DayArr[arrSize-1].setDetail(detail);
         }
         else
         {
-          CurrentDate.setDetail(detail);
+          CurrentDate.updateArr(DayArr,arrSize);
         }
+        writeNote(DayArr, arrSize, CurrentDate, overlap);
       }
       else if(option==4)
       {
@@ -240,4 +268,3 @@ int main (int argc, char** argv)
       }
   }
 }
-
