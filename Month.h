@@ -31,7 +31,6 @@ class Month
       *  @pre None.
       *  @post Constructs a Month class object with an empty string name, no days in the month, and it starts on a Sunday
       *  @return Month class object
-      *
       */
       Month();
 
@@ -39,7 +38,6 @@ class Month
       *  @pre None.
       *  @post Constructs a Month class object with the corresponding arguments for monthName, numDays, and startDay
       *  @return Month class object
-      *
       */
       Month(const std::string MonthName, int NumDays, int StartDay);
 
@@ -47,7 +45,6 @@ class Month
       *  @pre None.
       *  @post Sets monthName to the argument
       *  @return None.
-      *
       */
       void setMonthName(const std::string MonthName);
 
@@ -55,7 +52,6 @@ class Month
       *  @pre None.
       *  @post Sets numDays to the argument
       *  @return None.
-      *
       */
       void setNumDays(const int NumDays);
 
@@ -63,7 +59,6 @@ class Month
       *  @pre None.
       *  @post Sets startDay to the argument
       *  @return None.
-      *
       */
       void setStartDay(const int StartDay);
 
@@ -78,7 +73,6 @@ class Month
       *  @pre None.
       *  @post None.
       *  @return monthName value
-      *
       */
       std::string getMonthName();
 
@@ -86,17 +80,20 @@ class Month
       *  @pre None.
       *  @post None.
       *  @return numDays value
-      *
       */
       int getNumDays();
 
-	  Day* getDays();
+      /**
+      *  @pre None.
+      *  @post None.
+      *  @return days array
+      */
+      Day* getDays();
 
       /**
       *  @pre None.
       *  @post None.
       *  @return startDay value
-      *
       */
       int getStartDay();
 };

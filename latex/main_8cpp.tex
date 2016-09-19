@@ -24,6 +24,8 @@ void \hyperlink{main_8cpp_a6263765f30b2b40db49565166cede7b3}{read\-Note} (\hyper
 \item 
 void \hyperlink{main_8cpp_a7315950f8e2c50d6f6dc5fc0e30fd597}{write\-Note} (\hyperlink{classDay}{Day} $\ast$Day\-Arr, int size, \hyperlink{classDay}{Day} Current\-Date, bool overlap)
 \item 
+void \hyperlink{main_8cpp_a128523e2e453fa6828af3d7cddb841a1}{remove\-Note} (\hyperlink{classDay}{Day} $\ast$Day\-Arr, int size, std\-::string date, \hyperlink{classDay}{Day} Current\-Date)
+\item 
 int \hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
 \end{DoxyCompactItemize}
 \subsection*{Variables}
@@ -108,6 +110,25 @@ None.
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Builds a \hyperlink{classDay}{Day} array with days from the input file with the details 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\hypertarget{main_8cpp_a128523e2e453fa6828af3d7cddb841a1}{\index{main.\-cpp@{main.\-cpp}!remove\-Note@{remove\-Note}}
+\index{remove\-Note@{remove\-Note}!main.cpp@{main.\-cpp}}
+\subsubsection[{remove\-Note}]{\setlength{\rightskip}{0pt plus 5cm}void remove\-Note (
+\begin{DoxyParamCaption}
+\item[{{\bf Day} $\ast$}]{Day\-Arr, }
+\item[{int}]{size, }
+\item[{std\-::string}]{date, }
+\item[{{\bf Day}}]{Current\-Date}
+\end{DoxyParamCaption}
+)}}\label{main_8cpp_a128523e2e453fa6828af3d7cddb841a1}
+\begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Removes a note from a day 
 \end{DoxyPostcond}
 \begin{DoxyReturn}{Returns}
 None. 

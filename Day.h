@@ -30,26 +30,16 @@ class Day
     *  @pre None.
     *  @post Constructs a Day class object with 0 date, 0 year, 0 week, and 'false' note
     *  @return Day class object
-    *
     */
     Day();
-    Day(const int Date, const int Year, char Week, bool note);
-    void setDate(const int Date);
-    void setWeek(const char Week);
-
+    
     /**
     *  @pre None.
     *  @post Constructs a Day class object with the given arguments for date, year, week, and note
     *  @return Day class object
-    *
     */
     Day(const int Date, const int Year, int Week, std::string month, bool note);
 
-<<<<<<< HEAD
-    void setDetail(std::string De);
-||||||| merged common ancestors
-    void setDetail(string De);
-=======
     /**
     *  @pre None.
     *  @post Sets the detail variable.
@@ -62,7 +52,6 @@ class Day
     *  @post None.
     *  @return Bool for if there is a detail for this day in the input Day array.
     */
->>>>>>> 13f67b349b0c6043c96c59946c40de13004e6cbe
     bool contain(Day *DayArr, int size);//write detals to a txt file;
 
     /**

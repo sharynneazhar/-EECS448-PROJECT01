@@ -160,7 +160,11 @@ void writeNote(Day *DayArr, int size, Day CurrentDate, bool overlap)
 }
 
 //-----------------------------------------------------------------------------
-
+/**
+* @pre None.
+* @post Removes a note from a day
+* @return None.
+*/
 void removeNote(Day *DayArr, int size, std::string date, Day CurrentDate)
 {
 

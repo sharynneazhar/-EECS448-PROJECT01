@@ -1,6 +1,7 @@
 var searchData=
 [
   ['getdate',['getDate',['../classDay.html#a6161ef9f7717d596af00031cc362fa04',1,'Day']]],
+  ['getdays',['getDays',['../classMonth.html#ab562a3d12216892324cfcfb2ba9503a6',1,'Month']]],
   ['getdetail',['getDetail',['../classDay.html#adf187d211b1ea4561832486f7094b18b',1,'Day']]],
   ['getmonth',['getMonth',['../classDay.html#ae10fc576ccdf6d58ef42c8cd1b371401',1,'Day']]],
   ['getmonthname',['getMonthName',['../classMonth.html#a1cb2ba2c0e646b961f55d99e9f5b74de',1,'Month']]],

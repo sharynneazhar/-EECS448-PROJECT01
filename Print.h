@@ -40,6 +40,11 @@ class Print
 	*/
 	void printMonth(int monthNumber);
 
+	/**
+	*	@pre None.
+	*	@post Checks the days array for notes
+	*	@return None.
+	*/
 	void noteCheck(int date, int monthNumber);
 
 	/**

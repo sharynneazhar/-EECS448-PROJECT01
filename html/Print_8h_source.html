@@ -105,35 +105,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classPrint.html#a783042d8e22a1b8a0b81bbcbc9bb03f0">printMonth</a>(<span class="keywordtype">int</span> monthNumber);</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classPrint.html#a5480160313e90ae75d51255bd20a54fe">printWeek</a>(<span class="keywordtype">int</span> currentDay, std::string currentMonth, <span class="keywordtype">int</span> currentYear);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">//make this a private function?</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classPrint.html#a7013b300e4a36e6cd2fa8c68eab71892">weekDisplay</a>(<span class="keywordtype">int</span> date, <span class="keywordtype">int</span> month);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classPrint.html#adcc0b985904ceb75634e3bb0b156d033">printDay</a>(<span class="keywordtype">int</span> day, <span class="keywordtype">int</span> month);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classPrint.html#a885ba5ae8549695d781bb03c8a3f2109">printDetail</a>(<a class="code" href="classDay.html">Day</a> *DayArr, <span class="keywordtype">int</span> size, <a class="code" href="classDay.html">Day</a> CurrentDay);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classPrint.html#a9c8bb58b547f6ffd71b735b6bb0072b1">   73</a></span>&#160;    <a class="code" href="classMonth.html">Month</a>* <a class="code" href="classPrint.html#a9c8bb58b547f6ffd71b735b6bb0072b1">months</a>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> noteCheck(<span class="keywordtype">int</span> date, <span class="keywordtype">int</span> monthNumber);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classPrint.html#a5480160313e90ae75d51255bd20a54fe">printWeek</a>(<span class="keywordtype">int</span> currentDay, std::string currentMonth, <span class="keywordtype">int</span> currentYear);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">//make this a private function?</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classPrint.html#a7013b300e4a36e6cd2fa8c68eab71892">weekDisplay</a>(<span class="keywordtype">int</span> date, <span class="keywordtype">int</span> month);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classPrint.html#adcc0b985904ceb75634e3bb0b156d033">printDay</a>(<span class="keywordtype">int</span> day, <span class="keywordtype">int</span> month);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classPrint.html#a885ba5ae8549695d781bb03c8a3f2109">printDetail</a>(<a class="code" href="classDay.html">Day</a> *DayArr, <span class="keywordtype">int</span> size, <a class="code" href="classDay.html">Day</a> CurrentDay);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classPrint.html#a9c8bb58b547f6ffd71b735b6bb0072b1">   75</a></span>&#160;    <a class="code" href="classMonth.html">Month</a>* <a class="code" href="classPrint.html#a9c8bb58b547f6ffd71b735b6bb0072b1">months</a>;</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;};</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="classPrint_html_a9c8bb58b547f6ffd71b735b6bb0072b1"><div class="ttname"><a href="classPrint.html#a9c8bb58b547f6ffd71b735b6bb0072b1">Print::months</a></div><div class="ttdeci">Month * months</div><div class="ttdoc">Array of Month objects </div><div class="ttdef"><b>Definition:</b> Print.h:73</div></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;};</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="classPrint_html_a9c8bb58b547f6ffd71b735b6bb0072b1"><div class="ttname"><a href="classPrint.html#a9c8bb58b547f6ffd71b735b6bb0072b1">Print::months</a></div><div class="ttdeci">Month * months</div><div class="ttdoc">Array of Month objects </div><div class="ttdef"><b>Definition:</b> Print.h:75</div></div>
 <div class="ttc" id="classMonth_html"><div class="ttname"><a href="classMonth.html">Month</a></div><div class="ttdef"><b>Definition:</b> Month.h:17</div></div>
 <div class="ttc" id="Month_8h_html"><div class="ttname"><a href="Month_8h.html">Month.h</a></div><div class="ttdoc">Header of the Month class. A container for Day nodes, varies in size, name, and starting day of the w...</div></div>
-<div class="ttc" id="classPrint_html_a5480160313e90ae75d51255bd20a54fe"><div class="ttname"><a href="classPrint.html#a5480160313e90ae75d51255bd20a54fe">Print::printWeek</a></div><div class="ttdeci">void printWeek(int currentDay, std::string currentMonth, int currentYear)</div><div class="ttdef"><b>Definition:</b> Print.cpp:122</div></div>
-<div class="ttc" id="classPrint_html_a885ba5ae8549695d781bb03c8a3f2109"><div class="ttname"><a href="classPrint.html#a885ba5ae8549695d781bb03c8a3f2109">Print::printDetail</a></div><div class="ttdeci">void printDetail(Day *DayArr, int size, Day CurrentDay)</div><div class="ttdef"><b>Definition:</b> Print.cpp:354</div></div>
+<div class="ttc" id="classPrint_html_a5480160313e90ae75d51255bd20a54fe"><div class="ttname"><a href="classPrint.html#a5480160313e90ae75d51255bd20a54fe">Print::printWeek</a></div><div class="ttdeci">void printWeek(int currentDay, std::string currentMonth, int currentYear)</div><div class="ttdef"><b>Definition:</b> Print.cpp:234</div></div>
+<div class="ttc" id="classPrint_html_a885ba5ae8549695d781bb03c8a3f2109"><div class="ttname"><a href="classPrint.html#a885ba5ae8549695d781bb03c8a3f2109">Print::printDetail</a></div><div class="ttdeci">void printDetail(Day *DayArr, int size, Day CurrentDay)</div><div class="ttdef"><b>Definition:</b> Print.cpp:471</div></div>
 <div class="ttc" id="classPrint_html"><div class="ttname"><a href="classPrint.html">Print</a></div><div class="ttdef"><b>Definition:</b> Print.h:18</div></div>
-<div class="ttc" id="classPrint_html_a783042d8e22a1b8a0b81bbcbc9bb03f0"><div class="ttname"><a href="classPrint.html#a783042d8e22a1b8a0b81bbcbc9bb03f0">Print::printMonth</a></div><div class="ttdeci">void printMonth(int monthNumber)</div><div class="ttdef"><b>Definition:</b> Print.cpp:72</div></div>
+<div class="ttc" id="classPrint_html_a783042d8e22a1b8a0b81bbcbc9bb03f0"><div class="ttname"><a href="classPrint.html#a783042d8e22a1b8a0b81bbcbc9bb03f0">Print::printMonth</a></div><div class="ttdeci">void printMonth(int monthNumber)</div><div class="ttdef"><b>Definition:</b> Print.cpp:74</div></div>
 <div class="ttc" id="Day_8h_html"><div class="ttname"><a href="Day_8h.html">Day.h</a></div><div class="ttdoc">Header of the Day class. Used as a node for the Month class. </div></div>
 <div class="ttc" id="classDay_html"><div class="ttname"><a href="classDay.html">Day</a></div><div class="ttdef"><b>Definition:</b> Day.h:18</div></div>
-<div class="ttc" id="classPrint_html_adcc0b985904ceb75634e3bb0b156d033"><div class="ttname"><a href="classPrint.html#adcc0b985904ceb75634e3bb0b156d033">Print::printDay</a></div><div class="ttdeci">void printDay(int day, int month)</div><div class="ttdef"><b>Definition:</b> Print.cpp:254</div></div>
+<div class="ttc" id="classPrint_html_adcc0b985904ceb75634e3bb0b156d033"><div class="ttname"><a href="classPrint.html#adcc0b985904ceb75634e3bb0b156d033">Print::printDay</a></div><div class="ttdeci">void printDay(int day, int month)</div><div class="ttdef"><b>Definition:</b> Print.cpp:371</div></div>
 <div class="ttc" id="classPrint_html_ab38ff940d0abba39ec72485ba3e16259"><div class="ttname"><a href="classPrint.html#ab38ff940d0abba39ec72485ba3e16259">Print::printYear</a></div><div class="ttdeci">void printYear()</div><div class="ttdef"><b>Definition:</b> Print.cpp:19</div></div>
 <div class="ttc" id="classPrint_html_a7b9e4716438a4d6003fb53d740172463"><div class="ttname"><a href="classPrint.html#a7b9e4716438a4d6003fb53d740172463">Print::Print</a></div><div class="ttdeci">Print(Month monthsArr[])</div><div class="ttdef"><b>Definition:</b> Print.cpp:10</div></div>
-<div class="ttc" id="classPrint_html_a7013b300e4a36e6cd2fa8c68eab71892"><div class="ttname"><a href="classPrint.html#a7013b300e4a36e6cd2fa8c68eab71892">Print::weekDisplay</a></div><div class="ttdeci">void weekDisplay(int date, int month)</div><div class="ttdef"><b>Definition:</b> Print.cpp:172</div></div>
+<div class="ttc" id="classPrint_html_a7013b300e4a36e6cd2fa8c68eab71892"><div class="ttname"><a href="classPrint.html#a7013b300e4a36e6cd2fa8c68eab71892">Print::weekDisplay</a></div><div class="ttdeci">void weekDisplay(int date, int month)</div><div class="ttdef"><b>Definition:</b> Print.cpp:284</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
