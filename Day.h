@@ -32,7 +32,7 @@ class Day
     *  @return Day class object
     */
     Day();
-    
+
     /**
     *  @pre None.
     *  @post Constructs a Day class object with the given arguments for date, year, week, and note
