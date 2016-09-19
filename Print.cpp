@@ -73,36 +73,15 @@ void Print:: printYear()
 
 void Print:: printMonth(int monthNumber)
 {
-
-	std::cout << "\n\n";
-
 std::cout << "\n\n";
-
-std::cout << "\n";
-
 
   int firstDay = months[monthNumber].getStartDay();
   int totalDays = months[monthNumber].getNumDays();
-
-
-  std::cout << " Sun  Mon  Tue  Wed  Thu  Fri  Sat " << std::endl;
-
   std::cout << " Sun  Mon  Tue  Wed  Thu  Fri Sat  " << std::endl;
-
-
-  std::cout << "\n" << "\e[1m" << months[monthNumber].getMonthName() << "\e[0m"<< std::endl;
-  std::cout << " Sun  Mon  Tue  Wed  Thu  Fri Sat  " << std::endl;
-
 
   for(int i=0 ; i<7 ; i++){
   //print first line of calendar
     if(i>=firstDay){
-
-      std::cout << "  " << i-firstDay+1  << "  ";
-			if(i==6){
-					std::cout<< "\n";
-			}
-
 
       std::cout << "  " << i-firstDay+1  ;
 
@@ -111,17 +90,6 @@ std::cout << "\n";
 		} else {
 			std::cout<< "  ";
 		}
-
-
-	  noteCheck( i-firstDay +1, monthNumber);
-      std::cout << "  " << i-firstDay+1 << "\e[0m" ;
-
-		if(i==6){
-			std::cout<< "\n";
-		} else {
-			std::cout<< "  ";
-		}
-
     }
     else{
       //5 spaces total: 3 for the day width, and 1 on either end
@@ -131,86 +99,22 @@ std::cout << "\n";
     }
   }
 
-	bool tempNoteFlag = false;
-	int tempDay = 0;
-	for(int i=0 ; i<7 ; i++){
-	//print first line of note X's
-		if(i>=firstDay){
-				tempNoteFlag = months[monthNumber].days[i].notePresent();
-				if(tempNoteFlag){
-					std::cout << "  X  ";
-				}else{
-					std::cout << "     ";
-				}
-
-				if(i==6){
-					std::cout<< "\n";
-				}
-		}
-		else{
-			//5 spaces total: 3 for the day width, and 1 on either end
-			std::cout << "     ";
-			//           " Sun ";
-			//           "  4  ";
-		}
-	}
-
-
-	//prints the remaining lines of the calendar:
+	//prints the remaining lines of the calendar
+  int tempDay = 0;
   for(int i=(7-firstDay+1) ; i<=totalDays ; i++){
-
-		if(i<=totalDays){
-			if(i<10){//spacing for single digit numbers:
-	      	std::cout << "  " << i << "  ";
-	    }
-	    else{ //spacing for double digit numbers:
-	      	std::cout << " "  << i << "  ";
-	    }
-		}
-
-		if(i==totalDays){ //print last line of numbered days
-			tempDay=6;
-		}
-
-
     if(i<10){//spacing for single digit numbers:
       std::cout << "  " << i << "  ";
     }
     else{ //spacing for double digit numbers:
       std::cout << " "  << i << "  ";
     }
-
-    if(i<10){//spacing for single digit numbers:
-	 noteCheck(i, monthNumber);
-      std::cout << "  " << i <<"\e[0m" << "  ";
-    }
-    else{ //spacing for double digit numbers:
-      std::cout << " "  << i <<"\e[0m" << "  ";
-    }
-
     tempDay++;
     if(tempDay>6){
-	      std::cout << "\n";
-				//print the notes as X's for the week:
-				for(int j=7 ; j>=0 ; j--){
-						tempDay = i-j;
-						if(tempDay <= totalDays){
-								tempNoteFlag = months[monthNumber].days[tempDay+1].notePresent();
-								if(tempNoteFlag){ //there IS a note on this day
-										std::cout << "  X  ";
-								}
-								else{ //there is NOT a note on this day
-										std::cout << "     ";
-								}
-						}
-				}
-				tempDay=0;
-				std::cout << "\n";
-		}
-
-
+      std::cout << "\n";
+      tempDay=0;
+    }
   }
-	std::cout << "\n\n" << std::endl;
+
 
 }
 
