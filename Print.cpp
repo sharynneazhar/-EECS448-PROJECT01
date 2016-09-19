@@ -222,7 +222,7 @@ void Print :: noteCheck(int date, int monthNumber)
 	Day* daysArr = months[monthNumber].getDays();
 
 	if ( daysArr[date+1].notePresent() == true ) {
-		std::cout<< "\e[31m" ;
+		//std::cout<< "\e[31m" ;
 	}
 	//delete daysArr;
 
