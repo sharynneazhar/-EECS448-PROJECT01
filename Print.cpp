@@ -480,7 +480,6 @@ void Print:: printDetail(Day *DayArr, int size, Day CurrentDay)
         }
         else
         {
-          cout<<"!!!!!"<<endl;
           cout<<CurrentDay.getDetail()<<endl;
           i=size+1;
         }
