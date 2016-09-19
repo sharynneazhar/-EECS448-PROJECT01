@@ -99,10 +99,10 @@ void readNote(Day *DayArr, int size) //this function has the ability to read thr
   string Detail="";
   int Day=0;
   int Year=0;
-	ifstream inputFile;
+  ifstream inputFile;
   inputFile.open("Detail.txt");
 	char x= ' ';
-  if(!inputFile.eof())
+  if(inputFile.good() )
   {
     for(int i=0; i<size; i++)
     { 
