@@ -16,7 +16,7 @@ The user must be able do the following:
     - Repeat based on day of the week (e.g repeats weekly every Monday, Wednesday, and Friday) OR based on date (e.g. Pay rent first of every month)
   
 ## Running the Project
-- Open the terminal and navigate into the project folder `$ cd path/to/eecs448-calender-takeover`
+- Open the terminal and navigate into the project folder `$ cd path/to/eecs448-project02`
 - Build the project by typing `$ make` in the terminal
 - Run the project with the following command `$ ./calendar`
 
