@@ -25,11 +25,14 @@ To clean the project, run the following command `$ make clean`
 
 ## Running Doxygen
 - Make sure you have [Doxygen][9] installed in your environment:  
-  (Tip: If you have Homebrew installed, just run `brew install doxygen`)
+  (Tip: If you have Homebrew installed, just run `$ brew install doxygen`)
 - To generate the documentation you can now enter:  
-  `doxygen Doxyfile`
+  `$ doxygen Doxyfile`
 
 The generated HTML documentation can be viewed by pointing the browser to `path/to/documentation/html/index.html`
+
+## Issues
+If you see a bug in the app, feel free to create a new issue [here][10].
 
 
 ## Contributors
@@ -49,3 +52,4 @@ This project is currently maintained by [sharynneazhar][5], [erincoots][6], [ash
 [7]: https://github.com/ashlimosiman
 [8]: https://github.com/parthvip28
 [9]: http://www.stack.nl/~dimitri/doxygen/download.html
+[10]: https://github.com/sharynneazhar/eecs448-project02/issues
