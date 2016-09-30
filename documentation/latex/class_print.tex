@@ -1,0 +1,176 @@
+\hypertarget{class_print}{}\section{Print Class Reference}
+\label{class_print}\index{Print@{Print}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_print_a7b9e4716438a4d6003fb53d740172463}{Print} (\hyperlink{class_month}{Month} months\+Arr\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{class_print_ab38ff940d0abba39ec72485ba3e16259}{print\+Year} ()
+\item 
+void \hyperlink{class_print_a783042d8e22a1b8a0b81bbcbc9bb03f0}{print\+Month} (int month\+Number)
+\item 
+void \hyperlink{class_print_ae528ed0fc9fe31222a1fcd33fe58d45b}{note\+Check} (int date, int month\+Number)
+\item 
+void \hyperlink{class_print_a5480160313e90ae75d51255bd20a54fe}{print\+Week} (int current\+Day, std\+::string current\+Month, int current\+Year)
+\item 
+void \hyperlink{class_print_a7013b300e4a36e6cd2fa8c68eab71892}{week\+Display} (int date, int month)
+\item 
+void \hyperlink{class_print_adcc0b985904ceb75634e3bb0b156d033}{print\+Day} (int day, int month)
+\item 
+void \hyperlink{class_print_a885ba5ae8549695d781bb03c8a3f2109}{print\+Detail} (\hyperlink{class_day}{Day} $\ast$Day\+Arr, int size, \hyperlink{class_day}{Day} Current\+Day)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_month}{Month} $\ast$ \hyperlink{class_print_a9c8bb58b547f6ffd71b735b6bb0072b1}{months}\hypertarget{class_print_a9c8bb58b547f6ffd71b735b6bb0072b1}{}\label{class_print_a9c8bb58b547f6ffd71b735b6bb0072b1}
+
+\begin{DoxyCompactList}\small\item\em \begin{quote}
+Array of \hyperlink{class_month}{Month} objects \end{quote}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Print@{Print}!Print@{Print}}
+\index{Print@{Print}!Print@{Print}}
+\subsubsection[{\texorpdfstring{Print(\+Month months\+Arr[])}{Print(Month monthsArr[])}}]{\setlength{\rightskip}{0pt plus 5cm}Print\+::\+Print (
+\begin{DoxyParamCaption}
+\item[{{\bf Month}}]{months\+Arr\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\hypertarget{class_print_a7b9e4716438a4d6003fb53d740172463}{}\label{class_print_a7b9e4716438a4d6003fb53d740172463}
+\begin{DoxyPrecond}{Precondition}
+An array of \hyperlink{class_month}{Month} class objects is available. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Constructs a \hyperlink{class_print}{Print} class object with the named \hyperlink{class_month}{Month} array. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_print}{Print} class object. 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\index{Print@{Print}!note\+Check@{note\+Check}}
+\index{note\+Check@{note\+Check}!Print@{Print}}
+\subsubsection[{\texorpdfstring{note\+Check(int date, int month\+Number)}{noteCheck(int date, int monthNumber)}}]{\setlength{\rightskip}{0pt plus 5cm}void Print\+::note\+Check (
+\begin{DoxyParamCaption}
+\item[{int}]{date, }
+\item[{int}]{month\+Number}
+\end{DoxyParamCaption}
+)}\hypertarget{class_print_ae528ed0fc9fe31222a1fcd33fe58d45b}{}\label{class_print_ae528ed0fc9fe31222a1fcd33fe58d45b}
+\begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Checks the days array for notes 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\index{Print@{Print}!print\+Day@{print\+Day}}
+\index{print\+Day@{print\+Day}!Print@{Print}}
+\subsubsection[{\texorpdfstring{print\+Day(int day, int month)}{printDay(int day, int month)}}]{\setlength{\rightskip}{0pt plus 5cm}void Print\+::print\+Day (
+\begin{DoxyParamCaption}
+\item[{int}]{day, }
+\item[{int}]{month}
+\end{DoxyParamCaption}
+)}\hypertarget{class_print_adcc0b985904ceb75634e3bb0b156d033}{}\label{class_print_adcc0b985904ceb75634e3bb0b156d033}
+\begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Outputs the input date in the format \char`\"{}\+Sunday, January 1, 2017\char`\"{} and reports the notes attached to the day or the lask of notes to the console. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\index{Print@{Print}!print\+Detail@{print\+Detail}}
+\index{print\+Detail@{print\+Detail}!Print@{Print}}
+\subsubsection[{\texorpdfstring{print\+Detail(\+Day $\ast$\+Day\+Arr, int size, Day Current\+Day)}{printDetail(Day *DayArr, int size, Day CurrentDay)}}]{\setlength{\rightskip}{0pt plus 5cm}void Print\+::print\+Detail (
+\begin{DoxyParamCaption}
+\item[{{\bf Day} $\ast$}]{Day\+Arr, }
+\item[{int}]{size, }
+\item[{{\bf Day}}]{Current\+Day}
+\end{DoxyParamCaption}
+)}\hypertarget{class_print_a885ba5ae8549695d781bb03c8a3f2109}{}\label{class_print_a885ba5ae8549695d781bb03c8a3f2109}
+\begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Outputs the details of the date to the console. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\index{Print@{Print}!print\+Month@{print\+Month}}
+\index{print\+Month@{print\+Month}!Print@{Print}}
+\subsubsection[{\texorpdfstring{print\+Month(int month\+Number)}{printMonth(int monthNumber)}}]{\setlength{\rightskip}{0pt plus 5cm}void Print\+::print\+Month (
+\begin{DoxyParamCaption}
+\item[{int}]{month\+Number}
+\end{DoxyParamCaption}
+)}\hypertarget{class_print_a783042d8e22a1b8a0b81bbcbc9bb03f0}{}\label{class_print_a783042d8e22a1b8a0b81bbcbc9bb03f0}
+\begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+A standardized printout of the chosen month to the console. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\index{Print@{Print}!print\+Week@{print\+Week}}
+\index{print\+Week@{print\+Week}!Print@{Print}}
+\subsubsection[{\texorpdfstring{print\+Week(int current\+Day, std\+::string current\+Month, int current\+Year)}{printWeek(int currentDay, std::string currentMonth, int currentYear)}}]{\setlength{\rightskip}{0pt plus 5cm}void Print\+::print\+Week (
+\begin{DoxyParamCaption}
+\item[{int}]{current\+Day, }
+\item[{std\+::string}]{current\+Month, }
+\item[{int}]{current\+Year}
+\end{DoxyParamCaption}
+)}\hypertarget{class_print_a5480160313e90ae75d51255bd20a54fe}{}\label{class_print_a5480160313e90ae75d51255bd20a54fe}
+\begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Sets up week\+Display for the input date 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\index{Print@{Print}!print\+Year@{print\+Year}}
+\index{print\+Year@{print\+Year}!Print@{Print}}
+\subsubsection[{\texorpdfstring{print\+Year()}{printYear()}}]{\setlength{\rightskip}{0pt plus 5cm}void Print\+::print\+Year (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_print_ab38ff940d0abba39ec72485ba3e16259}{}\label{class_print_ab38ff940d0abba39ec72485ba3e16259}
+\begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+A standardized printout of the entire school year to the console 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\index{Print@{Print}!week\+Display@{week\+Display}}
+\index{week\+Display@{week\+Display}!Print@{Print}}
+\subsubsection[{\texorpdfstring{week\+Display(int date, int month)}{weekDisplay(int date, int month)}}]{\setlength{\rightskip}{0pt plus 5cm}void Print\+::week\+Display (
+\begin{DoxyParamCaption}
+\item[{int}]{date, }
+\item[{int}]{month}
+\end{DoxyParamCaption}
+)}\hypertarget{class_print_a7013b300e4a36e6cd2fa8c68eab71892}{}\label{class_print_a7013b300e4a36e6cd2fa8c68eab71892}
+\begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+A standardized printout of the week (Sunday-\/\+Saturday) the chosen day is in to the console. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_print_8h}{Print.\+h}\item 
+\hyperlink{_print_8cpp}{Print.\+cpp}\end{DoxyCompactItemize}

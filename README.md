@@ -13,8 +13,9 @@ The user must be able do the following:
 - Recurring events
   - When creating an event, the following options should be presented:
     - Repeat weekly, biweekly, or monthly
-    - Repeat based on day of the week (e.g repeats weekly every Monday, Wednesday, and Friday) OR based on date (e.g. Pay rent first of every month)
-  
+    - Repeat based on day of the week (e.g repeats weekly every Monday, Wednesday, and Friday) OR based on date
+    (e.g. Pay rent first of every month)
+
 ## Running the Project
 - Open the terminal and navigate into the project folder `$ cd path/to/eecs448-project02`
 - Build the project by typing `$ make` in the terminal
@@ -22,9 +23,17 @@ The user must be able do the following:
 
 To clean the project, run the following command `$ make clean`
 
+## Running Doxygen
+- Make sure you have [Doxygen][9] installed in your environment:  
+  (Tip: If you have Homebrew installed, just run `brew install doxygen`)
+- To generate the documentation you can now enter:  
+  `doxygen Doxyfile`
+
+The generated HTML documentation can be viewed by pointing the browser to `path/to/documentation/html/index.html`
+
 
 ## Contributors
-#### Burger Lovers 
+#### Burger Lovers
 This project was originally created by [athoma35][1], [greatyehanli][2], [katiehrenchir][3], and [cridermac][4]
 
 #### Team ESAP
@@ -39,3 +48,4 @@ This project is currently maintained by [sharynneazhar][5], [erincoots][6], [ash
 [6]: https://github.com/erincoots
 [7]: https://github.com/ashlimosiman
 [8]: https://github.com/parthvip28
+[9]: http://www.stack.nl/~dimitri/doxygen/download.html
