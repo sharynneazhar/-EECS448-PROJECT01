@@ -24,7 +24,7 @@ void printBanner() {
 }
 
 void printMenu() {
-  std::cout << "\n=============================" << std::endl;
+  std::cout << "\n==============================" << std::endl;
   std::cout << "1) Display the current day" << std::endl;
   std::cout << "2) Display the current week" << std::endl;
   std::cout << "3) Display the current month" << std::endl;
@@ -32,7 +32,7 @@ void printMenu() {
   std::cout << "5) Create an event" << std::endl;
   std::cout << "6) Remove an event" << std::endl;
   std::cout << "7) Quit" << std::endl;
-  std::cout << "=============================" << std::endl;
+  std::cout << "==============================" << std::endl;
 }
 
 void initMonths(Month months[10]) {

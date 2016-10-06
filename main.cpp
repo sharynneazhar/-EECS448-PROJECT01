@@ -30,8 +30,13 @@ int main(int argc, char** argv) {
   int CurrentYear = 0;
   int arrSize = 0;
   bool overlap = false;
-  string date = "";
-  string CurrentMonth = "";
+  std::string date = "";
+  std::string CurrentMonth = "";
+
+  // Used for user date input
+  std::string monthString = "";
+  std::string dateString = "";
+  std::string yearString = "";
 
   Day CurrentDate;  // create a day object. It's used for setting a current day.
   Print* printer = new Print(months);
@@ -47,8 +52,12 @@ int main(int argc, char** argv) {
         std::cout << "\nPlease enter a current date(e.g., Aug/01/2016): " << std::endl;
         std::cout << "> ";
         std::cin >> date;
-        //discerns the date from the user's string
-        CurrentMonth = date.substr(0,3);
+
+        monthString = date.substr(0,3);
+        dateString = date.substr(4,2);
+        yearString = date.substr(7,4);
+
+        CurrentMonth = monthString;
         CurrentDay = std::stoi(date.substr(4,5));
         CurrentYear = std::stoi(date.substr(8,11)) + 2000;
       } while(!CurrentDate.DateTest(CurrentMonth, CurrentDay, CurrentYear));
@@ -57,12 +66,18 @@ int main(int argc, char** argv) {
     CurrentDate.setMonth(CurrentMonth);
     CurrentDate.setYear(CurrentYear);
     printMenu();
-    std::cout << "\nEnter your selection:";
+    std::cout << "> Enter your selection: ";
     std::cin >> option;
 
     switch (option) {
       case 1: {
-        std::cout << CurrentDay << "/" << CurrentMonth << "/" << CurrentYear << endl;
+        std::cout << "\n\n ___________" << std::endl;
+        std::cout << "|___________|" << std::endl;
+        std::cout << "|           |" << std::endl;
+        std::cout << "|   " << yearString << "    |" << std::endl;
+        std::cout << "|  " << monthString << " "<< dateString << "   |" << std::endl;
+        std::cout << "|___________|" << std::endl;
+
         printer->printDetail(DayArr, arrSize, CurrentDate);
         break;
       }
