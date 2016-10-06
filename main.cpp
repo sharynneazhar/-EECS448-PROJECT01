@@ -9,17 +9,16 @@
 #include "Day.h"
 #include "Month.h"
 #include "NoteReader.h"
-
+#include "helper.h"
 
 #include <iostream>
-using namespace std;
 #include <string>
 #include <fstream>
+
 
 //!> array of length 10 (Aug thru May for academic year)
 Month months[10];
 
-//-----------------------------------------------------------------------------
 /**
 * @pre None.
 * @post Initializes the months array to the srandard values for the 2016/2017 academic year
@@ -27,7 +26,6 @@ Month months[10];
 */
 void initMonths() //intitalizes month object array
 {
-
   months[0].setMonthName("Aug"); //August, 31 days long, starts on Monday
   months[0].setNumDays(31);
   months[0].setStartDay(1);
@@ -69,7 +67,6 @@ void initMonths() //intitalizes month object array
   months[9].setStartDay(1);
 }
 
-//----------------------------------------------------------------------------------------
 /**
 * @pre None.
 * @post Read through the file to check how many days have details. What should be the size of the day array.
@@ -79,22 +76,21 @@ int DetailNum()
 {
   int num=0;
   char check=' ';
-  ifstream inp;
+  std::ifstream inp;
   inp.open("Detail.txt");
   while(!inp.eof())
   {
-    while(check!='\n'&& !inp.eof())
+    while(check != '\n' && !inp.eof())
     {
-      check=inp.get();
+      check = inp.get();
     }
     check=' ';
-    num=num+1;
+    num = num + 1;
   }
   inp.close();
   return num;
 }
 
-//-----------------------------------------------------------------------------
 /**
 * @pre None.
 * @post Builds a Day array with days from the input file with the details
@@ -102,26 +98,26 @@ int DetailNum()
 */
 void readNote(Day *DayArr, int size)
 {
-  string Month="";
-  string Detail="";
-  int Day=0;
-  int Year=0;
-  ifstream inputFile;
+  string Month = "";
+  string Detail = "";
+  int Day = 0;
+  int Year = 0;
+  std::ifstream inputFile;
   inputFile.open("Detail.txt");
-	char x= ' ';
-  if(inputFile.good() )
+  char x = ' ';
+  if (inputFile.good())
   {
-    for(int i=0; i<size; i++)
+    for (int i = 0; i < size; i++)
     {
-      if(x!='\n')//the order of reading files.
+      if (x != '\n')//the order of reading files.
       {
         inputFile >> Month >> Day >>Year;
         while( x != '\n' && !inputFile.eof())
         {
-          x=inputFile.get();
-          if(x!='\n')
+          x = inputFile.get();
+          if (x != '\n')
           {
-            Detail= Detail+ x;
+            Detail = Detail + x;
           }
         }
       }
@@ -129,16 +125,16 @@ void readNote(Day *DayArr, int size)
       DayArr[i].setMonth(Month);
       DayArr[i].setYear(Year);
       DayArr[i].setDetail(Detail);
-      x=' ';
-      Detail="";
-      Month="";
-      Day=0;
-      Year=0;
+      x = ' ';
+      Detail = "";
+      Month = "";
+      Day = 0;
+      Year = 0;
     }
   }
-	inputFile.close();
+  inputFile.close();
 }
-//--------------------------------------------------------------------------------
+
 /**
 * @pre None.
 * @post Writes the program's Day array objects with notes to the output file
@@ -146,20 +142,19 @@ void readNote(Day *DayArr, int size)
 */
 void writeNote(Day *DayArr, int size, Day CurrentDate, bool overlap)
 {
-	ofstream outputFile;
+  std::ofstream outputFile;
   outputFile.open("Detail.txt");
-    for(int i=0; i<size; i++)
+  for (int i = 0; i < size; i++)
+  {
+    if (DayArr[i].getMonth() != "" || DayArr[i].getDate() != 0 || DayArr[i].getYear() != 0)
     {
-        if(DayArr[i].getMonth()!=""||DayArr[i].getDate()!=0||DayArr[i].getYear()!=0)
-        {
-           outputFile << DayArr[i].getMonth() << " " << DayArr[i].getDate() << " " << DayArr[i].getYear() << " "<<DayArr[i].getDetail()<<'\n';
-        }
+      outputFile << DayArr[i].getMonth() << " " << DayArr[i].getDate() << " " << DayArr[i].getYear() << " " << DayArr[i].getDetail() << '\n';
     }
+  }
 
-	outputFile.close();
+  outputFile.close();
 }
 
-//-----------------------------------------------------------------------------
 /**
 * @pre None.
 * @post Removes a note from a day
@@ -167,144 +162,122 @@ void writeNote(Day *DayArr, int size, Day CurrentDate, bool overlap)
 */
 void removeNote(Day *DayArr, int size, std::string date, Day CurrentDate)
 {
+  std::string month = date.substr(0,3);
+  int day = std::stoi(date.substr(4,5));
+  for (int i=0; i < size; i++) {
+    if (DayArr[i].getMonth() == month && DayArr[i].getDate() == day) {
+      std::cout << DayArr[i].getDetail() << std::endl;
+      DayArr[i].setDetail("");
+      std::cout<< DayArr[i].getDetail() << std::endl;
+      writeNote(DayArr, size, CurrentDate, false);
+      return;
+    }
+  }
 
-        std::string month= date.substr(0,3);
-        int day =std::stoi(date.substr(4,5));
-
-		for(int i=0; i < size; i++) {
-
-			if(DayArr[i].getMonth() == month && DayArr[i].getDate() == day) {
-				std::cout << DayArr[i].getDetail() << std::endl;
-				DayArr[i].setDetail("");
-				std::cout<< DayArr[i].getDetail() << std::endl;
-
-				writeNote(DayArr, size, CurrentDate, false);
-
-				return;
-
-			}
-
-		}
-
-		std::cout<< "No note was found on that date.\n";
-
-
+  std::cout<< "No note was found on that date.\n";
 }
 
-//-----------------------------------------------------------------------------
 /**
 * @pre None.
 * @post The KAMYcal program will have run to user termination.
 * @return None.
 */
-int main (int argc, char** argv)
-{
-  std::cout << "\nWelcome to KAMYcal" << std::endl;
-  //Variables blow are used for setting a current day
-  int option=0;
-  int CurrentDay=0;
-  int CurrentYear=0;
-  int arrSize=0;
-  bool overlap=false;
-  string date="";
-  string CurrentMonth="";
-  //Variables above are used for setting a current day
-  initMonths(); //initialize months
+int main(int argc, char** argv) {
+  printBanner();
+  initMonths();
+
+  // Variables below are used for setting a current day
+  int option = 0;
+  int CurrentDay = 0;
+  int CurrentYear = 0;
+  int arrSize = 0;
+  bool overlap = false;
+  string date = "";
+  string CurrentMonth = "";
 
   Day CurrentDate;  // create a day object. It's used for setting a current day.
-
-
-  arrSize=DetailNum();
-  Day *DayArr=new Day[arrSize];
   Print* printer = new Print(months);
 
+  arrSize = DetailNum();
+  Day *DayArr = new Day[arrSize];
   readNote(DayArr, arrSize);
-  while(option!=7)
-  {
-    if(CurrentDate.isEmpty())
-    {
+
+  while (option != 7) {
+    if (CurrentDate.isEmpty()) {
       do
       {
-        cout<<"\nPlease enter a current date(e.g., Aug/01/2016): "<<endl;
-        cin>>date;
+        std::cout << "\nPlease enter a current date(e.g., Aug/01/2016): " << std::endl;
+        std::cout << "> ";
+        std::cin >> date;
         //discerns the date from the user's string
-        CurrentMonth= date.substr(0,3);
-        CurrentDay=std::stoi(date.substr(4,5));
-        CurrentYear=std::stoi(date.substr(8,11)) + 2000;
-      }while(!CurrentDate.DateTest(CurrentMonth, CurrentDay, CurrentYear));
+        CurrentMonth = date.substr(0,3);
+        CurrentDay = std::stoi(date.substr(4,5));
+        CurrentYear = std::stoi(date.substr(8,11)) + 2000;
+      } while(!CurrentDate.DateTest(CurrentMonth, CurrentDay, CurrentYear));
     }
-      CurrentDate.setDay(CurrentDay);
-      CurrentDate.setMonth(CurrentMonth);
-      CurrentDate.setYear(CurrentYear);
-      cout<<"\n\nDo you want to display the current day?(Type 1)"<<endl;
-      cout<<"Do you want to do week display?(Type 2)"<<endl;
-      cout<<"Do you want to add details to the current day?(Type 3)"<<endl;
-      cout <<"Do you want to display a month?(Type 4)"<<endl;
-      cout <<"Do you want to display a year?(Type 5)"<<endl;
-      cout <<"Do you want to remove from current date?(Type 6)"<<endl;
-      cout<<"Do you want to quit?(Type 7)"<<endl;
-      cin>>option;
-      if(option==1)
-      {
-        cout<<CurrentDay<<"/"<<CurrentMonth<<"/"<<CurrentYear<<endl;
-        printer->printDetail(DayArr, arrSize, CurrentDate);
+    CurrentDate.setDay(CurrentDay);
+    CurrentDate.setMonth(CurrentMonth);
+    CurrentDate.setYear(CurrentYear);
+    printMenu();
+    std::cout << "\nEnter your selection:";
+    std::cin >> option;
 
+    switch (option) {
+      case 1: {
+        std::cout << CurrentDay << "/" << CurrentMonth << "/" << CurrentYear << endl;
+        printer->printDetail(DayArr, arrSize, CurrentDate);
+        break;
       }
-      else if(option==2)
-      {
-        printer -> printWeek(CurrentDay, CurrentMonth, CurrentYear);
+      case 2: {
+        printer->printWeek(CurrentDay, CurrentMonth, CurrentYear);
+        break;
       }
-      else if(option==3)
-      {
-        string detail="";
-        cout<<"What do you want to add to the current day?"<<endl;
-        cin.ignore(1,'\n');
-        getline(cin, detail);
-        cout<<"The added detail is: "<<detail<<endl;
-        CurrentDate.setDetail(detail);
-        if(!CurrentDate.contain(DayArr, arrSize))
-        {
-          DayArr[arrSize-1].setDay(CurrentDay);
-          DayArr[arrSize-1].setMonth(CurrentMonth);
-          DayArr[arrSize-1].setYear(CurrentYear);
-          DayArr[arrSize-1].setDetail(detail);
+      case 3: {
+        std::string monthUserInput;
+        std::cout << "\nPlease enter the name of the month (e.g., Aug): " << std::endl;
+        std::cin >> monthUserInput;
+        std::string temp;
+        for (int i = 0 ; i < 10 ; i++) {
+          temp = months[i].getMonthName();
+          if (temp == monthUserInput) {
+            printer->printMonth(i);
+            break;
+          }
+          if(i == 9) {
+            std::cout << "\nMonth name is invalid." << std::endl;
+          }
         }
-        else
-        {
+        break;
+      }
+      case 4: {
+        printer->printYear();
+        break;
+      }
+      case 5: {
+        string detail = "";
+        std::cout << "What do you want to add to the current day?" << std::endl;
+        std::cin.ignore(1, '\n');
+        getline(cin, detail);
+        std::cout << "The added detail is: " << detail << std::endl;
+        CurrentDate.setDetail(detail);
+        if (!CurrentDate.contain(DayArr, arrSize)) {
+          DayArr[arrSize - 1].setDay(CurrentDay);
+          DayArr[arrSize - 1].setMonth(CurrentMonth);
+          DayArr[arrSize - 1].setYear(CurrentYear);
+          DayArr[arrSize - 1].setDetail(detail);
+        } else {
           CurrentDate.updateArr(DayArr,arrSize);
         }
         writeNote(DayArr, arrSize, CurrentDate, overlap);
+        break;
       }
-      else if(option==4)
-      {
-          std::string monthUserInput;
-          std::cout << "\nPlease enter the name of the month (e.g., Aug): " << std::endl;
-          std::cin >> monthUserInput;
-
-          std::string temp;
-          for (int i=0 ; i<10 ; i++)
-          {
-            temp = months[i].getMonthName();
-            if(temp==monthUserInput){
-              printer -> printMonth(i);
-              break;
-            }
-
-            if(i==9){
-              std::cout << "\nMonth name is invalid." << std::endl;
-            }
-
-          }
-
-          //switch based off of first character of string to set month
+      case 6: {
+        removeNote(DayArr, arrSize, date, CurrentDate);
+        break;
       }
-      else if(option==5)
-      {
-        printer-> printYear();
-      }
-	  else if (option == 6)
-	  {
-		removeNote(DayArr, arrSize, date, CurrentDate);
-	  }
+    }
   }
+
+  std::cout << "\n\nThanks for using KAMYcal!\n\n" << std::endl;
+  return 0;
 }

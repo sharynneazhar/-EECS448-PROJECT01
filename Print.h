@@ -19,11 +19,13 @@ class Print
 {
 
 	public:
-		/**
-		*	@pre An array of Month class objects is available.
-		*	@post Constructs a Print class object with the named Month array.
-		*	@return Print class object.
-		*/
+	Print();
+
+	/**
+	*	@pre An array of Month class objects is available.
+	*	@post Constructs a Print class object with the named Month array.
+	*	@return Print class object.
+	*/
 	Print(Month monthsArr[]);
 
 	/**
@@ -79,7 +81,6 @@ class Print
 	//!> Array of Month objects
 	Month* months;
 
-	private:
 
 };
 

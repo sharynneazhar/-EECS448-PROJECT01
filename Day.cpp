@@ -80,12 +80,12 @@ bool Day:: notePresent()
 
 std::string Day:: getNote()
 {
-	if(!notePresent() ) {
-		std::cout<<"There's no note for today!";
-	} else {
-		NoteReader* noteReader;
-		return noteReader -> readNote();
+	if (notePresent()) {
+		NoteReader* noteReader = nullptr;
+		return noteReader->readNote();
 	}
+
+  return "There's no note for today!";
 }
 
 
@@ -156,19 +156,16 @@ bool Day:: contain(Day *DayArr, int size)//check if there are some exiting notes
 //(if the date and month of the current day is as same as one of the objects in the array<I created a day array in main>),
 //if there is an exsting note, just do string(detail) addtion.
 {
-    for(int i=0; i<size-1; i++)
-    {
-        if(date==DayArr[i].getDate() && month==DayArr[i].getMonth())
-        {
-            i=size+1;
-            return true;
-        }
-        else
-        {
-            i=size+1;
-            return false;
-        }
+  for(int i=0; i<size-1; i++) {
+    if (date == DayArr[i].getDate() && month == DayArr[i].getMonth()) {
+      i=size+1;
+      return true;
+    } else {
+      i=size+1;
+      return false;
     }
+  }
+  return false;
 }
 
 void Day:: updateArr(Day *DayArr, int size)
