@@ -140,16 +140,42 @@ void storeEvents(Day *DayArr, int size, Day CurrentDate, bool overlap) {
 * @return None.
 */
 void removeEvents(Day *DayArr, int size, std::string date, Day CurrentDate) {
-  std::string month = date.substr(0,3);
-  int day = std::stoi(date.substr(4,5));
-  for (int i = 0; i < size; i++) {
-    if (DayArr[i].getMonth() == month && DayArr[i].getDate() == day) {
-      std::cout << DayArr[i].getDetail() << std::endl;
-      DayArr[i].setDetail("");
-      std::cout<< DayArr[i].getDetail() << std::endl;
-      storeEvents(DayArr, size, CurrentDate, false);
-      return;
-    }
-  }
-  std::cout<< "No note was found on that date.\n";
+	std::string month = date.substr(0,3);
+	int day = std::stoi(date.substr(4,5));
+	/*for (int i = 0; i < size; i++) {
+		if (DayArr[i].getMonth() == month && DayArr[i].getDate() == day) {
+			std::cout << DayArr[i].getDetail() << std::endl;
+			DayArr[i].setDetail("");
+			std::cout<< DayArr[i].getDetail() << std::endl;
+			storeEvents(DayArr, size, CurrentDate, false);
+			return;
+		}
+	}*/
+
+
+	bool doneDeleted=false;
+	std::string parsing="";
+	ifstream theFile;
+	ofstream newFile;
+	theFile.open("Detail.txt");
+	newFile.open("temp.txt");
+	while(!theFile.eof()) {
+		std::getline(theFile, parsing);
+		if(doneDeleted == false) {
+			if(parsing.substr(0,3) == month && std::stoi(parsing.substr(4,2)) == day) {
+				doneDeleted = true;
+			}
+		}
+		else {
+			newFile<<parsing<<'\n';
+		}
+	}
+	newFile.close();
+	theFile.close();
+	std::remove("Detail.txt");
+	rename("temp.txt", "Detail.txt");
+	if(doneDeleted == false)
+	{
+		std::cout<< "No note was found on that date.\n";
+	}
 }

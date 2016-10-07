@@ -37,7 +37,7 @@ int main(int argc, char** argv) {
   Print* printer = new Print(months);
 
   arrSize = getNumDaysWithEvents();
-  Day* DayArr = new Day[arrSize];
+  Day* DayArr = new Day[arrSize];//change into a vector???
   getDaysWithEvents(DayArr, arrSize);
 
   while (option != 7) {
