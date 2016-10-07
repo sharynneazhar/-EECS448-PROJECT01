@@ -45,7 +45,7 @@ int main(int argc, char** argv) {
   // ---------------
   // INITIALIZATION
   // ---------------
-  printBanner();
+  printBanner("banner.txt");
   initMonths(months);
 
   Day currentDay;
@@ -57,9 +57,8 @@ int main(int argc, char** argv) {
   int menuOption = 0;
   while (menuOption != 7) {
     if (currentDay.isEmpty()) {
-      do
-      {
-        std::cout << "\nPlease enter a current date(e.g., Aug/01/2016): " << std::endl;
+      do {
+        std::cout << "\nPlease enter a current date (e.g. Aug/01/2016): " << std::endl;
         std::cout << "> ";
         std::cin >> date;
 
@@ -80,10 +79,23 @@ int main(int argc, char** argv) {
     currentDay.setMonth(currentMonth);
     currentDay.setYear(currentYear);
 
-
     printMenu();
     std::cout << "> Enter your selection: ";
     std::cin >> menuOption;
+
+    // isdigit isn't working as expected
+    // http://stackoverflow.com/questions/5655142/how-to-check-if-input-is-numeric-in-c
+    if (!std::cin) { // user didn't input an integer
+      // reset failbit
+      std::cin.clear();
+      // skip bad input
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+      // next, request user reinput
+      printMenu();
+      std::cout << "> Bad entry. Please try again.\n";
+      std::cout << "> Enter your selection: ";
+      std::cin >> menuOption;
+    }
 
     switch (menuOption) {
       case 1: {
@@ -103,7 +115,7 @@ int main(int argc, char** argv) {
       }
       case 3: {
         std::string monthUserInput;
-        std::cout << "\nPlease enter the name of the month (e.g., Aug): " << std::endl;
+        std::cout << "\nPlease enter the name of the month (e.g. Aug): " << std::endl;
         std::cin >> monthUserInput;
         std::string temp;
         for (int i = 0 ; i < 10 ; i++) {
@@ -147,6 +159,7 @@ int main(int argc, char** argv) {
     }
   }
 
-  std::cout << "\n\nThanks for using KAMYcal!\n\n" << std::endl;
+  std::cout << std::endl;
+  printBanner("bannerRobot.txt");
   return 0;
 }

@@ -23,7 +23,7 @@
 *	@post Outputs the banner to the console
 *	@return None.
 */
-void printBanner();
+void printBanner(std::string filename);
 
 /**
 *	@pre None.

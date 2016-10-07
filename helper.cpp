@@ -7,8 +7,8 @@
 
 #include "helper.h"
 
-void printBanner() {
-	std::ifstream file("banner.txt");
+void printBanner(std::string filename) {
+	std::ifstream file(filename);
 	std::string lines = "";
 	if (file) {
 		while (file.good()) {
