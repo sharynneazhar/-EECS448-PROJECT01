@@ -21,68 +21,84 @@ Month months[10];
 * @return None.
 */
 int main(int argc, char** argv) {
-  printBanner();
-  initMonths(months);
 
-  // Variables below are used for setting a current day
-  int option = 0;
-  int CurrentDay = 0;
-  int CurrentYear = 0;
-  int arrSize = 0;
+  // ----------
+  // VARIABLES
+  // NOTE: In this project, we distinguish "date" as a specific date like the
+  // 10th versus "day" which refers to the whole day like 10th of August
+  // ----------
   bool overlap = false;
+  int numDaysWithEvents = 0;
+  int currentDate = 0;
+  int currentYear = 0;
   std::string date = "";
-  std::string CurrentMonth = "";
+  std::string currentMonth = "";
 
   // Used for user date input
   std::string monthString = "";
   std::string dateString = "";
   std::string yearString = "";
 
-  Day CurrentDate;  // create a day object. It's used for setting a current day.
-  Print* printer = new Print(months);
+  Print* printer = new Print(months); // printer for different calendar views
 
-  arrSize = getNumDaysWithEvents();
-  Day* DayArr = new Day[arrSize];
-  getDaysWithEvents(DayArr, arrSize);
 
-  while (option != 7) {
-    if (CurrentDate.isEmpty()) {
+  // ---------------
+  // INITIALIZATION
+  // ---------------
+  printBanner();
+  initMonths(months);
+
+  Day currentDay;
+  numDaysWithEvents = getNumDaysWithEvents();
+  Day* daysWithEvents = new Day[numDaysWithEvents];
+  getDaysWithEvents(daysWithEvents, numDaysWithEvents);
+
+
+  int menuOption = 0;
+  while (menuOption != 7) {
+    if (currentDay.isEmpty()) {
       do
       {
         std::cout << "\nPlease enter a current date(e.g., Aug/01/2016): " << std::endl;
         std::cout << "> ";
         std::cin >> date;
 
+        // keep a record of the day in string type
         monthString = date.substr(0,3);
         dateString = date.substr(4,2);
         yearString = date.substr(7,4);
 
-        CurrentMonth = monthString;
-        CurrentDay = std::stoi(date.substr(4,5));
-        CurrentYear = std::stoi(date.substr(8,11)) + 2000;
-      } while(!CurrentDate.DateTest(CurrentMonth, CurrentDay, CurrentYear));
+        // convert the date and year to integer representations
+        currentMonth = monthString;
+        currentDate = std::stoi(dateString);
+        currentYear = std::stoi(yearString);
+      } while(!currentDay.DateTest(currentMonth, currentDate, currentYear));
     }
-    CurrentDate.setDay(CurrentDay);
-    CurrentDate.setMonth(CurrentMonth);
-    CurrentDate.setYear(CurrentYear);
+
+    // Set the details about the currentDay
+    currentDay.setDay(currentDate);
+    currentDay.setMonth(currentMonth);
+    currentDay.setYear(currentYear);
+
+
     printMenu();
     std::cout << "> Enter your selection: ";
-    std::cin >> option;
+    std::cin >> menuOption;
 
-    switch (option) {
+    switch (menuOption) {
       case 1: {
-        std::cout << "\n\n ___________" << std::endl;
+        std::cout << "\n ___________" << std::endl;
         std::cout << "|___________|" << std::endl;
         std::cout << "|           |" << std::endl;
         std::cout << "|   " << yearString << "    |" << std::endl;
         std::cout << "|  " << monthString << " "<< dateString << "   |" << std::endl;
         std::cout << "|___________|" << std::endl;
 
-        printer->printDetail(DayArr, arrSize, CurrentDate);
+        printer->printDetail(daysWithEvents, numDaysWithEvents, currentDay);
         break;
       }
       case 2: {
-        printer->printWeek(CurrentDay, CurrentMonth, CurrentYear);
+        printer->printWeek(currentDate, currentMonth, currentYear);
         break;
       }
       case 3: {
@@ -112,20 +128,20 @@ int main(int argc, char** argv) {
         std::cin.ignore(1, '\n');
         getline(cin, detail);
         std::cout << "The added detail is: " << detail << std::endl;
-        CurrentDate.setDetail(detail);
-        if (!CurrentDate.contain(DayArr, arrSize)) {
-          DayArr[arrSize - 1].setDay(CurrentDay);
-          DayArr[arrSize - 1].setMonth(CurrentMonth);
-          DayArr[arrSize - 1].setYear(CurrentYear);
-          DayArr[arrSize - 1].setDetail(detail);
+        currentDay.setDetail(detail);
+        if (!currentDay.contain(daysWithEvents, numDaysWithEvents)) {
+          daysWithEvents[numDaysWithEvents - 1].setDay(currentDate);
+          daysWithEvents[numDaysWithEvents - 1].setMonth(currentMonth);
+          daysWithEvents[numDaysWithEvents - 1].setYear(currentYear);
+          daysWithEvents[numDaysWithEvents - 1].setDetail(detail);
         } else {
-          CurrentDate.updateArr(DayArr,arrSize);
+          currentDay.updateArr(daysWithEvents,numDaysWithEvents);
         }
-        storeEvents(DayArr, arrSize, CurrentDate, overlap);
+        storeEvents(daysWithEvents, numDaysWithEvents, currentDay, overlap);
         break;
       }
       case 6: {
-        removeEvents(DayArr, arrSize, date, CurrentDate);
+        removeEvents(daysWithEvents, numDaysWithEvents, date, currentDay);
         break;
       }
     }

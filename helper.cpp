@@ -86,7 +86,7 @@ int getNumDaysWithEvents() {
   return num;
 }
 
-void getDaysWithEvents(Day* DayArr, int size) {
+void getDaysWithEvents(Day* daysWithEvents, int size) {
   std::ifstream inputFile;
   string Month = "";
   string Detail = "";
@@ -107,10 +107,10 @@ void getDaysWithEvents(Day* DayArr, int size) {
           }
         }
       }
-      DayArr[i].setDay(Day);
-      DayArr[i].setMonth(Month);
-      DayArr[i].setYear(Year);
-      DayArr[i].setDetail(Detail);
+      daysWithEvents[i].setDay(Day);
+      daysWithEvents[i].setMonth(Month);
+      daysWithEvents[i].setYear(Year);
+      daysWithEvents[i].setDetail(Detail);
       x = ' ';
       Detail = "";
       Month = "";
@@ -121,13 +121,12 @@ void getDaysWithEvents(Day* DayArr, int size) {
   inputFile.close();
 }
 
-void storeEvents(Day *DayArr, int size, Day CurrentDate, bool overlap) {
+void storeEvents(Day *daysWithEvents, int size, Day currentDay, bool overlap) {
   std::ofstream outputFile;
   outputFile.open("Detail.txt");
-
   for (int i = 0; i < size; i++) {
-    if (DayArr[i].getMonth() != "" || DayArr[i].getDate() != 0 || DayArr[i].getYear() != 0) {
-      outputFile << DayArr[i].getMonth() << " " << DayArr[i].getDate() << " " << DayArr[i].getYear() << " " << DayArr[i].getDetail() << '\n';
+    if (daysWithEvents[i].getMonth() != "" || daysWithEvents[i].getDate() != 0 || daysWithEvents[i].getYear() != 0) {
+      outputFile << daysWithEvents[i].getMonth() << " " << daysWithEvents[i].getDate() << " " << daysWithEvents[i].getYear() << " " << daysWithEvents[i].getDetail() << '\n';
     }
   }
 
@@ -139,15 +138,15 @@ void storeEvents(Day *DayArr, int size, Day CurrentDate, bool overlap) {
 * @post Removes events from a day
 * @return None.
 */
-void removeEvents(Day *DayArr, int size, std::string date, Day CurrentDate) {
+void removeEvents(Day *daysWithEvents, int size, std::string date, Day currentDay) {
   std::string month = date.substr(0,3);
   int day = std::stoi(date.substr(4,5));
   for (int i = 0; i < size; i++) {
-    if (DayArr[i].getMonth() == month && DayArr[i].getDate() == day) {
-      std::cout << DayArr[i].getDetail() << std::endl;
-      DayArr[i].setDetail("");
-      std::cout<< DayArr[i].getDetail() << std::endl;
-      storeEvents(DayArr, size, CurrentDate, false);
+    if (daysWithEvents[i].getMonth() == month && daysWithEvents[i].getDate() == day) {
+      std::cout << daysWithEvents[i].getDetail() << std::endl;
+      daysWithEvents[i].setDetail("");
+      std::cout<< daysWithEvents[i].getDetail() << std::endl;
+      storeEvents(daysWithEvents, size, currentDay, false);
       return;
     }
   }

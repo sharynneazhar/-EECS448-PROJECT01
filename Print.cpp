@@ -137,8 +137,11 @@ void Print :: noteCheck(int date, int monthNumber)
 
 void Print:: printWeek(int currentDay, std::string currentMonth, int currentYear)
 {
-	std::cout<<std::endl;
-	std::cout<<"Current Year: "<< currentYear <<"Current Month: "<< currentMonth <<std::endl;
+	std::cout << "\n------------------------------------\n";
+	std::cout << "Current Year: " << currentYear << std::endl;
+	std::cout << "Current Month: " << currentMonth << std::endl;
+	std::cout << "------------------------------------\n";
+
 	if(currentMonth=="Aug")
 	{
 		weekDisplay(currentDay,0);
@@ -180,7 +183,7 @@ void Print:: printWeek(int currentDay, std::string currentMonth, int currentYear
 		weekDisplay(currentDay,9);
 	}
 
-
+	std::cout << "------------------------------------\n";
 }
 
 //-----------------------------------------------------------------------------
@@ -272,42 +275,39 @@ void Print:: weekDisplay(int date, int month)
 
 //-----------------------------------------------------------------------------
 
-void Print:: printDay(int day, int month)
-{
-	//error checking for an invalid date
-	if (day < 0 || day > months[month].getNumDays() || month < 0 || month > 10)
-	{
-		std::cout<<"Invalid date chosen\n";
+void Print:: printDay(int day, int month) {
+	// error checking for an invalid date
+	if (day < 0 || day > months[month].getNumDays() || month < 0 || month > 10) {
+		std::cout << "Invalid date chosen\n";
 		return;
 	}
 
-	//pull the week variable from the day in question and translate that into a word to output to the console
-	switch (months[month].days[day-1].getWeek())
-	{
+	// pull the week variable from the day in question and translate that into a word to output to the console
+	switch (months[month].days[day-1].getWeek()) {
 		case 0:
-		std::cout<<"Sunday, ";
-		break;
+			std::cout<<"Sunday, ";
+			break;
 		case 1:
-		std::cout<<"Monday, ";
-		break;
+			std::cout<<"Monday, ";
+			break;
 		case 2:
-		std::cout<<"Tuesday, ";
-		break;
+			std::cout<<"Tuesday, ";
+			break;
 		case 3:
-		std::cout<<"Wednesday, ";
-		break;
+			std::cout<<"Wednesday, ";
+			break;
 		case 4:
-		std::cout<<"Thursday, ";
-		break;
+			std::cout<<"Thursday, ";
+			break;
 		case 5:
-		std::cout<<"Friday, ";
-		break;
+			std::cout<<"Friday, ";
+			break;
 		case 6:
-		std::cout<<"Saturday, ";
-		break;
+			std::cout<<"Saturday, ";
+			break;
 		default:
-		std::cout<<"Invalid date chosen\n";
-		return;
+			std::cout<<"Invalid date chosen\n";
+			return;
 	}
 
 	//pulls the input month for the name of the month for output into the console
@@ -372,14 +372,14 @@ void Print:: printDay(int day, int month)
 	}
 }
 
-void Print:: printDetail(Day *DayArr, int size, Day CurrentDay)
+void Print:: printDetail(Day *daysWithEvents, int size, Day CurrentDay)
 {
 
 	for(int i=0; i<size-1; i++)
 	{
-		if(CurrentDay.getDate()==DayArr[i].getDate() && CurrentDay.getMonth()==DayArr[i].getMonth())
+		if(CurrentDay.getDate()==daysWithEvents[i].getDate() && CurrentDay.getMonth()==daysWithEvents[i].getMonth())
 		{
-			cout<< "-" << DayArr[i].getDetail()<<endl;
+			cout<< "-" << daysWithEvents[i].getDetail()<<endl;
 			i=size+1;
 		}
 		else

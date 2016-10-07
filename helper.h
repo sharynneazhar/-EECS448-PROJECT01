@@ -51,21 +51,21 @@ int getNumDaysWithEvents();
 * @post Builds a Day array with days from the input file with the details
 * @return None.
 */
-void getDaysWithEvents(Day* DayArr, int size);
+void getDaysWithEvents(Day* daysWithEvents, int size);
 
 /**
 * @pre None.
 * @post Stores the events to the output file
 * @return None.
 */
-void storeEvents(Day *DayArr, int size, Day CurrentDate, bool overlap);
+void storeEvents(Day *daysWithEvents, int size, Day currentDay, bool overlap);
 
 /**
 * @pre None.
 * @post Removes events from a day
 * @return None.
 */
-void removeEvents(Day *DayArr, int size, std::string date, Day CurrentDate);
+void removeEvents(Day *daysWithEvents, int size, std::string date, Day currentDay);
 
 
 #endif

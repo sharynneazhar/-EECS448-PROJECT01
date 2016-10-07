@@ -1,6 +1,9 @@
 # Calendar
 A basic academic calendar written in C++ for KU EECS 448
 
+### Date vs. Day
+In this project, we use the term __date__ to describe a specific number like the __10th__, whereas the term __day__ refers to the entire date like __October 10th, 2016__.
+
 ## Program Requirements
 The user must be able do the following:
 - All requirements from project 1

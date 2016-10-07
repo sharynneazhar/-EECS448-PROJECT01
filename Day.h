@@ -52,7 +52,7 @@ class Day
     *  @post None.
     *  @return Bool for if there is a detail for this day in the input Day array.
     */
-    bool contain(Day *DayArr, int size);//write detals to a txt file;
+    bool contain(Day *daysWithEvents, int size);//write detals to a txt file;
 
     /**
     *  @pre None.
@@ -66,7 +66,7 @@ class Day
     *  @post None.
     *  @return Updates the date array with details
     */
-    void updateArr(Day *DayArr, int size);
+    void updateArr(Day *daysWithEvents, int size);
 
     /**
     *  @pre None.
