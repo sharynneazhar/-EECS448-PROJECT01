@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['initdays',['initDays',['../class_month.html#a9309f01ffc97e5bbb13bf8f5801f2aec',1,'Month']]],
-  ['initmonths',['initMonths',['../main_8cpp.html#a10bbe665fe4d7b7e2eef1fb906f23517',1,'main.cpp']]],
-  ['isempty',['isEmpty',['../class_day.html#aa4dd0d85c6fa11300b10c2a40c530c4f',1,'Day']]]
+  ['helper_2ecpp',['helper.cpp',['../helper_8cpp.html',1,'']]],
+  ['helper_2eh',['helper.h',['../helper_8h.html',1,'']]]
 ];

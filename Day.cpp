@@ -185,12 +185,12 @@ void Day:: setDetail(string De)//just set the detail of a day
     detail=De;
 }
 
-bool Day:: contain(Day *DayArr, int size)//check if there are some exiting notes on this day
+bool Day:: contain(Day *daysWithEvents, int size)//check if there are some exiting notes on this day
 //(if the date and month of the current day is as same as one of the objects in the array<I created a day array in main>),
 //if there is an exsting note, just do string(detail) addtion.
 {
   for(int i=0; i<size-1; i++) {
-    if (date == DayArr[i].getDate() && month == DayArr[i].getMonth()) {
+    if (date == daysWithEvents[i].getDate() && month == daysWithEvents[i].getMonth()) {
       i=size+1;
       return true;
     } else {
@@ -201,14 +201,14 @@ bool Day:: contain(Day *DayArr, int size)//check if there are some exiting notes
   return false;
 }
 
-void Day:: updateArr(Day *DayArr, int size)
+void Day:: updateArr(Day *daysWithEvents, int size)
 {
     for(int i=0; i<size; i++)
     {
-         if(date==DayArr[i].getDate() && month==DayArr[i].getMonth())
+         if(date==daysWithEvents[i].getDate() && month==daysWithEvents[i].getMonth())
          {
-            detail=DayArr[i].getDetail() + '\n' + detail;
-            DayArr[i].setDetail(detail);
+            detail=daysWithEvents[i].getDetail()+detail;
+            daysWithEvents[i].setDetail(detail);
             i=size+1;
          }
     }

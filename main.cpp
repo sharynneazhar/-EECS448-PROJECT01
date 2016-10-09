@@ -11,6 +11,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <vector>
 
 //!> array of length 10 (Aug thru May for academic year)
 Month months[10];
@@ -21,58 +22,102 @@ Month months[10];
 * @return None.
 */
 int main(int argc, char** argv) {
-  printBanner();
+
+  // ----------
+  // VARIABLES
+  // NOTE: In this project, we distinguish "date" as a specific date like the
+  // 10th versus "day" which refers to the whole day like 10th of August
+  // ----------
+  bool overlap = false;
+  int numDaysWithEvents = 0;
+  int currentDate = 0;
+  int currentYear = 0;
+  std::string date = "";
+  std::string currentMonth = "";
+
+  // Used for user date input
+  std::string monthString = "";
+  std::string dateString = "";
+  std::string yearString = "";
+
+  Print* printer = new Print(months); // printer for different calendar views
+
+
+  // ---------------
+  // INITIALIZATION
+  // ---------------
+  printBanner("banner.txt");
   initMonths(months);
 
-  // Variables below are used for setting a current day
-  int option = 0;
-  int CurrentDay = 0;
-  int CurrentYear = 0;
-  int arrSize = 0;
-  bool overlap = false;
-  string date = "";
-  string CurrentMonth = "";
+  Day currentDay;
+  numDaysWithEvents = getNumDaysWithEvents();
+  std::vector<Day> daysWithEvents;
+  //Day* daysWithEvents = new Day[numDaysWithEvents];//vector???
+  getDaysWithEvents(daysWithEvents, numDaysWithEvents);
 
-  Day CurrentDate;  // create a day object. It's used for setting a current day.
-  Print* printer = new Print(months);
 
-  arrSize = getNumDaysWithEvents();
-  Day* DayArr = new Day[arrSize];//change into a vector???
-  getDaysWithEvents(DayArr, arrSize);
-
-  while (option != 7) {
-    if (CurrentDate.isEmpty()) {
-      do
-      {
-        std::cout << "\nPlease enter a current date(e.g., Aug/01/2016): " << std::endl;
+  int menuOption = 0;
+  while (menuOption != 7) {
+    if (currentDay.isEmpty()) {
+      do {
+        std::cout << "\nPlease enter a current date (e.g. Aug/01/2016): " << std::endl;
         std::cout << "> ";
         std::cin >> date;
-        //discerns the date from the user's string
-        CurrentMonth = date.substr(0,3);
-        CurrentDay = std::stoi(date.substr(4,5));
-        CurrentYear = std::stoi(date.substr(8,11)) + 2000;
-      } while(!CurrentDate.DateTest(CurrentMonth, CurrentDay, CurrentYear));
-    }
-    CurrentDate.setDay(CurrentDay);
-    CurrentDate.setMonth(CurrentMonth);
-    CurrentDate.setYear(CurrentYear);
-    printMenu();
-    std::cout << "\nEnter your selection:";
-    std::cin >> option;
 
-    switch (option) {
+        // keep a record of the day in string type
+        monthString = date.substr(0,3);
+        dateString = date.substr(4,2);
+        yearString = date.substr(7,4);
+
+        // convert the date and year to integer representations
+        currentMonth = monthString;
+        currentDate = std::stoi(dateString);
+        currentYear = std::stoi(yearString);
+      } while(!currentDay.DateTest(currentMonth, currentDate, currentYear));
+    }
+
+    // Set the details about the currentDay
+    currentDay.setDay(currentDate);
+    currentDay.setMonth(currentMonth);
+    currentDay.setYear(currentYear);
+
+    printMenu();
+    std::cout << "> Enter your selection: ";
+    std::cin >> menuOption;
+
+    // isdigit isn't working as expected
+    // http://stackoverflow.com/questions/5655142/how-to-check-if-input-is-numeric-in-c
+    if (!std::cin) { // user didn't input an integer
+      // reset failbit
+      std::cin.clear();
+      // skip bad input
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+      // next, request user reinput
+      printMenu();
+      std::cout << "> Bad entry. Please try again.\n";
+      std::cout << "> Enter your selection: ";
+      std::cin >> menuOption;
+    }
+
+    switch (menuOption) {
       case 1: {
-        std::cout << CurrentDay << "/" << CurrentMonth << "/" << CurrentYear << endl;
-        printer->printDetail(DayArr, arrSize, CurrentDate);
+        std::cout << "\n ___________" << std::endl;
+        std::cout << "|___________|" << std::endl;
+        std::cout << "|           |" << std::endl;
+        std::cout << "|   " << yearString << "    |" << std::endl;
+        std::cout << "|  " << monthString << " "<< dateString << "   |" << std::endl;
+        std::cout << "|___________|" << std::endl;
+
+        printer->printDetail(daysWithEvents, numDaysWithEvents, currentDay);
         break;
       }
       case 2: {
-        printer->printWeek(CurrentDay, CurrentMonth, CurrentYear);
+        printer->printWeek(currentDate, currentMonth, currentYear);
         break;
       }
       case 3: {
         std::string monthUserInput;
-        std::cout << "\nPlease enter the name of the month (e.g., Aug): " << std::endl;
+        std::cout << "\nPlease enter the name of the month (e.g. Aug): " << std::endl;
         std::cin >> monthUserInput;
         std::string temp;
         for (int i = 0 ; i < 10 ; i++) {
@@ -97,25 +142,33 @@ int main(int argc, char** argv) {
         std::cin.ignore(1, '\n');
         getline(cin, detail);
         std::cout << "The added detail is: " << detail << std::endl;
-        CurrentDate.setDetail(detail);
-        if (!CurrentDate.contain(DayArr, arrSize)) {
-          DayArr[arrSize - 1].setDay(CurrentDay);
-          DayArr[arrSize - 1].setMonth(CurrentMonth);
-          DayArr[arrSize - 1].setYear(CurrentYear);
-          DayArr[arrSize - 1].setDetail(detail);
+        currentDay.setDetail(detail);
+        /*
+        if (!currentDay.contain(daysWithEvents, numDaysWithEvents)) {
+          daysWithEvents[numDaysWithEvents - 1].setDay(currentDate);
+          daysWithEvents[numDaysWithEvents - 1].setMonth(currentMonth);
+          daysWithEvents[numDaysWithEvents - 1].setYear(currentYear);
+          daysWithEvents[numDaysWithEvents - 1].setDetail(detail);
         } else {
-          CurrentDate.updateArr(DayArr,arrSize);
-        }
-        storeEvents(DayArr, arrSize, CurrentDate, overlap);
+          currentDay.updateArr(daysWithEvents,numDaysWithEvents);
+     }*/
+     //CODE UP ALTERNATE METHOD
+     //transfer all events to vector when program started
+     // can just push everything onto the vector then write everything to the file when progam exited
+     //each event has date description and own line
+
+
+        storeEvents(daysWithEvents, numDaysWithEvents, currentDay, overlap);
         break;
       }
       case 6: {
-        removeEvents(DayArr, arrSize, date, CurrentDate);
+        removeEvents(daysWithEvents, numDaysWithEvents, date, currentDay);
         break;
       }
     }
   }
 
-  std::cout << "\n\nThanks for using KAMYcal!\n\n" << std::endl;
+  std::cout << std::endl;
+  printBanner("bannerRobot.txt");
   return 0;
 }
