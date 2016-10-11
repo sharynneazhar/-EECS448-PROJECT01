@@ -129,9 +129,14 @@ void storeEvents(Event event) {
 						 << event.getStartTime() << ","
 						 << event.getEndTime() << ","
 						 << event.getName() << ","
-						 << event.getDesc() << "\n";
+						 << event.getDesc() << ",";
 
-	// TODO: implement recurring function
+	if (event.getRepeatSchedule() != "") {
+		outputFile << event.getRepeatSchedule() << ","
+							 << event.getRepeatDays() << ",";
+	}
+
+	outputFile << "\n";
 
   // for (int i = 0; i < size; i++) {
   //   if (daysWithEvents[i].getMonth() != "" || daysWithEvents[i].getDate() != 0 || daysWithEvents[i].getYear() != 0) {
@@ -168,15 +173,4 @@ void removeEvents(Day *daysWithEvents, int size, std::string date, Day currentDa
   {
 	  std::cout<< "No note was found on that date.\n";
   }
-
-  /*for (int i = 0; i < size; i++) {
-    if (daysWithEvents[i].getMonth() == month && daysWithEvents[i].getDate() == day) {
-      std::cout << daysWithEvents[i].getDetail() << std::endl;
-      daysWithEvents[i].setDetail("");
-      std::cout<< daysWithEvents[i].getDetail() << std::endl;
-      storeEvents(daysWithEvents, size, currentDay, false);
-      return;
-    }
-  }
-  std::cout<< "No note was found on that date.\n";*/
 }

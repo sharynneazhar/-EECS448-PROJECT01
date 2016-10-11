@@ -26,7 +26,6 @@ int main(int argc, char** argv) {
   // NOTE: In this project, we distinguish "date" as a specific date like the
   // 10th versus "day" which refers to the whole day like 10th of August
   // ----------
-  bool overlap = false;
   int numDaysWithEvents = 0;
   int currentDate = 0;
   int currentYear = 0;
@@ -154,33 +153,6 @@ int main(int argc, char** argv) {
         std::cout << "End Time (e.g. 1400): ";
         getline(cin, endTimeInput);
 
-        char repeat;
-        std::cout << "Repeat Event? (Y/N): ";
-        std::cin >> repeat;
-
-        int repeatSchedule;
-        int repeatDays;
-        if (repeat == 'Y' || repeat == 'y') {
-          std::cout << "Repeat this event..." << std::endl;
-          std::cout << "1. Weekly" << std::endl;
-          std::cout << "2. Biweekly" << std::endl;
-          std::cout << "3. Monthly" << std::endl;
-          std::cout << "> Your selection: ";
-          std::cin >> repeatSchedule;
-
-          std::cout << "On which days should the event be repeated?" << std::endl;
-          std::cout << "1. Mondays" << std::endl;
-          std::cout << "2. Tuesdays" << std::endl;
-          std::cout << "3. Wednesdays" << std::endl;
-          std::cout << "4. Thursdays" << std::endl;
-          std::cout << "5. Fridays" << std::endl;
-          std::cout << "6. Saturdays" << std::endl;
-          std::cout << "7. Sundays" << std::endl;
-          std::cout << "> Your selection: ";
-          std::cin >> repeatDays;
-        }
-
-
         // parse the date and times
         startDate = std::stoi(startDateInput.substr(4, 2));
         startMonth = startDateInput.substr(0, 3);
@@ -196,8 +168,48 @@ int main(int argc, char** argv) {
         // Create an Event instance
         Event event(name, desc, startDate, startYear, startMonth, endDate, endYear, endMonth, startTime, endTime);
 
-        // Store the event to file
-        std::cout << event.getName() << std::endl;
+        // Ask user if this will be a recurring event
+        char repeat;
+        std::cout << "Repeat Event? (Y/N): ";
+        std::cin >> repeat;
+
+        int repeatSchedule;
+        int repeatDays;
+        if (repeat == 'Y' || repeat == 'y') {
+          std::cout << "Repeat this event..." << std::endl;
+          std::cout << "1. Weekly" << std::endl;
+          std::cout << "2. Biweekly" << std::endl;
+          std::cout << "3. Monthly" << std::endl;
+          std::cout << "> Your selection: ";
+          std::cin >> repeatSchedule;
+
+          switch (repeatSchedule) {
+            case 1: event.setRepeatSchedule("weekly"); break;
+            case 2: event.setRepeatSchedule("biweekly"); break;
+            case 3: event.setRepeatSchedule("monthly"); break;
+          }
+
+          std::cout << "On which days should the event be repeated?" << std::endl;
+          std::cout << "1. Mondays" << std::endl;
+          std::cout << "2. Tuesdays" << std::endl;
+          std::cout << "3. Wednesdays" << std::endl;
+          std::cout << "4. Thursdays" << std::endl;
+          std::cout << "5. Fridays" << std::endl;
+          std::cout << "6. Saturdays" << std::endl;
+          std::cout << "7. Sundays" << std::endl;
+          std::cout << "> Your selection: ";
+          std::cin >> repeatDays;
+
+          switch (repeatDays) {
+            case 1: event.setRepeatDays("mondays"); break;
+            case 2: event.setRepeatDays("tuesdays"); break;
+            case 3: event.setRepeatDays("wednesdays"); break;
+            case 4: event.setRepeatDays("thursdays"); break;
+            case 5: event.setRepeatDays("fridays"); break;
+            case 6: event.setRepeatDays("saturdays"); break;
+            case 7: event.setRepeatDays("sundays"); break;
+          }
+        }
 
         storeEvents(event);
 

@@ -32,9 +32,6 @@ class Event{
       string repeatSchedule;
       string repeatDays;
 
-     // string repeatSchedule;
-      //string repeatDays;
-
     public:
       /**
       *  @pre None.
