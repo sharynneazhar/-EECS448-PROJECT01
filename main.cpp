@@ -11,7 +11,6 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include <vector>
 
 //!> array of length 10 (Aug thru May for academic year)
 Month months[10];
@@ -51,8 +50,7 @@ int main(int argc, char** argv) {
 
   Day currentDay;
   numDaysWithEvents = getNumDaysWithEvents();
-  std::vector<Day> daysWithEvents;
-  //Day* daysWithEvents = new Day[numDaysWithEvents];//vector???
+  Day* daysWithEvents = new Day[numDaysWithEvents];
   getDaysWithEvents(daysWithEvents, numDaysWithEvents);
 
 
@@ -143,21 +141,14 @@ int main(int argc, char** argv) {
         getline(cin, detail);
         std::cout << "The added detail is: " << detail << std::endl;
         currentDay.setDetail(detail);
-        /*
-        if (!currentDay.contain(daysWithEvents, numDaysWithEvents)) {
+     //   if (!currentDay.contain(daysWithEvents, numDaysWithEvents)) {
           daysWithEvents[numDaysWithEvents - 1].setDay(currentDate);
           daysWithEvents[numDaysWithEvents - 1].setMonth(currentMonth);
           daysWithEvents[numDaysWithEvents - 1].setYear(currentYear);
           daysWithEvents[numDaysWithEvents - 1].setDetail(detail);
-        } else {
-          currentDay.updateArr(daysWithEvents,numDaysWithEvents);
-     }*/
-     //CODE UP ALTERNATE METHOD
-     //transfer all events to vector when program started
-     // can just push everything onto the vector then write everything to the file when progam exited
-     //each event has date description and own line
-
-
+     //} else {
+     //     currentDay.updateArr(daysWithEvents,numDaysWithEvents);
+       // }
         storeEvents(daysWithEvents, numDaysWithEvents, currentDay, overlap);
         break;
       }

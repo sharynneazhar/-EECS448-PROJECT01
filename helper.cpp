@@ -133,47 +133,36 @@ void storeEvents(Day *daysWithEvents, int size, Day currentDay, bool overlap) {
   outputFile.close();
 }
 
-/**
-* @pre None.
-* @post Removes events from a day
-* @return None.
-*/
-/*
-void removeEvents(Day *DayArr, int size, std::string date, Day CurrentDate) {
-	std::string month = date.substr(0,3);
-	int day = std::stoi(date.substr(4,5));
-
-
-	bool doneDeleted=false;
-	std::string parsing="";
-	ifstream theFile;
-	ofstream newFile;
-	theFile.open("Detail.txt");
-	newFile.open("temp.txt");
-	while(!theFile.eof()) {
-		std::getline(theFile, parsing);
-		if(doneDeleted == false) {
-			if(parsing.substr(0,3) == month && std::stoi(parsing.substr(4,2)) == day) {
-				doneDeleted = true;
-			}
-		}
-		else {
-			newFile<<parsing<<'\n';
-		}
-	}
-	newFile.close();
-	theFile.close();
-	std::remove("Detail.txt");
-	rename("temp.txt", "Detail.txt");
-	if(doneDeleted == false)
-	{
-		std::cout<< "No note was found on that date.\n";
-	}
-*/
 void removeEvents(Day *daysWithEvents, int size, std::string date, Day currentDay) {
   std::string month = date.substr(0,3);
   int day = std::stoi(date.substr(4,5));
-  for (int i = 0; i < size; i++) {
+  bool doneDeleted=false;
+  std::string parsing="";
+  ifstream theFile;
+  ofstream newFile;
+  theFile.open("Detail.txt");
+  newFile.open("temp.txt");
+  while(!theFile.eof()) {
+	  std::getline(theFile, parsing);
+	  if(doneDeleted == false) {
+		  if(parsing.substr(0,3) == month && std::stoi(parsing.substr(4,2)) == day) {
+			  doneDeleted = true;
+		  }
+	  }
+	  else {
+		  newFile<<parsing<<'\n';
+	  }
+  }
+  newFile.close();
+  theFile.close();
+  std::remove("Detail.txt");
+  rename("temp.txt", "Detail.txt");
+  if(doneDeleted == false)
+  {
+	  std::cout<< "No note was found on that date.\n";
+  }
+
+  /*for (int i = 0; i < size; i++) {
     if (daysWithEvents[i].getMonth() == month && daysWithEvents[i].getDate() == day) {
       std::cout << daysWithEvents[i].getDetail() << std::endl;
       daysWithEvents[i].setDetail("");
@@ -182,14 +171,5 @@ void removeEvents(Day *daysWithEvents, int size, std::string date, Day currentDa
       return;
     }
   }
-  std::cout<< "No note was found on that date.\n";
-}
-
-std::vector<Day> populateVector(std::vector<Day> *daysWithEvents, int size, std::string event, Day currentDay, bool overlap) {
-	ifstream evntsFile;
-	std::string temp;
-	while(!eventsFile.eof()) {
-		temp = eventsFile.getline();
-		
-	}
+  std::cout<< "No note was found on that date.\n";*/
 }

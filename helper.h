@@ -17,7 +17,6 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-#include <vector>
 
 /**
 *	@pre None.
@@ -67,13 +66,5 @@ void storeEvents(Day *daysWithEvents, int size, Day currentDay, bool overlap);
 * @return None.
 */
 void removeEvents(Day *daysWithEvents, int size, std::string date, Day currentDay);
-
-/**
-* @pre None.
-* @post fills vector with previously established events
-* @return populated vector
-*/
-std::vector<Day> populateVector(std::vector<Day> *daysWithEvents, int size, std::string event, Day currentDay, bool overlap);
-
 
 #endif
