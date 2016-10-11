@@ -145,6 +145,7 @@ int main(int argc, char** argv) {
         getline(cin, name);
         std::cout << "Description: ";
         getline(cin, desc);
+        
         std::cout << "Start Date (e.g. Aug/10/2016): ";
         getline(cin, startDateInput);
         std::cout << "End Date (e.g. Aug/10/2016): ";
@@ -153,6 +154,32 @@ int main(int argc, char** argv) {
         getline(cin, startTimeInput);
         std::cout << "End Time (e.g. 1400): ";
         getline(cin, endTimeInput);
+
+        char repeat;
+        std::cout << "Repeat Event? (Y/N): ";
+        std::cin >> repeat;
+
+        int repeatSchedule;
+        int repeatDays;
+        if (repeat == 'Y' || repeat == 'y') {
+          std::cout << "Repeat this event..." << std::endl;
+          std::cout << "1. Weekly" << std::endl;
+          std::cout << "2. Biweekly" << std::endl;
+          std::cout << "3. Monthly" << std::endl;
+          std::cout << "> Your selection: ";
+          std::cin >> repeatSchedule;
+
+          std::cout << "On which days should the event be repeated?" << std::endl;
+          std::cout << "1. Mondays" << std::endl;
+          std::cout << "2. Tuesdays" << std::endl;
+          std::cout << "3. Wednesdays" << std::endl;
+          std::cout << "4. Thursdays" << std::endl;
+          std::cout << "5. Fridays" << std::endl;
+          std::cout << "6. Saturdays" << std::endl;
+          std::cout << "7. Sundays" << std::endl;
+          std::cout << "> Your selection: ";
+          std::cin >> repeatDays;
+        }
 
 
         // parse the date and times
