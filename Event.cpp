@@ -6,6 +6,7 @@
 */
 
 #include "Event.h"
+
 using namespace std;
 
 Event::Event(){
@@ -82,7 +83,7 @@ int Event::getEndTime(){
 }
 
 bool Event::isEmpty(){
-    if(name == "" || name == null){
+    if(name == ""){
       return true;
     }
     else{

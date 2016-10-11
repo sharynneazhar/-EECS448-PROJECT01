@@ -141,7 +141,7 @@ void Print::weekDisplay(int date, int month) {
 			if (count < 6) {
 				count++;
 			} else {
-				coun t= 0;
+				count = 0;
 			}
 		}
 	}
@@ -152,7 +152,7 @@ void Print::weekDisplay(int date, int month) {
 		for (int i = 0; i < 7; i++) {
 			//date of sunday in the week surrounding the current day.
 			if (date - count + i <= months[month].getNumDays()) {
-				std::cout << "   " << date-count+i<<"  ";
+				std::cout << "   " << date - count+i<<"  ";
 				Num++;
 			} else {
 				for (int i = 1; i <= (7 - Num); i++) {
@@ -167,7 +167,7 @@ void Print::weekDisplay(int date, int month) {
 		} else {
 			int LastMonDay = months[month-1].getNumDays();
 			std::cout << " Sun  Mon  Tue  Wed  Thu  Fri  Sat  " << std::endl;
-			for (int i = 0; i <=c ount-date; i++) {
+			for (int i = 0; i <= count - date; i++) {
 				std::cout << "  " << LastMonDay + (date - count) + i << "  ";
 			}
 			for (int i = 1; i <= (7 - count); i++) {

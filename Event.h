@@ -7,16 +7,18 @@
 
 #ifndef EVENT_H
 #define EVENT_H
+
 #include <string>
 #include <iostream>
-using namespace std;
 #include <fstream>
 
-struct Date{
+using namespace std;
+
+struct Date {
   int day;
   string month;
   int year;
-}
+};
 
 class Event{
 
