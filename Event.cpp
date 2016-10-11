@@ -82,19 +82,19 @@ int Event::getEndTime(){
     return endTime;
 }
 
-void setRepeatSchedule(string sched) {
+void Event::setRepeatSchedule(string sched) {
     repeatSchedule = sched;
 }
 
-int getRepeatSchedule() {
+string Event::getRepeatSchedule() {
     return repeatSchedule;
 }
 
-void setRepeatDays(string day) {
+void Event::setRepeatDays(string day) {
     repeatDays = day;
 }
 
-int getRepeatDays() {
+string Event::getRepeatDays() {
     return repeatDays;
 }
 

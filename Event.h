@@ -29,6 +29,8 @@ class Event{
       struct Date endDate;
       int startTime;
       int endTime;
+      string repeatSchedule;
+      string repeatDays;
 
       string repeatSchedule;
       string repeatDays;
@@ -147,7 +149,7 @@ class Event{
       *  @post None.
       *  @return The repeating schedule
       */
-      int getRepeatSchedule();
+      string getRepeatSchedule();
 
       /**
       *  @pre None.
@@ -161,7 +163,7 @@ class Event{
       *  @post None.
       *  @return The repeating days
       */
-      int getRepeatDays();
+      string getRepeatDays();
 
       /**
       *  @pre None.
