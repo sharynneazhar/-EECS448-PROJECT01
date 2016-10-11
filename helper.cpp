@@ -159,15 +159,4 @@ void removeEvents(Day *daysWithEvents, int size, std::string date, Day currentDa
   {
 	  std::cout<< "No note was found on that date.\n";
   }
-
-  /*for (int i = 0; i < size; i++) {
-    if (daysWithEvents[i].getMonth() == month && daysWithEvents[i].getDate() == day) {
-      std::cout << daysWithEvents[i].getDetail() << std::endl;
-      daysWithEvents[i].setDetail("");
-      std::cout<< daysWithEvents[i].getDetail() << std::endl;
-      storeEvents(daysWithEvents, size, currentDay, false);
-      return;
-    }
-  }
-  std::cout<< "No note was found on that date.\n";*/
 }
