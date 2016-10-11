@@ -145,7 +145,7 @@ int main(int argc, char** argv) {
         getline(cin, name);
         std::cout << "Description: ";
         getline(cin, desc);
-        
+
         std::cout << "Start Date (e.g. Aug/10/2016): ";
         getline(cin, startDateInput);
         std::cout << "End Date (e.g. Aug/10/2016): ";
@@ -199,6 +199,8 @@ int main(int argc, char** argv) {
 
         // Store the event to file
         std::cout << event.getName() << std::endl;
+
+        storeEvents(event);
 
 
         // std::cin.ignore(1, '\n');

@@ -59,7 +59,7 @@ void getDaysWithEvents(Day* daysWithEvents, int size);
 * @post Stores the events to the output file
 * @return None.
 */
-void storeEvents(Day *daysWithEvents, int size, Day currentDay, bool overlap);
+void storeEvents(Event event);
 
 /**
 * @pre None.

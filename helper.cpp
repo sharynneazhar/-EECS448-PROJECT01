@@ -121,14 +121,23 @@ void getDaysWithEvents(Day* daysWithEvents, int size) {
   inputFile.close();
 }
 
-void storeEvents(Day *daysWithEvents, int size, Day currentDay, bool overlap) {
+void storeEvents(Event event) {
   std::ofstream outputFile;
-  outputFile.open("Detail.txt");
-  for (int i = 0; i < size; i++) {
-    if (daysWithEvents[i].getMonth() != "" || daysWithEvents[i].getDate() != 0 || daysWithEvents[i].getYear() != 0) {
-      outputFile << daysWithEvents[i].getMonth() << " " << daysWithEvents[i].getDate() << " " << daysWithEvents[i].getYear() << " " << daysWithEvents[i].getDetail() << '\n';
-    }
-  }
+  outputFile.open("events.txt", std::ios_base::app);
+	outputFile << event.getStartDate().year << event.getStartDate().month << event.getStartDate().day << ","
+						 << event.getEndDate().year << event.getEndDate().month << event.getEndDate().day << ","
+						 << event.getName() << ","
+						 << event.getDesc() << ","
+						 << event.getStartTime() << ","
+						 << event.getEndTime() << "\n";
+
+	// TODO: implement recurring function
+
+  // for (int i = 0; i < size; i++) {
+  //   if (daysWithEvents[i].getMonth() != "" || daysWithEvents[i].getDate() != 0 || daysWithEvents[i].getYear() != 0) {
+  //     outputFile << daysWithEvents[i].getMonth() << " " << daysWithEvents[i].getDate() << " " << daysWithEvents[i].getYear() << " " << daysWithEvents[i].getDetail() << '\n';
+  //   }
+  // }
 
   outputFile.close();
 }
