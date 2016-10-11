@@ -1,0 +1,144 @@
+\hypertarget{helper_8cpp}{}\section{helper.\+cpp File Reference}
+\label{helper_8cpp}\index{helper.\+cpp@{helper.\+cpp}}
+
+
+File containing helper methods.  
+
+
+{\ttfamily \#include \char`\"{}helper.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{helper_8cpp_a9838950eb82ae7c0e6747aabc11c06b0}{print\+Banner} (std\+::string filename)
+\item 
+void \hyperlink{helper_8cpp_ab13e858612c64eeef73aff1d8a03945e}{print\+Menu} ()
+\item 
+void \hyperlink{helper_8cpp_ad6b5165840b2c81b16effe2a8ae25766}{init\+Months} (\hyperlink{class_month}{Month} \hyperlink{main_8cpp_a12786cc41eca27dd4c0f53d32c8b378f}{months}\mbox{[}10\mbox{]})
+\item 
+int \hyperlink{helper_8cpp_a418b3fe00f6bf7f600cd849d80fb0101}{get\+Num\+Days\+With\+Events} ()
+\item 
+void \hyperlink{helper_8cpp_a7c56d317d16c4a8040838b6299391a67}{get\+Days\+With\+Events} (\hyperlink{class_day}{Day} $\ast$days\+With\+Events, int size)
+\item 
+void \hyperlink{helper_8cpp_aaaab9364215b507ef4fa1cf713b3095d}{store\+Events} (\hyperlink{class_day}{Day} $\ast$days\+With\+Events, int size, \hyperlink{class_day}{Day} current\+Day, bool overlap)
+\item 
+void \hyperlink{helper_8cpp_a151983cbdd22fc5a0dc072f07d7b5e2f}{remove\+Events} (\hyperlink{class_day}{Day} $\ast$days\+With\+Events, int size, std\+::string date, \hyperlink{class_day}{Day} current\+Day)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+File containing helper methods. 
+
+\begin{DoxyAuthor}{Author}
+Sharynne Azhar
+\end{DoxyAuthor}
+\begin{DoxySince}{Since}
+05 October 2016 
+\end{DoxySince}
+
+
+\subsection{Function Documentation}
+\hypertarget{helper_8cpp_a7c56d317d16c4a8040838b6299391a67}{}\label{helper_8cpp_a7c56d317d16c4a8040838b6299391a67} 
+\index{helper.\+cpp@{helper.\+cpp}!get\+Days\+With\+Events@{get\+Days\+With\+Events}}
+\index{get\+Days\+With\+Events@{get\+Days\+With\+Events}!helper.\+cpp@{helper.\+cpp}}
+\subsubsection{\texorpdfstring{get\+Days\+With\+Events()}{getDaysWithEvents()}}
+{\footnotesize\ttfamily void get\+Days\+With\+Events (\begin{DoxyParamCaption}\item[{\hyperlink{class_day}{Day} $\ast$}]{days\+With\+Events,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Builds a \hyperlink{class_day}{Day} array with days from the input file with the details 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\hypertarget{helper_8cpp_a418b3fe00f6bf7f600cd849d80fb0101}{}\label{helper_8cpp_a418b3fe00f6bf7f600cd849d80fb0101} 
+\index{helper.\+cpp@{helper.\+cpp}!get\+Num\+Days\+With\+Events@{get\+Num\+Days\+With\+Events}}
+\index{get\+Num\+Days\+With\+Events@{get\+Num\+Days\+With\+Events}!helper.\+cpp@{helper.\+cpp}}
+\subsubsection{\texorpdfstring{get\+Num\+Days\+With\+Events()}{getNumDaysWithEvents()}}
+{\footnotesize\ttfamily int get\+Num\+Days\+With\+Events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Read through the file to check how many days have details. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+Number of days with details. 
+\end{DoxyReturn}
+\hypertarget{helper_8cpp_ad6b5165840b2c81b16effe2a8ae25766}{}\label{helper_8cpp_ad6b5165840b2c81b16effe2a8ae25766} 
+\index{helper.\+cpp@{helper.\+cpp}!init\+Months@{init\+Months}}
+\index{init\+Months@{init\+Months}!helper.\+cpp@{helper.\+cpp}}
+\subsubsection{\texorpdfstring{init\+Months()}{initMonths()}}
+{\footnotesize\ttfamily void init\+Months (\begin{DoxyParamCaption}\item[{\hyperlink{class_month}{Month}}]{months\mbox{[}10\mbox{]} }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Initializes the months to the values for the 2016/2017 academic year 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\hypertarget{helper_8cpp_a9838950eb82ae7c0e6747aabc11c06b0}{}\label{helper_8cpp_a9838950eb82ae7c0e6747aabc11c06b0} 
+\index{helper.\+cpp@{helper.\+cpp}!print\+Banner@{print\+Banner}}
+\index{print\+Banner@{print\+Banner}!helper.\+cpp@{helper.\+cpp}}
+\subsubsection{\texorpdfstring{print\+Banner()}{printBanner()}}
+{\footnotesize\ttfamily void print\+Banner (\begin{DoxyParamCaption}\item[{std\+::string}]{filename }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Outputs the banner to the console 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\hypertarget{helper_8cpp_ab13e858612c64eeef73aff1d8a03945e}{}\label{helper_8cpp_ab13e858612c64eeef73aff1d8a03945e} 
+\index{helper.\+cpp@{helper.\+cpp}!print\+Menu@{print\+Menu}}
+\index{print\+Menu@{print\+Menu}!helper.\+cpp@{helper.\+cpp}}
+\subsubsection{\texorpdfstring{print\+Menu()}{printMenu()}}
+{\footnotesize\ttfamily void print\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Outputs the menu to the console 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\hypertarget{helper_8cpp_a151983cbdd22fc5a0dc072f07d7b5e2f}{}\label{helper_8cpp_a151983cbdd22fc5a0dc072f07d7b5e2f} 
+\index{helper.\+cpp@{helper.\+cpp}!remove\+Events@{remove\+Events}}
+\index{remove\+Events@{remove\+Events}!helper.\+cpp@{helper.\+cpp}}
+\subsubsection{\texorpdfstring{remove\+Events()}{removeEvents()}}
+{\footnotesize\ttfamily void remove\+Events (\begin{DoxyParamCaption}\item[{\hyperlink{class_day}{Day} $\ast$}]{days\+With\+Events,  }\item[{int}]{size,  }\item[{std\+::string}]{date,  }\item[{\hyperlink{class_day}{Day}}]{current\+Day }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Removes events from a day 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\hypertarget{helper_8cpp_aaaab9364215b507ef4fa1cf713b3095d}{}\label{helper_8cpp_aaaab9364215b507ef4fa1cf713b3095d} 
+\index{helper.\+cpp@{helper.\+cpp}!store\+Events@{store\+Events}}
+\index{store\+Events@{store\+Events}!helper.\+cpp@{helper.\+cpp}}
+\subsubsection{\texorpdfstring{store\+Events()}{storeEvents()}}
+{\footnotesize\ttfamily void store\+Events (\begin{DoxyParamCaption}\item[{\hyperlink{class_day}{Day} $\ast$}]{days\+With\+Events,  }\item[{int}]{size,  }\item[{\hyperlink{class_day}{Day}}]{current\+Day,  }\item[{bool}]{overlap }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Stores the events to the output file 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}

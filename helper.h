@@ -68,5 +68,4 @@ void storeEvents(Day *daysWithEvents, int size, Day currentDay, bool overlap);
 */
 void removeEvents(Day *daysWithEvents, int size, std::string date, Day currentDay);
 
-
 #endif

@@ -8,5 +8,6 @@ var searchData=
   ['setnumdays',['setNumDays',['../class_month.html#a661a751213b495884ec258d3e6c687e9',1,'Month']]],
   ['setstartday',['setStartDay',['../class_month.html#ae9730715451148a5a4629b9c450e8103',1,'Month']]],
   ['setweek',['setWeek',['../class_day.html#abd9ffcfab90af3e2defaa2491a3761bb',1,'Day']]],
-  ['setyear',['setYear',['../class_day.html#a9fc013d905327fd70003970125247d91',1,'Day']]]
+  ['setyear',['setYear',['../class_day.html#a9fc013d905327fd70003970125247d91',1,'Day']]],
+  ['storeevents',['storeEvents',['../helper_8cpp.html#aaaab9364215b507ef4fa1cf713b3095d',1,'storeEvents(Day *daysWithEvents, int size, Day currentDay, bool overlap):&#160;helper.cpp'],['../helper_8h.html#aaaab9364215b507ef4fa1cf713b3095d',1,'storeEvents(Day *daysWithEvents, int size, Day currentDay, bool overlap):&#160;helper.cpp']]]
 ];

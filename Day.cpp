@@ -91,60 +91,93 @@ std::string Day:: getNote()
 
 bool Day:: DateTest(std::string month, int day, int year)
 {
-   if(day>0 && day<32 && year>2015 && year<2018)
-  {
-    if(month=="Aug")
-    {
-        return true;
+     //only 2016 and 2017 are valid years
+     if(year == 2016) {
+          //limits months for 2016 to August through December and correct number of days
+          if(month == "Aug") {
+               if(day > 0 && day < 32) {
+                    return true;
+               } else {
+                   std::cout<<"Please input valid day."<<std::endl;
+                   return false;
+               }
+          } else if(month == "Sep") {
+               if(day > 0 && day < 31) {
+                    return true;
+               } else {
+                   std::cout<<"Please input valid day."<<std::endl;
+                   return false;
+               }
+          } else if(month == "Oct") {
+               if(day > 0 && day < 32) {
+                    return true;
+               } else {
+                   std::cout<<"Please input valid day."<<std::endl;
+                   return false;
+               }
+          } else if(month == "Nov") {
+               if(day > 0 && day < 31) {
+                    return true;
+               } else {
+                   std::cout<<"Please input valid day."<<std::endl;
+                   return false;
+               }
+          } else if(month == "Dec") {
+               if(day > 0 && day < 32) {
+                    return true;
+               } else {
+                   std::cout<<"Please input valid day."<<std::endl;
+                   return false;
+               }
+          } else {
+               std::cout<<"Please input valid month corresponding with 2016."<<std::endl;
+               return false;
+          }
+     } else if(year == 2017) {
+          //limits valid months for 2017 to January through May and correct number of days
+          if(month == "Jan") {
+               if(day > 0 && day < 32) {
+                    return true;
+               } else {
+                   std::cout<<"Please input valid day."<<std::endl;
+                   return false;
+               }
+          } else if(month == "Feb") {
+               if(day > 0 && day < 29) {
+                    return true;
+               } else {
+                   std::cout<<"Please input valid day."<<std::endl;
+                   return false;
+               }
+          } else if(month == "Mar") {
+               if(day > 0 && day < 32) {
+                    return true;
+               } else {
+                   std::cout<<"Please input valid day."<<std::endl;
+                   return false;
+               }
+          } else if(month == "Apr") {
+               if(day > 0 && day < 31) {
+                    return true;
+               } else {
+                   std::cout<<"Please input valid day."<<std::endl;
+                   return false;
+               }
+          } else if(month == "May") {
+               if(day > 0 && day < 32) {
+                    return true;
+               } else {
+                   std::cout<<"Please input valid day."<<std::endl;
+                   return false;
+               }
+          } else {
+               std::cout<<"Please input valid month corresponding with 2017."<<std::endl;
+               return false;
+          }
+     } else {
+         std::cout<<"Please input valid year, 2016 or 2017."<<std::endl;
+         return false;
     }
-    else if(month=="Sep")
-    {
-        return true;
-    }
-    else if(month=="Oct")
-    {
-        return true;
-    }
-    else if(month=="Nov")
-    {
-        return true;
-    }
-     else if(month=="Dec")
-    {
-        return true;
-    }
-    else if(month=="Jan")
-    {
-        return true;
-    }
-     else if(month=="Feb")
-    {
-        return true;
-    }
-    else if(month=="Mar")
-    {
-        return true;
-    }
-     else if(month=="Apr")
-    {
-        return true;
-    }
-    else if(month=="May")
-    {
-        return true;
-    }
-    else
-    {
-        std::cout<<"Please input the month as what is demonstrated in the examples."<<std::endl;
-        return false;
-    }
-    //check the format of user's input of Current date.
-  }
-  else
-  {
-      std::cout<<"Please input valid day and year."<<std::endl;
-      return false;
-  }
 }
 
 void Day:: setDetail(string De)//just set the detail of a day
