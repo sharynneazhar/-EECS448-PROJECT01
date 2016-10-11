@@ -126,10 +126,10 @@ void storeEvents(Event event) {
   outputFile.open("events.txt", std::ios_base::app);
 	outputFile << event.getStartDate().year << event.getStartDate().month << event.getStartDate().day << ","
 						 << event.getEndDate().year << event.getEndDate().month << event.getEndDate().day << ","
-						 << event.getName() << ","
-						 << event.getDesc() << ","
 						 << event.getStartTime() << ","
-						 << event.getEndTime() << "\n";
+						 << event.getEndTime() << ","
+						 << event.getName() << ","
+						 << event.getDesc() << "\n";
 
 	// TODO: implement recurring function
 
