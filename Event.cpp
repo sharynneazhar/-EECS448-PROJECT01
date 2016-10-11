@@ -82,6 +82,22 @@ int Event::getEndTime(){
     return endTime;
 }
 
+void setRepeatSchedule(string sched) {
+    repeatSchedule = sched;
+}
+
+int getRepeatSchedule() {
+    return repeatSchedule;
+}
+
+void setRepeatDays(string day) {
+    repeatDays = day;
+}
+
+int getRepeatDays() {
+    return repeatDays;
+}
+
 bool Event::isEmpty(){
     if(name == ""){
       return true;
