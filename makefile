@@ -1,11 +1,14 @@
-calendar: main.o Helper.o Month.o Day.o Print.o NoteReader.o
-	g++ -g -Wall --std=c++11 -o calendar main.o Helper.o Month.o Day.o Print.o NoteReader.o
+calendar: main.o Helper.o Month.o Day.o Print.o NoteReader.o Event.o
+	g++ -g -Wall --std=c++11 -o calendar main.o Helper.o Month.o Day.o Print.o NoteReader.o Event.o
 
 main.o : main.cpp helper.h Month.h Day.h Print.h NoteReader.h
 	g++ -g -Wall -c main.cpp --std=c++11
 
 Helper.o : Helper.h Helper.cpp
 	g++ -g -Wall -c --std=c++11 helper.cpp
+
+Event.o: Event.h Event.cpp
+	g++ -g -Wall -c --std=c++11 Event.cpp
 
 Month.o : Month.h Month.cpp
 	g++ -g -Wall -c --std=c++11 Month.cpp

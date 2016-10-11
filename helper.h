@@ -12,6 +12,7 @@
 #include "Print.h"
 #include "Day.h"
 #include "Month.h"
+#include "Event.h"
 #include "NoteReader.h"
 
 #include <string>

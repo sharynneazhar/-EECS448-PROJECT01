@@ -135,21 +135,58 @@ int main(int argc, char** argv) {
         break;
       }
       case 5: {
-        string detail = "";
-        std::cout << "What do you want to add to the current day?" << std::endl;
+        std::string startDateInput, endDateInput, startTimeInput, endTimeInput;
+        std::string name, desc, startMonth, endMonth;
+        int startDate, endDate, startYear, endYear, startTime, endTime;
+
+        std::cout << "\nEnter the following details: " << std::endl;
+        std::cout << "Name: ";
         std::cin.ignore(1, '\n');
-        getline(cin, detail);
-        std::cout << "The added detail is: " << detail << std::endl;
-        currentDay.setDetail(detail);
-        if (!currentDay.contain(daysWithEvents, numDaysWithEvents)) {
-          daysWithEvents[numDaysWithEvents - 1].setDay(currentDate);
-          daysWithEvents[numDaysWithEvents - 1].setMonth(currentMonth);
-          daysWithEvents[numDaysWithEvents - 1].setYear(currentYear);
-          daysWithEvents[numDaysWithEvents - 1].setDetail(detail);
-        } else {
-          currentDay.updateArr(daysWithEvents,numDaysWithEvents);
-        }
-        storeEvents(daysWithEvents, numDaysWithEvents, currentDay, overlap);
+        getline(cin, name);
+        std::cout << "Description: ";
+        getline(cin, desc);
+        std::cout << "Start Date (e.g. Aug/10/2016): ";
+        getline(cin, startDateInput);
+        std::cout << "End Date (e.g. Aug/10/2016): ";
+        getline(cin, endDateInput);
+        std::cout << "Start Time (e.g. 1730): ";
+        getline(cin, startTimeInput);
+        std::cout << "End Time (e.g. 1400): ";
+        getline(cin, endTimeInput);
+
+
+        // parse the date and times
+        startDate = std::stoi(startDateInput.substr(4, 2));
+        startMonth = startDateInput.substr(0, 3);
+        startYear = std::stoi(startDateInput.substr(7, 4));
+
+        endDate = std::stoi(endDateInput.substr(4, 2));
+        endMonth = endDateInput.substr(0, 3);
+        endYear = std::stoi(endDateInput.substr(7, 4));
+
+        startTime = std::stoi(startTimeInput);
+        endTime = std::stoi(endTimeInput);
+
+        // Create an Event instance
+        Event event(name, desc, startDate, startYear, startMonth, endDate, endYear, endMonth, startTime, endTime);
+
+        // Store the event to file
+        std::cout << event.getName() << std::endl;
+
+
+        // std::cin.ignore(1, '\n');
+        // getline(cin, detail);
+        // std::cout << "The added detail is: " << detail << std::endl;
+        // currentDay.setDetail(detail);
+        // if (!currentDay.contain(daysWithEvents, numDaysWithEvents)) {
+        //   daysWithEvents[numDaysWithEvents - 1].setDay(currentDate);
+        //   daysWithEvents[numDaysWithEvents - 1].setMonth(currentMonth);
+        //   daysWithEvents[numDaysWithEvents - 1].setYear(currentYear);
+        //   daysWithEvents[numDaysWithEvents - 1].setDetail(detail);
+        // } else {
+        //   currentDay.updateArr(daysWithEvents,numDaysWithEvents);
+        // }
+        // storeEvents(daysWithEvents, numDaysWithEvents, currentDay, overlap);
         break;
       }
       case 6: {
