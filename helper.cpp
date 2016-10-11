@@ -129,9 +129,14 @@ void storeEvents(Event event) {
 						 << event.getStartTime() << ","
 						 << event.getEndTime() << ","
 						 << event.getName() << ","
-						 << event.getDesc() << "\n";
+						 << event.getDesc() << ",";
 
-	// TODO: implement recurring function
+	if (event.getRepeatSchedule() != "") {
+		outputFile << event.getRepeatSchedule() << ","
+							 << event.getRepeatDays() << ",";
+	}
+
+	outputFile << "\n";
 
   // for (int i = 0; i < size; i++) {
   //   if (daysWithEvents[i].getMonth() != "" || daysWithEvents[i].getDate() != 0 || daysWithEvents[i].getYear() != 0) {
