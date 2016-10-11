@@ -162,8 +162,8 @@ void removeEvents(Day *daysWithEvents, int size, std::string date, Day currentDa
   }
   newFile.close();
   theFile.close();
-  std::remove("Detail.txt");
-  rename("temp.txt", "Detail.txt");
+  std::remove("events.txt");
+  rename("temp.txt", "events.txt");
   if(doneDeleted == false)
   {
 	  std::cout<< "No note was found on that date.\n";
