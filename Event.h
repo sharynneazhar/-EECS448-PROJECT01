@@ -29,6 +29,11 @@ class Event{
       struct Date endDate;
       int startTime;
       int endTime;
+      string repeatSchedule;
+      string repeatDays;
+
+      string repeatSchedule;
+      string repeatDays;
 
     public:
       /**
@@ -131,6 +136,34 @@ class Event{
       *  @return End time value
       */
       int getEndTime();
+
+      /**
+      *  @pre None.
+      *  @post Sets the repeating schedule (weekly, biweekly, monthly)
+      *  @return None.
+      */
+      void setRepeatSchedule(string sched);
+
+      /**
+      *  @pre None.
+      *  @post None.
+      *  @return The repeating schedule
+      */
+      string getRepeatSchedule();
+
+      /**
+      *  @pre None.
+      *  @post Sets the repeating days (mondays, tuesdays, etc)
+      *  @return None.
+      */
+      void setRepeatDays(string day);
+
+      /**
+      *  @pre None.
+      *  @post None.
+      *  @return The repeating days
+      */
+      string getRepeatDays();
 
       /**
       *  @pre None.
