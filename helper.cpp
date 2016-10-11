@@ -144,10 +144,8 @@ void removeEvents(Day *daysWithEvents, int size, std::string date, Day currentDa
   newFile.open("temp.txt");
   while(!theFile.eof()) {
 	  std::getline(theFile, parsing);
-	  if(doneDeleted == false) {
-		  if(parsing.substr(0,3) == month && std::stoi(parsing.substr(4,2)) == day) {
-			  doneDeleted = true;
-		  }
+	  if(parsing.substr(0,3) == month && std::stoi(parsing.substr(4,2)) == day) {
+		  doneDeleted = true;
 	  }
 	  else {
 		  newFile<<parsing<<'\n';
