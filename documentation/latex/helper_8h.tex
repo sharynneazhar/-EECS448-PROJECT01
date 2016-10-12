@@ -8,6 +8,7 @@ Header of the file container helper functions.
 {\ttfamily \#include \char`\"{}Month.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Print.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Day.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Event.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Note\+Reader.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$string$>$}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
@@ -25,7 +26,7 @@ int \hyperlink{helper_8h_a418b3fe00f6bf7f600cd849d80fb0101}{get\+Num\+Days\+With
 \item 
 void \hyperlink{helper_8h_a7c56d317d16c4a8040838b6299391a67}{get\+Days\+With\+Events} (\hyperlink{class_day}{Day} $\ast$days\+With\+Events, int size)
 \item 
-void \hyperlink{helper_8h_aaaab9364215b507ef4fa1cf713b3095d}{store\+Events} (\hyperlink{class_day}{Day} $\ast$days\+With\+Events, int size, \hyperlink{class_day}{Day} current\+Day, bool overlap)
+void \hyperlink{helper_8h_a0460fdee7f018ba410aef398bcd0315a}{store\+Events} (\hyperlink{class_event}{Event} event)
 \item 
 void \hyperlink{helper_8h_a151983cbdd22fc5a0dc072f07d7b5e2f}{remove\+Events} (\hyperlink{class_day}{Day} $\ast$days\+With\+Events, int size, std\+::string date, \hyperlink{class_day}{Day} current\+Day)
 \end{DoxyCompactItemize}
@@ -133,11 +134,11 @@ Removes events from a day
 \begin{DoxyReturn}{Returns}
 None. 
 \end{DoxyReturn}
-\hypertarget{helper_8h_aaaab9364215b507ef4fa1cf713b3095d}{}\label{helper_8h_aaaab9364215b507ef4fa1cf713b3095d} 
+\hypertarget{helper_8h_a0460fdee7f018ba410aef398bcd0315a}{}\label{helper_8h_a0460fdee7f018ba410aef398bcd0315a} 
 \index{helper.\+h@{helper.\+h}!store\+Events@{store\+Events}}
 \index{store\+Events@{store\+Events}!helper.\+h@{helper.\+h}}
 \subsubsection{\texorpdfstring{store\+Events()}{storeEvents()}}
-{\footnotesize\ttfamily void store\+Events (\begin{DoxyParamCaption}\item[{\hyperlink{class_day}{Day} $\ast$}]{days\+With\+Events,  }\item[{int}]{size,  }\item[{\hyperlink{class_day}{Day}}]{current\+Day,  }\item[{bool}]{overlap }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void store\+Events (\begin{DoxyParamCaption}\item[{\hyperlink{class_event}{Event}}]{event }\end{DoxyParamCaption})}
 
 \begin{DoxyPrecond}{Precondition}
 None. 

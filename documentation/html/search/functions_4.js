@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['main',['main',['../main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main.cpp']]],
-  ['month',['Month',['../class_month.html#a36882c55ece9c4210ec1b01bd665ec89',1,'Month::Month()'],['../class_month.html#ae2b064f3abf4c38a9e2527920831ed3f',1,'Month::Month(const std::string MonthName, int NumDays, int StartDay)']]]
+  ['initdays',['initDays',['../class_month.html#a9309f01ffc97e5bbb13bf8f5801f2aec',1,'Month']]],
+  ['initmonths',['initMonths',['../helper_8cpp.html#ad6b5165840b2c81b16effe2a8ae25766',1,'initMonths(Month months[10]):&#160;helper.cpp'],['../helper_8h.html#ad6b5165840b2c81b16effe2a8ae25766',1,'initMonths(Month months[10]):&#160;helper.cpp']]],
+  ['isempty',['isEmpty',['../class_day.html#aa4dd0d85c6fa11300b10c2a40c530c4f',1,'Day::isEmpty()'],['../class_event.html#a690ef00dbb8205ad6807b286f02db956',1,'Event::isEmpty()']]]
 ];

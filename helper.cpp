@@ -75,16 +75,11 @@ int getNumDaysWithEvents() {
   inp.open("events.txt");
 
   while(!inp.eof()) {
-    //while(check != '\n' && !inp.eof()) {
-     // check = inp.get();
-    //}
-    //check = ' ';
     std::getline(inp, check);
     if(check.length() > 0) {
-	    num++;
+	    num++;//counts line as long as the line is not empty
     }
   }
-
   inp.close();
   return num;
 }
@@ -96,51 +91,29 @@ void getDaysWithEvents(Day* daysWithEvents, int size) {
   int Day = 0;
   int Year = 0;
   int arrPos=0;
-  //char x = ' ';
-	string events;
+  string events;
 
   inputFile.open("events.txt");
 
   if (inputFile.good()) {
 	  while(!inputFile.eof()) {
-		std::getline(inputFile, events);
-		if(events.length() > 0) {
-			Year = std::stoi(events.substr(0,4));
-			Month =  events.substr(4,3);
-			Day = std::stoi(events.substr(7,2));
-			for(int i=10; i<events.length(); i++) {
+		std::getline(inputFile, events);//getting events one line at a time
+		if(events.length() > 0) { //ignores empty lines
+			Year = std::stoi(events.substr(0,4));//based on start date
+			Month =  events.substr(4,3);//based on start date
+			Day = std::stoi(events.substr(7,2));//based on start date
+			for(int i=10; i<events.length(); i++) {//details are the rest of the info
 				Detail = Detail + events.at(i);
 			}
+			//fills array
 			daysWithEvents[arrPos].setDay(Day);
 			daysWithEvents[arrPos].setMonth(Month);
 	          daysWithEvents[arrPos].setYear(Year);
 	          daysWithEvents[arrPos].setDetail(Detail);
-			arrPos++;
-			Detail="";
+			arrPos++;//moves through array
+			Detail="";//clears all info in the detail string for the next event
 		}
 	  }
-
-
-    /*for (int i = 0; i < size; i++) {
-      if (x != '\n') {
-        inputFile >> Month >> Day >>Year;
-        while( x != '\n' && !inputFile.eof()) {
-          x = inputFile.get();
-          if (x != '\n') {
-            Detail = Detail + x;
-          }
-        }
-      }
-      daysWithEvents[i].setDay(Day);
-      daysWithEvents[i].setMonth(Month);
-      daysWithEvents[i].setYear(Year);
-      daysWithEvents[i].setDetail(Detail);
-      x = ' ';
-      Detail = "";
-      Month = "";
-      Day = 0;
-      Year = 0;
- }*/
   }
   inputFile.close();
 }
@@ -159,20 +132,11 @@ void storeEvents(Event event) {
 		outputFile << event.getRepeatSchedule() << ","
 							 << event.getRepeatDays() << ",";
 	}
-
 	outputFile << "\n";
-
-  // for (int i = 0; i < size; i++) {
-  //   if (daysWithEvents[i].getMonth() != "" || daysWithEvents[i].getDate() != 0 || daysWithEvents[i].getYear() != 0) {
-  //     outputFile << daysWithEvents[i].getMonth() << " " << daysWithEvents[i].getDate() << " " << daysWithEvents[i].getYear() << " " << daysWithEvents[i].getDetail() << '\n';
-  //   }
-  // }
-
   outputFile.close();
 }
 
 void removeEvents(Day *daysWithEvents, int size, std::string date, Day currentDay) {
-	//std::cout<<"\n\nTest1\n\n";
   std::string month = date.substr(0,3);
   int day = std::stoi(date.substr(4,5));
   bool doneDeleted=false;
@@ -181,23 +145,22 @@ void removeEvents(Day *daysWithEvents, int size, std::string date, Day currentDa
   ofstream newFile;
   theFile.open("events.txt");
   newFile.open("temp.txt");
-  //std::cout<<"\n\nTest2\n\n";
   while(!theFile.eof()) {
-	 // std::cout<<"\n\nTest3\n\n";
-	  std::getline(theFile, parsing);
-	  if(parsing.length() > 0) {
-		  if(parsing.substr(4,3) == month && std::stoi(parsing.substr(7,2)) == day) {
+	  std::getline(theFile, parsing);//gets events one line at a time
+	  if(parsing.length() > 0) {//ignores empty lines
+		  if(parsing.substr(4,3) == month && std::stoi(parsing.substr(7,2)) == day) {//checks that the event's start date matches current date
+		  															//if so, ignores that event
      		  doneDeleted = true;
-     	  } else {
+     	  } else {//otherwise, transfers event to the new file
      		  newFile<<parsing<<'\n';
      	  }
 	  }
   }
   newFile.close();
   theFile.close();
-  std::remove("events.txt");
-  rename("temp.txt", "events.txt");
-  if(doneDeleted == false)
+  std::remove("events.txt");//deletes old event text file
+  rename("temp.txt", "events.txt");//renames new file with the name of the old file
+  if(doneDeleted == false)//prints error message if no note was found
   {
 	  std::cout<< "No note was found on that date.\n";
   }

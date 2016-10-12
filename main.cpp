@@ -48,13 +48,13 @@ int main(int argc, char** argv) {
 
   Day currentDay;
   numDaysWithEvents = getNumDaysWithEvents();
-  Day* daysWithEvents = new Day[numDaysWithEvents];
+  Day* daysWithEvents = new Day[numDaysWithEvents];//creating new array of the size equal to the number of events in the text file
   getDaysWithEvents(daysWithEvents, numDaysWithEvents);
 
   int menuOption = 0;
-  while (menuOption != 7) {
+  while (menuOption != 7) {//keeps program running until user quits, chooses 7
     if (currentDay.isEmpty()) {
-      do {
+      do {//continues to ask for current date until user puts in a valid input
         std::cout << "\nPlease enter a current date (e.g. Aug/01/2016): " << std::endl;
         std::cout << "> ";
         std::cin >> date;
@@ -211,21 +211,6 @@ int main(int argc, char** argv) {
         }
 
         storeEvents(event);
-
-
-        // std::cin.ignore(1, '\n');
-        // getline(cin, detail);
-        // std::cout << "The added detail is: " << detail << std::endl;
-        // currentDay.setDetail(detail);
-        // if (!currentDay.contain(daysWithEvents, numDaysWithEvents)) {
-        //   daysWithEvents[numDaysWithEvents - 1].setDay(currentDate);
-        //   daysWithEvents[numDaysWithEvents - 1].setMonth(currentMonth);
-        //   daysWithEvents[numDaysWithEvents - 1].setYear(currentYear);
-        //   daysWithEvents[numDaysWithEvents - 1].setDetail(detail);
-        // } else {
-        //   currentDay.updateArr(daysWithEvents,numDaysWithEvents);
-        // }
-        // storeEvents(daysWithEvents, numDaysWithEvents, currentDay, overlap);
         break;
       }
       case 6: {
