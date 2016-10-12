@@ -281,19 +281,32 @@ void Print::printDay(int day, int month) {
 	}
 }
 
-void Print::printDetail(Day* daysWithEvents, int size, Day currentDay) {
-	bool dateMatch, monthMatch;
+void Print::printDetail(Day currentDay) {
+	std::ifstream eventFile;
+	eventFile.open("events.txt");
+
+	std::string startDate = std::to_string(currentDay.getYear()) + currentDay.getMonth() + std::to_string(currentDay.getDate());
+
 	std::cout << "\nToday's Agenda";
 	std::cout << "\n---------------\n";
-	for (int i = 0; i < size - 1; i++) {
-		dateMatch = currentDay.getDate() == daysWithEvents[i].getDate();
-		monthMatch = currentDay.getMonth() == daysWithEvents[i].getMonth();
-		if (dateMatch && monthMatch) {
-			std::cout << "-" << daysWithEvents[i].getDetail() << std::endl;
-			i = size + 1;
-		} else {
-			std::cout << "-" << currentDay.getDetail() << std::endl;
-			i = size + 1;
+
+	std::string line;
+	while (getline(eventFile, line)) {
+		if (line.substr(0,9) == startDate) {
+			// split the line by comma delimiter
+			// ref: https://www.daniweb.com/programming/software-development/threads/117408/splitting-a-string-using-a-delimiter
+			std::string detail;
+			std::vector<string> event;
+			std::stringstream stream(line);
+			while (getline(stream, detail, ',')) {
+				event.push_back(detail);
+			}
+			std::cout << "Name: " << event.at(4) << std::endl;
+			std::cout << "Description: " << event.at(5) << std::endl;
+			std::cout << "Start Date: " << event.at(0) << std::endl;
+			std::cout << "End Date: " << event.at(1) << std::endl;
+			std::cout << "Start Time: " << event.at(2) << std::endl;
+			std::cout << "End Time: " << event.at(3) << std::endl << std::endl;
 		}
 	}
 }

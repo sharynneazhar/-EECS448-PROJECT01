@@ -105,7 +105,7 @@ int main(int argc, char** argv) {
         std::cout << "|  " << monthString << " "<< dateString << "   |" << std::endl;
         std::cout << "|___________|" << std::endl;
 
-        printer->printDetail(daysWithEvents, numDaysWithEvents, currentDay);
+        printer->printDetail(currentDay);
         break;
       }
       case 2: {
@@ -190,7 +190,7 @@ int main(int argc, char** argv) {
             case 3: event.setRepeatSchedule("monthly"); break;
           }
 
-          std::cout << "On which days should the event be repeated?" << std::endl;
+          std::cout << "\nOn which days should the event be repeated?" << std::endl;
           std::cout << "1. Mondays" << std::endl;
           std::cout << "2. Tuesdays" << std::endl;
           std::cout << "3. Wednesdays" << std::endl;
@@ -214,20 +214,6 @@ int main(int argc, char** argv) {
 
         storeEvents(event);
 
-
-        // std::cin.ignore(1, '\n');
-        // getline(cin, detail);
-        // std::cout << "The added detail is: " << detail << std::endl;
-        // currentDay.setDetail(detail);
-        // if (!currentDay.contain(daysWithEvents, numDaysWithEvents)) {
-        //   daysWithEvents[numDaysWithEvents - 1].setDay(currentDate);
-        //   daysWithEvents[numDaysWithEvents - 1].setMonth(currentMonth);
-        //   daysWithEvents[numDaysWithEvents - 1].setYear(currentYear);
-        //   daysWithEvents[numDaysWithEvents - 1].setDetail(detail);
-        // } else {
-        //   currentDay.updateArr(daysWithEvents,numDaysWithEvents);
-        // }
-        // storeEvents(daysWithEvents, numDaysWithEvents, currentDay, overlap);
         break;
       }
       case 6: {
