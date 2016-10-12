@@ -1,2 +1,3 @@
-2016Oct15,2016Oct16,testing second event,test test test,1000,1000
-2016Oct10,2016Oct10,Testing,test test test,1000,1000
+2016Oct10,2016Oct15,1800,1800,testing day view,test ,
+2016Oct10,2016Oct12,1800,1900,testing second event,test 1,
+2016Aug9,2016Aug10,1900,1800,testing single digit date,test 1,weekly,tuesdays,

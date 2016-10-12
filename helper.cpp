@@ -70,16 +70,19 @@ void initMonths(Month months[10]) {
 
 int getNumDaysWithEvents() {
   int num = 0;
-  char check=' ';
+  string check="";
   std::ifstream inp;
-  inp.open("Detail.txt");
+  inp.open("events.txt");
 
   while(!inp.eof()) {
-    while(check != '\n' && !inp.eof()) {
-      check = inp.get();
+    //while(check != '\n' && !inp.eof()) {
+     // check = inp.get();
+    //}
+    //check = ' ';
+    std::getline(inp, check);
+    if(check.length() > 0) {
+	    num++;
     }
-    check = ' ';
-    num++;
   }
 
   inp.close();
@@ -92,12 +95,33 @@ void getDaysWithEvents(Day* daysWithEvents, int size) {
   string Detail = "";
   int Day = 0;
   int Year = 0;
-  char x = ' ';
+  int arrPos=0;
+  //char x = ' ';
+	string events;
 
-  inputFile.open("Detail.txt");
+  inputFile.open("events.txt");
 
   if (inputFile.good()) {
-    for (int i = 0; i < size; i++) {
+	  while(!inputFile.eof()) {
+		std::getline(inputFile, events);
+		if(events.length() > 0) {
+			Year = std::stoi(events.substr(0,4));
+			Month =  events.substr(4,3);
+			Day = std::stoi(events.substr(7,2));
+			for(int i=10; i<events.length(); i++) {
+				Detail = Detail + events.at(i);
+			}
+			daysWithEvents[arrPos].setDay(Day);
+			daysWithEvents[arrPos].setMonth(Month);
+	          daysWithEvents[arrPos].setYear(Year);
+	          daysWithEvents[arrPos].setDetail(Detail);
+			arrPos++;
+			Detail="";
+		}
+	  }
+
+
+    /*for (int i = 0; i < size; i++) {
       if (x != '\n') {
         inputFile >> Month >> Day >>Year;
         while( x != '\n' && !inputFile.eof()) {
@@ -116,7 +140,7 @@ void getDaysWithEvents(Day* daysWithEvents, int size) {
       Month = "";
       Day = 0;
       Year = 0;
-    }
+ }*/
   }
   inputFile.close();
 }
@@ -137,38 +161,35 @@ void storeEvents(Event event) {
 	}
 
 	outputFile << "\n";
-
-  // for (int i = 0; i < size; i++) {
-  //   if (daysWithEvents[i].getMonth() != "" || daysWithEvents[i].getDate() != 0 || daysWithEvents[i].getYear() != 0) {
-  //     outputFile << daysWithEvents[i].getMonth() << " " << daysWithEvents[i].getDate() << " " << daysWithEvents[i].getYear() << " " << daysWithEvents[i].getDetail() << '\n';
-  //   }
-  // }
-
   outputFile.close();
 }
 
 void removeEvents(Day *daysWithEvents, int size, std::string date, Day currentDay) {
+	//std::cout<<"\n\nTest1\n\n";
   std::string month = date.substr(0,3);
   int day = std::stoi(date.substr(4,5));
   bool doneDeleted=false;
   std::string parsing="";
   ifstream theFile;
   ofstream newFile;
-  theFile.open("Detail.txt");
+  theFile.open("events.txt");
   newFile.open("temp.txt");
+  //std::cout<<"\n\nTest2\n\n";
   while(!theFile.eof()) {
+	 // std::cout<<"\n\nTest3\n\n";
 	  std::getline(theFile, parsing);
-	  if(parsing.substr(0,3) == month && std::stoi(parsing.substr(4,2)) == day) {
-		  doneDeleted = true;
-	  }
-	  else {
-		  newFile<<parsing<<'\n';
+	  if(parsing.length() > 0) {
+		  if(parsing.substr(4,3) == month && std::stoi(parsing.substr(7,2)) == day) {
+     		  doneDeleted = true;
+     	  } else {
+     		  newFile<<parsing<<'\n';
+     	  }
 	  }
   }
   newFile.close();
   theFile.close();
-  std::remove("Detail.txt");
-  rename("temp.txt", "Detail.txt");
+  std::remove("events.txt");
+  rename("temp.txt", "events.txt");
   if(doneDeleted == false)
   {
 	  std::cout<< "No note was found on that date.\n";

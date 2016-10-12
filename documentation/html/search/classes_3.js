@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['print',['Print',['../class_print.html',1,'']]]
+  ['notereader',['NoteReader',['../class_note_reader.html',1,'']]]
 ];

@@ -11,6 +11,8 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <sstream>
+#include <vector>
 
 #include "Month.h"
 #include "Day.h"
@@ -75,7 +77,7 @@ class Print {
 		*	@post Outputs the details of the date to the console.
 		*	@return None.
 		*/
-		void printDetail(Day *daysWithEvents, int size, Day CurrentDay);
+		void printDetail(Day CurrentDay);
 
 		//!> Array of Month objects
 		Month* months;

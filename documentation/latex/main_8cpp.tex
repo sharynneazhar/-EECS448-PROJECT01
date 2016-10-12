@@ -5,10 +5,11 @@
 Main runtime of the Calendar project.  
 
 
-{\ttfamily \#include \char`\"{}helper.\+h\char`\"{}}\newline
-{\ttfamily \#include $<$iostream$>$}\newline
-{\ttfamily \#include $<$string$>$}\newline
-{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include \char`\"{}helper.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include $<$fstream$>$}\\*
+{\ttfamily \#include $<$iomanip$>$}\\*
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -17,8 +18,8 @@ int \hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, cha
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{main_8cpp_a12786cc41eca27dd4c0f53d32c8b378f}{}\label{main_8cpp_a12786cc41eca27dd4c0f53d32c8b378f} 
-\hyperlink{class_month}{Month} \hyperlink{main_8cpp_a12786cc41eca27dd4c0f53d32c8b378f}{months} \mbox{[}10\mbox{]}
+\hyperlink{class_month}{Month} \hyperlink{main_8cpp_a12786cc41eca27dd4c0f53d32c8b378f}{months} \mbox{[}10\mbox{]}\hypertarget{main_8cpp_a12786cc41eca27dd4c0f53d32c8b378f}{}\label{main_8cpp_a12786cc41eca27dd4c0f53d32c8b378f}
+
 \begin{DoxyCompactList}\small\item\em \begin{quote}
 array of length 10 (Aug thru May for academic year) \end{quote}
 \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -36,12 +37,14 @@ Andrew Thomas, Katie Hrenchir, Mac Crider, Yehan Li
 
 
 \subsection{Function Documentation}
-\hypertarget{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{}\label{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627} 
 \index{main.\+cpp@{main.\+cpp}!main@{main}}
 \index{main@{main}!main.\+cpp@{main.\+cpp}}
-\subsubsection{\texorpdfstring{main()}{main()}}
-{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
-
+\subsubsection[{\texorpdfstring{main(int argc, char $\ast$$\ast$argv)}{main(int argc, char **argv)}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}\hypertarget{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{}\label{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
 \begin{DoxyPrecond}{Precondition}
 None. 
 \end{DoxyPrecond}

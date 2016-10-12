@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['weekdisplay',['weekDisplay',['../class_print.html#a7013b300e4a36e6cd2fa8c68eab71892',1,'Print']]]
+  ['updatearr',['updateArr',['../class_day.html#afb73606e2cd648edcc8256a8d76a3dbb',1,'Day']]]
 ];

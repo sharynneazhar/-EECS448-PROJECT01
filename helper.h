@@ -56,6 +56,13 @@ void getDaysWithEvents(Day* daysWithEvents, int size);
 
 /**
 * @pre None.
+* @post Builds a Day array with days from the input file with the details
+* @return None.
+*/
+void getDaysWithEvents(Day* daysWithEvents, int size);
+
+/**
+* @pre None.
 * @post Stores the events to the output file
 * @return None.
 */
