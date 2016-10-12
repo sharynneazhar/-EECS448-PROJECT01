@@ -137,13 +137,6 @@ void storeEvents(Event event) {
 	}
 
 	outputFile << "\n";
-
-  // for (int i = 0; i < size; i++) {
-  //   if (daysWithEvents[i].getMonth() != "" || daysWithEvents[i].getDate() != 0 || daysWithEvents[i].getYear() != 0) {
-  //     outputFile << daysWithEvents[i].getMonth() << " " << daysWithEvents[i].getDate() << " " << daysWithEvents[i].getYear() << " " << daysWithEvents[i].getDetail() << '\n';
-  //   }
-  // }
-
   outputFile.close();
 }
 
