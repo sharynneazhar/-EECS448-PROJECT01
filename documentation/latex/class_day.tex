@@ -5,7 +5,7 @@
 \item 
 \hyperlink{class_day_a0d38b5839dd80b179cb8f0669283b3aa}{Day} ()
 \item 
-\hyperlink{class_day_a1f2f885b1328511d8b96b050673ba35d}{Day} (const int Date, const int Year, int Week, std\+::string month, bool note)
+\hyperlink{class_day_a1f2f885b1328511d8b96b050673ba35d}{Day} (const int \hyperlink{struct_date}{Date}, const int Year, int Week, std\+::string month, bool note)
 \item 
 void \hyperlink{class_day_acb0181b89543f4a0e71f85d5ddb78651}{set\+Detail} (string De)
 \item 
@@ -15,7 +15,7 @@ string \hyperlink{class_day_adf187d211b1ea4561832486f7094b18b}{get\+Detail} ()
 \item 
 void \hyperlink{class_day_afb73606e2cd648edcc8256a8d76a3dbb}{update\+Arr} (\hyperlink{class_day}{Day} $\ast$days\+With\+Events, int size)
 \item 
-void \hyperlink{class_day_a0dcbab77f0504f01fdd9a8584b590121}{set\+Day} (int Date)
+void \hyperlink{class_day_a0dcbab77f0504f01fdd9a8584b590121}{set\+Day} (int \hyperlink{struct_date}{Date})
 \item 
 void \hyperlink{class_day_abd9ffcfab90af3e2defaa2491a3761bb}{set\+Week} (int Week)
 \item 
@@ -44,12 +44,13 @@ bool \hyperlink{class_day_aa4dd0d85c6fa11300b10c2a40c530c4f}{is\+Empty} ()
 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{class_day_a0d38b5839dd80b179cb8f0669283b3aa}{}\label{class_day_a0d38b5839dd80b179cb8f0669283b3aa} 
 \index{Day@{Day}!Day@{Day}}
 \index{Day@{Day}!Day@{Day}}
-\subsubsection{\texorpdfstring{Day()}{Day()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily Day\+::\+Day (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
+\subsubsection[{\texorpdfstring{Day()}{Day()}}]{\setlength{\rightskip}{0pt plus 5cm}Day\+::\+Day (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_day_a0d38b5839dd80b179cb8f0669283b3aa}{}\label{class_day_a0d38b5839dd80b179cb8f0669283b3aa}
 \begin{DoxyPrecond}{Precondition}
 None. 
 \end{DoxyPrecond}
@@ -59,12 +60,17 @@ Constructs a \hyperlink{class_day}{Day} class object with 0 date, 0 year, 0 week
 \begin{DoxyReturn}{Returns}
 \hyperlink{class_day}{Day} class object 
 \end{DoxyReturn}
-\hypertarget{class_day_a1f2f885b1328511d8b96b050673ba35d}{}\label{class_day_a1f2f885b1328511d8b96b050673ba35d} 
 \index{Day@{Day}!Day@{Day}}
 \index{Day@{Day}!Day@{Day}}
-\subsubsection{\texorpdfstring{Day()}{Day()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily Day\+::\+Day (\begin{DoxyParamCaption}\item[{const int}]{Date,  }\item[{const int}]{Year,  }\item[{int}]{Week,  }\item[{std\+::string}]{month,  }\item[{bool}]{note }\end{DoxyParamCaption})}
-
+\subsubsection[{\texorpdfstring{Day(const int Date, const int Year, int Week, std\+::string month, bool note)}{Day(const int Date, const int Year, int Week, std::string month, bool note)}}]{\setlength{\rightskip}{0pt plus 5cm}Day\+::\+Day (
+\begin{DoxyParamCaption}
+\item[{const int}]{Date, }
+\item[{const int}]{Year, }
+\item[{int}]{Week, }
+\item[{std\+::string}]{month, }
+\item[{bool}]{note}
+\end{DoxyParamCaption}
+)}\hypertarget{class_day_a1f2f885b1328511d8b96b050673ba35d}{}\label{class_day_a1f2f885b1328511d8b96b050673ba35d}
 \begin{DoxyPrecond}{Precondition}
 None. 
 \end{DoxyPrecond}
@@ -77,12 +83,14 @@ Constructs a \hyperlink{class_day}{Day} class object with the given arguments fo
 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_day_a84a4efadd13d49d372d47ad609c5f598}{}\label{class_day_a84a4efadd13d49d372d47ad609c5f598} 
 \index{Day@{Day}!contain@{contain}}
 \index{contain@{contain}!Day@{Day}}
-\subsubsection{\texorpdfstring{contain()}{contain()}}
-{\footnotesize\ttfamily bool Day\+::contain (\begin{DoxyParamCaption}\item[{\hyperlink{class_day}{Day} $\ast$}]{days\+With\+Events,  }\item[{int}]{size }\end{DoxyParamCaption})}
-
+\subsubsection[{\texorpdfstring{contain(\+Day $\ast$days\+With\+Events, int size)}{contain(Day *daysWithEvents, int size)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Day\+::contain (
+\begin{DoxyParamCaption}
+\item[{{\bf Day} $\ast$}]{days\+With\+Events, }
+\item[{int}]{size}
+\end{DoxyParamCaption}
+)}\hypertarget{class_day_a84a4efadd13d49d372d47ad609c5f598}{}\label{class_day_a84a4efadd13d49d372d47ad609c5f598}
 \begin{DoxyPrecond}{Precondition}
 None. 
 \end{DoxyPrecond}
@@ -92,12 +100,15 @@ None.
 \begin{DoxyReturn}{Returns}
 Bool for if there is a detail for this day in the input \hyperlink{class_day}{Day} array. 
 \end{DoxyReturn}
-\hypertarget{class_day_afb77f4b9df921cfb4176ba6ef309b9b8}{}\label{class_day_afb77f4b9df921cfb4176ba6ef309b9b8} 
 \index{Day@{Day}!Date\+Test@{Date\+Test}}
 \index{Date\+Test@{Date\+Test}!Day@{Day}}
-\subsubsection{\texorpdfstring{Date\+Test()}{DateTest()}}
-{\footnotesize\ttfamily bool Day\+::\+Date\+Test (\begin{DoxyParamCaption}\item[{std\+::string}]{month,  }\item[{int}]{day,  }\item[{int}]{year }\end{DoxyParamCaption})}
-
+\subsubsection[{\texorpdfstring{Date\+Test(std\+::string month, int day, int year)}{DateTest(std::string month, int day, int year)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Day\+::\+Date\+Test (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{month, }
+\item[{int}]{day, }
+\item[{int}]{year}
+\end{DoxyParamCaption}
+)}\hypertarget{class_day_afb77f4b9df921cfb4176ba6ef309b9b8}{}\label{class_day_afb77f4b9df921cfb4176ba6ef309b9b8}
 \begin{DoxyPrecond}{Precondition}
 None. 
 \end{DoxyPrecond}
@@ -107,12 +118,13 @@ None.
 \begin{DoxyReturn}{Returns}
 Bool for if the input date is a valid calendar date 
 \end{DoxyReturn}
-\hypertarget{class_day_a6161ef9f7717d596af00031cc362fa04}{}\label{class_day_a6161ef9f7717d596af00031cc362fa04} 
 \index{Day@{Day}!get\+Date@{get\+Date}}
 \index{get\+Date@{get\+Date}!Day@{Day}}
-\subsubsection{\texorpdfstring{get\+Date()}{getDate()}}
-{\footnotesize\ttfamily int Day\+::get\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
+\subsubsection[{\texorpdfstring{get\+Date()}{getDate()}}]{\setlength{\rightskip}{0pt plus 5cm}int Day\+::get\+Date (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_day_a6161ef9f7717d596af00031cc362fa04}{}\label{class_day_a6161ef9f7717d596af00031cc362fa04}
 \begin{DoxyPrecond}{Precondition}
 None. 
 \end{DoxyPrecond}
@@ -120,14 +132,15 @@ None.
 None. 
 \end{DoxyPostcond}
 \begin{DoxyReturn}{Returns}
-Date value 
+\hyperlink{struct_date}{Date} value 
 \end{DoxyReturn}
-\hypertarget{class_day_adf187d211b1ea4561832486f7094b18b}{}\label{class_day_adf187d211b1ea4561832486f7094b18b} 
 \index{Day@{Day}!get\+Detail@{get\+Detail}}
 \index{get\+Detail@{get\+Detail}!Day@{Day}}
-\subsubsection{\texorpdfstring{get\+Detail()}{getDetail()}}
-{\footnotesize\ttfamily string Day\+::get\+Detail (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
+\subsubsection[{\texorpdfstring{get\+Detail()}{getDetail()}}]{\setlength{\rightskip}{0pt plus 5cm}string Day\+::get\+Detail (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_day_adf187d211b1ea4561832486f7094b18b}{}\label{class_day_adf187d211b1ea4561832486f7094b18b}
 \begin{DoxyPrecond}{Precondition}
 None. 
 \end{DoxyPrecond}
@@ -137,12 +150,13 @@ None.
 \begin{DoxyReturn}{Returns}
 Detail value 
 \end{DoxyReturn}
-\hypertarget{class_day_ae10fc576ccdf6d58ef42c8cd1b371401}{}\label{class_day_ae10fc576ccdf6d58ef42c8cd1b371401} 
 \index{Day@{Day}!get\+Month@{get\+Month}}
 \index{get\+Month@{get\+Month}!Day@{Day}}
-\subsubsection{\texorpdfstring{get\+Month()}{getMonth()}}
-{\footnotesize\ttfamily std\+::string Day\+::get\+Month (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
+\subsubsection[{\texorpdfstring{get\+Month()}{getMonth()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Day\+::get\+Month (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_day_ae10fc576ccdf6d58ef42c8cd1b371401}{}\label{class_day_ae10fc576ccdf6d58ef42c8cd1b371401}
 \begin{DoxyPrecond}{Precondition}
 None. 
 \end{DoxyPrecond}
@@ -152,12 +166,13 @@ None.
 \begin{DoxyReturn}{Returns}
 Returns the month variable (string). 
 \end{DoxyReturn}
-\hypertarget{class_day_ac0d1e5a970de4e30bc563c33cf69cbc3}{}\label{class_day_ac0d1e5a970de4e30bc563c33cf69cbc3} 
 \index{Day@{Day}!get\+Note@{get\+Note}}
 \index{get\+Note@{get\+Note}!Day@{Day}}
-\subsubsection{\texorpdfstring{get\+Note()}{getNote()}}
-{\footnotesize\ttfamily std\+::string Day\+::get\+Note (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
+\subsubsection[{\texorpdfstring{get\+Note()}{getNote()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Day\+::get\+Note (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_day_ac0d1e5a970de4e30bc563c33cf69cbc3}{}\label{class_day_ac0d1e5a970de4e30bc563c33cf69cbc3}
 \begin{DoxyPrecond}{Precondition}
 There is a note present (note == true) 
 \end{DoxyPrecond}
@@ -167,12 +182,13 @@ None.
 \begin{DoxyReturn}{Returns}
 The string of notes for the day 
 \end{DoxyReturn}
-\hypertarget{class_day_a43799b84e1a16df9bf16b3de69605b9a}{}\label{class_day_a43799b84e1a16df9bf16b3de69605b9a} 
 \index{Day@{Day}!get\+Week@{get\+Week}}
 \index{get\+Week@{get\+Week}!Day@{Day}}
-\subsubsection{\texorpdfstring{get\+Week()}{getWeek()}}
-{\footnotesize\ttfamily int Day\+::get\+Week (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
+\subsubsection[{\texorpdfstring{get\+Week()}{getWeek()}}]{\setlength{\rightskip}{0pt plus 5cm}int Day\+::get\+Week (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_day_a43799b84e1a16df9bf16b3de69605b9a}{}\label{class_day_a43799b84e1a16df9bf16b3de69605b9a}
 \begin{DoxyPrecond}{Precondition}
 None. 
 \end{DoxyPrecond}
@@ -182,12 +198,13 @@ None.
 \begin{DoxyReturn}{Returns}
 Week value 
 \end{DoxyReturn}
-\hypertarget{class_day_acec9a2c25c4e19fa6f46cd2671dfa51d}{}\label{class_day_acec9a2c25c4e19fa6f46cd2671dfa51d} 
 \index{Day@{Day}!get\+Year@{get\+Year}}
 \index{get\+Year@{get\+Year}!Day@{Day}}
-\subsubsection{\texorpdfstring{get\+Year()}{getYear()}}
-{\footnotesize\ttfamily int Day\+::get\+Year (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
+\subsubsection[{\texorpdfstring{get\+Year()}{getYear()}}]{\setlength{\rightskip}{0pt plus 5cm}int Day\+::get\+Year (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_day_acec9a2c25c4e19fa6f46cd2671dfa51d}{}\label{class_day_acec9a2c25c4e19fa6f46cd2671dfa51d}
 \begin{DoxyPrecond}{Precondition}
 None. 
 \end{DoxyPrecond}
@@ -197,12 +214,13 @@ None.
 \begin{DoxyReturn}{Returns}
 Year value 
 \end{DoxyReturn}
-\hypertarget{class_day_aa4dd0d85c6fa11300b10c2a40c530c4f}{}\label{class_day_aa4dd0d85c6fa11300b10c2a40c530c4f} 
 \index{Day@{Day}!is\+Empty@{is\+Empty}}
 \index{is\+Empty@{is\+Empty}!Day@{Day}}
-\subsubsection{\texorpdfstring{is\+Empty()}{isEmpty()}}
-{\footnotesize\ttfamily bool Day\+::is\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
+\subsubsection[{\texorpdfstring{is\+Empty()}{isEmpty()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Day\+::is\+Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_day_aa4dd0d85c6fa11300b10c2a40c530c4f}{}\label{class_day_aa4dd0d85c6fa11300b10c2a40c530c4f}
 \begin{DoxyPrecond}{Precondition}
 None. 
 \end{DoxyPrecond}
@@ -212,12 +230,13 @@ None.
 \begin{DoxyReturn}{Returns}
 Bool for if the \hyperlink{class_day}{Day} has no month assigned 
 \end{DoxyReturn}
-\hypertarget{class_day_a097b2409c34e772e1b133c2c344ab2bf}{}\label{class_day_a097b2409c34e772e1b133c2c344ab2bf} 
 \index{Day@{Day}!note\+Present@{note\+Present}}
 \index{note\+Present@{note\+Present}!Day@{Day}}
-\subsubsection{\texorpdfstring{note\+Present()}{notePresent()}}
-{\footnotesize\ttfamily bool Day\+::note\+Present (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
+\subsubsection[{\texorpdfstring{note\+Present()}{notePresent()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Day\+::note\+Present (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_day_a097b2409c34e772e1b133c2c344ab2bf}{}\label{class_day_a097b2409c34e772e1b133c2c344ab2bf}
 \begin{DoxyPrecond}{Precondition}
 None. 
 \end{DoxyPrecond}
@@ -227,12 +246,13 @@ None.
 \begin{DoxyReturn}{Returns}
 Note value 
 \end{DoxyReturn}
-\hypertarget{class_day_a0dcbab77f0504f01fdd9a8584b590121}{}\label{class_day_a0dcbab77f0504f01fdd9a8584b590121} 
 \index{Day@{Day}!set\+Day@{set\+Day}}
 \index{set\+Day@{set\+Day}!Day@{Day}}
-\subsubsection{\texorpdfstring{set\+Day()}{setDay()}}
-{\footnotesize\ttfamily void Day\+::set\+Day (\begin{DoxyParamCaption}\item[{int}]{Date }\end{DoxyParamCaption})}
-
+\subsubsection[{\texorpdfstring{set\+Day(int Date)}{setDay(int Date)}}]{\setlength{\rightskip}{0pt plus 5cm}void Day\+::set\+Day (
+\begin{DoxyParamCaption}
+\item[{int}]{Date}
+\end{DoxyParamCaption}
+)}\hypertarget{class_day_a0dcbab77f0504f01fdd9a8584b590121}{}\label{class_day_a0dcbab77f0504f01fdd9a8584b590121}
 \begin{DoxyPrecond}{Precondition}
 None. 
 \end{DoxyPrecond}
@@ -242,12 +262,13 @@ Sets the date variable.
 \begin{DoxyReturn}{Returns}
 None. 
 \end{DoxyReturn}
-\hypertarget{class_day_acb0181b89543f4a0e71f85d5ddb78651}{}\label{class_day_acb0181b89543f4a0e71f85d5ddb78651} 
 \index{Day@{Day}!set\+Detail@{set\+Detail}}
 \index{set\+Detail@{set\+Detail}!Day@{Day}}
-\subsubsection{\texorpdfstring{set\+Detail()}{setDetail()}}
-{\footnotesize\ttfamily void Day\+::set\+Detail (\begin{DoxyParamCaption}\item[{string}]{De }\end{DoxyParamCaption})}
-
+\subsubsection[{\texorpdfstring{set\+Detail(string De)}{setDetail(string De)}}]{\setlength{\rightskip}{0pt plus 5cm}void Day\+::set\+Detail (
+\begin{DoxyParamCaption}
+\item[{string}]{De}
+\end{DoxyParamCaption}
+)}\hypertarget{class_day_acb0181b89543f4a0e71f85d5ddb78651}{}\label{class_day_acb0181b89543f4a0e71f85d5ddb78651}
 \begin{DoxyPrecond}{Precondition}
 None. 
 \end{DoxyPrecond}
@@ -257,12 +278,13 @@ Sets the detail variable.
 \begin{DoxyReturn}{Returns}
 None. 
 \end{DoxyReturn}
-\hypertarget{class_day_aa6fc8b1b08074305e6b0dd3f4bc21151}{}\label{class_day_aa6fc8b1b08074305e6b0dd3f4bc21151} 
 \index{Day@{Day}!set\+Month@{set\+Month}}
 \index{set\+Month@{set\+Month}!Day@{Day}}
-\subsubsection{\texorpdfstring{set\+Month()}{setMonth()}}
-{\footnotesize\ttfamily void Day\+::set\+Month (\begin{DoxyParamCaption}\item[{std\+::string}]{month }\end{DoxyParamCaption})}
-
+\subsubsection[{\texorpdfstring{set\+Month(std\+::string month)}{setMonth(std::string month)}}]{\setlength{\rightskip}{0pt plus 5cm}void Day\+::set\+Month (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{month}
+\end{DoxyParamCaption}
+)}\hypertarget{class_day_aa6fc8b1b08074305e6b0dd3f4bc21151}{}\label{class_day_aa6fc8b1b08074305e6b0dd3f4bc21151}
 \begin{DoxyPrecond}{Precondition}
 None. 
 \end{DoxyPrecond}
@@ -272,12 +294,13 @@ Sets the month variable.
 \begin{DoxyReturn}{Returns}
 None. 
 \end{DoxyReturn}
-\hypertarget{class_day_a40f873f51621bdb3cf657e127d43cdaf}{}\label{class_day_a40f873f51621bdb3cf657e127d43cdaf} 
 \index{Day@{Day}!set\+Note@{set\+Note}}
 \index{set\+Note@{set\+Note}!Day@{Day}}
-\subsubsection{\texorpdfstring{set\+Note()}{setNote()}}
-{\footnotesize\ttfamily void Day\+::set\+Note (\begin{DoxyParamCaption}\item[{bool}]{note }\end{DoxyParamCaption})}
-
+\subsubsection[{\texorpdfstring{set\+Note(bool note)}{setNote(bool note)}}]{\setlength{\rightskip}{0pt plus 5cm}void Day\+::set\+Note (
+\begin{DoxyParamCaption}
+\item[{bool}]{note}
+\end{DoxyParamCaption}
+)}\hypertarget{class_day_a40f873f51621bdb3cf657e127d43cdaf}{}\label{class_day_a40f873f51621bdb3cf657e127d43cdaf}
 \begin{DoxyPrecond}{Precondition}
 None. 
 \end{DoxyPrecond}
@@ -287,12 +310,13 @@ Sets the note variable.
 \begin{DoxyReturn}{Returns}
 None. 
 \end{DoxyReturn}
-\hypertarget{class_day_abd9ffcfab90af3e2defaa2491a3761bb}{}\label{class_day_abd9ffcfab90af3e2defaa2491a3761bb} 
 \index{Day@{Day}!set\+Week@{set\+Week}}
 \index{set\+Week@{set\+Week}!Day@{Day}}
-\subsubsection{\texorpdfstring{set\+Week()}{setWeek()}}
-{\footnotesize\ttfamily void Day\+::set\+Week (\begin{DoxyParamCaption}\item[{int}]{Week }\end{DoxyParamCaption})}
-
+\subsubsection[{\texorpdfstring{set\+Week(int Week)}{setWeek(int Week)}}]{\setlength{\rightskip}{0pt plus 5cm}void Day\+::set\+Week (
+\begin{DoxyParamCaption}
+\item[{int}]{Week}
+\end{DoxyParamCaption}
+)}\hypertarget{class_day_abd9ffcfab90af3e2defaa2491a3761bb}{}\label{class_day_abd9ffcfab90af3e2defaa2491a3761bb}
 \begin{DoxyPrecond}{Precondition}
 None. 
 \end{DoxyPrecond}
@@ -302,12 +326,13 @@ Sets the week variable.
 \begin{DoxyReturn}{Returns}
 None. 
 \end{DoxyReturn}
-\hypertarget{class_day_a9fc013d905327fd70003970125247d91}{}\label{class_day_a9fc013d905327fd70003970125247d91} 
 \index{Day@{Day}!set\+Year@{set\+Year}}
 \index{set\+Year@{set\+Year}!Day@{Day}}
-\subsubsection{\texorpdfstring{set\+Year()}{setYear()}}
-{\footnotesize\ttfamily void Day\+::set\+Year (\begin{DoxyParamCaption}\item[{const int}]{Year }\end{DoxyParamCaption})}
-
+\subsubsection[{\texorpdfstring{set\+Year(const int Year)}{setYear(const int Year)}}]{\setlength{\rightskip}{0pt plus 5cm}void Day\+::set\+Year (
+\begin{DoxyParamCaption}
+\item[{const int}]{Year}
+\end{DoxyParamCaption}
+)}\hypertarget{class_day_a9fc013d905327fd70003970125247d91}{}\label{class_day_a9fc013d905327fd70003970125247d91}
 \begin{DoxyPrecond}{Precondition}
 None. 
 \end{DoxyPrecond}
@@ -317,12 +342,14 @@ Sets the year variable.
 \begin{DoxyReturn}{Returns}
 None. 
 \end{DoxyReturn}
-\hypertarget{class_day_afb73606e2cd648edcc8256a8d76a3dbb}{}\label{class_day_afb73606e2cd648edcc8256a8d76a3dbb} 
 \index{Day@{Day}!update\+Arr@{update\+Arr}}
 \index{update\+Arr@{update\+Arr}!Day@{Day}}
-\subsubsection{\texorpdfstring{update\+Arr()}{updateArr()}}
-{\footnotesize\ttfamily void Day\+::update\+Arr (\begin{DoxyParamCaption}\item[{\hyperlink{class_day}{Day} $\ast$}]{days\+With\+Events,  }\item[{int}]{size }\end{DoxyParamCaption})}
-
+\subsubsection[{\texorpdfstring{update\+Arr(\+Day $\ast$days\+With\+Events, int size)}{updateArr(Day *daysWithEvents, int size)}}]{\setlength{\rightskip}{0pt plus 5cm}void Day\+::update\+Arr (
+\begin{DoxyParamCaption}
+\item[{{\bf Day} $\ast$}]{days\+With\+Events, }
+\item[{int}]{size}
+\end{DoxyParamCaption}
+)}\hypertarget{class_day_afb73606e2cd648edcc8256a8d76a3dbb}{}\label{class_day_afb73606e2cd648edcc8256a8d76a3dbb}
 \begin{DoxyPrecond}{Precondition}
 None. 
 \end{DoxyPrecond}
