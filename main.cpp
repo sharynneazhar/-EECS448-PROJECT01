@@ -22,7 +22,6 @@ Month months[10];
 * @return None.
 */
 int main(int argc, char** argv) {
-
   // ----------
   // VARIABLES
   // NOTE: In this project, we distinguish "date" as a specific date like the
@@ -52,7 +51,6 @@ int main(int argc, char** argv) {
   numDaysWithEvents = getNumDaysWithEvents();
   Day* daysWithEvents = new Day[numDaysWithEvents];
   getDaysWithEvents(daysWithEvents, numDaysWithEvents);
-
 
   int menuOption = 0;
   while (menuOption != 7) {
