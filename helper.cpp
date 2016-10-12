@@ -70,16 +70,19 @@ void initMonths(Month months[10]) {
 
 int getNumDaysWithEvents() {
   int num = 0;
-  char check=' ';
+  string check="";
   std::ifstream inp;
   inp.open("events.txt");
 
   while(!inp.eof()) {
-    while(check != '\n' && !inp.eof()) {
-      check = inp.get();
+    //while(check != '\n' && !inp.eof()) {
+     // check = inp.get();
+    //}
+    //check = ' ';
+    std::getline(inp, check);
+    if(check.length() > 0) {
+	    num++;
     }
-    check = ' ';
-    num++;
   }
 
   inp.close();
@@ -92,6 +95,7 @@ void getDaysWithEvents(Day* daysWithEvents, int size) {
   string Detail = "";
   int Day = 0;
   int Year = 0;
+  int arrPos=0;
   //char x = ' ';
 	string events;
 
@@ -100,9 +104,20 @@ void getDaysWithEvents(Day* daysWithEvents, int size) {
   if (inputFile.good()) {
 	  while(!inputFile.eof()) {
 		std::getline(inputFile, events);
-		Year = std::stoi(events.substr(0,4));
-		Month =  events.substr(4,3);
-		Day = std::stoi(events.substr(7,2));
+		if(events.length() > 0) {
+			Year = std::stoi(events.substr(0,4));
+			Month =  events.substr(4,3);
+			Day = std::stoi(events.substr(7,2));
+			for(int i=10; i<events.length(); i++) {
+				Detail = Detail + events.at(i);
+			}
+			daysWithEvents[arrPos].setDay(Day);
+			daysWithEvents[arrPos].setMonth(Month);
+	          daysWithEvents[arrPos].setYear(Year);
+	          daysWithEvents[arrPos].setDetail(Detail);
+			arrPos++;
+			Detail="";
+		}
 	  }
 
 
@@ -157,6 +172,7 @@ void storeEvents(Event event) {
 }
 
 void removeEvents(Day *daysWithEvents, int size, std::string date, Day currentDay) {
+	//std::cout<<"\n\nTest1\n\n";
   std::string month = date.substr(0,3);
   int day = std::stoi(date.substr(4,5));
   bool doneDeleted=false;
@@ -165,12 +181,16 @@ void removeEvents(Day *daysWithEvents, int size, std::string date, Day currentDa
   ofstream newFile;
   theFile.open("events.txt");
   newFile.open("temp.txt");
+  //std::cout<<"\n\nTest2\n\n";
   while(!theFile.eof()) {
+	 // std::cout<<"\n\nTest3\n\n";
 	  std::getline(theFile, parsing);
-	  if(parsing.substr(4,3) == month && std::stoi(parsing.substr(7,2)) == day) {
-		  doneDeleted = true;
-	  } else {
-		  newFile<<parsing<<'\n';
+	  if(parsing.length() > 0) {
+		  if(parsing.substr(4,3) == month && std::stoi(parsing.substr(7,2)) == day) {
+     		  doneDeleted = true;
+     	  } else {
+     		  newFile<<parsing<<'\n';
+     	  }
 	  }
   }
   newFile.close();

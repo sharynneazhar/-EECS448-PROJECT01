@@ -51,7 +51,6 @@ int main(int argc, char** argv) {
   Day* daysWithEvents = new Day[numDaysWithEvents];
   getDaysWithEvents(daysWithEvents, numDaysWithEvents);
 
-
   int menuOption = 0;
   while (menuOption != 7) {
     if (currentDay.isEmpty()) {
