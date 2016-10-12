@@ -288,11 +288,11 @@ void Print::printDetail(Day currentDay) {
 	std::string startDate = std::to_string(currentDay.getYear()) + currentDay.getMonth() + std::to_string(currentDay.getDate());
 
 	std::cout << "\nToday's Agenda";
-	std::cout << "\n---------------\n";
+	std::cout << "\n---------------";
 
 	std::string line;
 	while (getline(eventFile, line)) {
-		if (line.substr(0,9) == startDate) {
+		if (line.substr(0,9) == startDate || line.substr(0,8) == startDate) {
 			// split the line by comma delimiter
 			// ref: https://www.daniweb.com/programming/software-development/threads/117408/splitting-a-string-using-a-delimiter
 			std::string detail;
@@ -301,12 +301,17 @@ void Print::printDetail(Day currentDay) {
 			while (getline(stream, detail, ',')) {
 				event.push_back(detail);
 			}
-			std::cout << "Name: " << event.at(4) << std::endl;
+			std::cout << "\nName: " << event.at(4) << std::endl;
 			std::cout << "Description: " << event.at(5) << std::endl;
 			std::cout << "Start Date: " << event.at(0) << std::endl;
 			std::cout << "End Date: " << event.at(1) << std::endl;
 			std::cout << "Start Time: " << event.at(2) << std::endl;
-			std::cout << "End Time: " << event.at(3) << std::endl << std::endl;
+			std::cout << "End Time: " << event.at(3) << std::endl;
+
+			// show recurring details - array will have 8 elements if recurring
+			if (event.size() == 8) {
+				std::cout << "Repeat " << event.at(6) << " every " << event.at(7) << std::endl;
+			}
 		}
 	}
 }

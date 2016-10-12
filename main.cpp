@@ -11,6 +11,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <iomanip>
 
 //!> array of length 10 (Aug thru May for academic year)
 Month months[10];
