@@ -72,7 +72,7 @@ int getNumDaysWithEvents() {
   int num = 0;
   char check=' ';
   std::ifstream inp;
-  inp.open("Detail.txt");
+  inp.open("events.txt");
 
   while(!inp.eof()) {
     while(check != '\n' && !inp.eof()) {
@@ -92,12 +92,21 @@ void getDaysWithEvents(Day* daysWithEvents, int size) {
   string Detail = "";
   int Day = 0;
   int Year = 0;
-  char x = ' ';
+  //char x = ' ';
+	string events;
 
-  inputFile.open("Detail.txt");
+  inputFile.open("events.txt");
 
   if (inputFile.good()) {
-    for (int i = 0; i < size; i++) {
+	  while(!inputFile.eof()) {
+		std::getline(inputFile, events);
+		Year = std::stoi(events.substr(0,4));
+		Month =  events.substr(4,3);
+		Day = std::stoi(events.substr(7,2));
+	  }
+
+
+    /*for (int i = 0; i < size; i++) {
       if (x != '\n') {
         inputFile >> Month >> Day >>Year;
         while( x != '\n' && !inputFile.eof()) {
@@ -116,7 +125,7 @@ void getDaysWithEvents(Day* daysWithEvents, int size) {
       Month = "";
       Day = 0;
       Year = 0;
-    }
+ }*/
   }
   inputFile.close();
 }
@@ -154,14 +163,13 @@ void removeEvents(Day *daysWithEvents, int size, std::string date, Day currentDa
   std::string parsing="";
   ifstream theFile;
   ofstream newFile;
-  theFile.open("Detail.txt");
+  theFile.open("events.txt");
   newFile.open("temp.txt");
   while(!theFile.eof()) {
 	  std::getline(theFile, parsing);
-	  if(parsing.substr(0,3) == month && std::stoi(parsing.substr(4,2)) == day) {
+	  if(parsing.substr(4,3) == month && std::stoi(parsing.substr(7,2)) == day) {
 		  doneDeleted = true;
-	  }
-	  else {
+	  } else {
 		  newFile<<parsing<<'\n';
 	  }
   }
